@@ -34,3 +34,15 @@ public class SoundtrackTrigger {
         }
     }
 }
+
+// Mod should check each 10 ticks if the player is in Abyssal Chasm biome; If true, runs a check to determine player's Y level.
+// Depending on the value, there are three outcomes - Three OST's that play on defined range respectably.
+// First abyssal layer triggers if Y < 64 && Y > 32
+// Second layer if Y < 32 && Y > -32
+// Third layer if Y < -32 && Y > -64
+
+// Sound transitions should be not abrupt but smooth instead, by decreasing the volume of current track and increasing the
+// volume of new one simultaneously
+
+// Fourth track should trigger when Hullbreaker mob has targeted the player
+// It abruptly ends any playing track, replacing it
