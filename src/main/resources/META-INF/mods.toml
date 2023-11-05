@@ -40,6 +40,24 @@ description='''A small mod that adds three tracks from Calamity Mod to Alex's Ca
     versionRange="[1.0.4,)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.calamityost]]
+modId="citadel"
+mandatory=true
+versionRange="[2.4.7,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.calamityost]]
+modId="ambientsounds"
+mandatory=true
+versionRange="[5.2.24,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.calamityost]]
+modId="creativecore"
+mandatory=true
+versionRange="[2.11.8,)"
+ordering="NONE"
+side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't

@@ -43,10 +43,10 @@ public class CalamityEvents {
                 if(y < 64 && y > 32){
                     event.player.playSound(CalamitySounds.ABYSS1.get(), 1, 1);
                 }
-                if(y < 32 && y > -32){
+                else if(y < 32 && y > -32){
                     event.player.playSound(CalamitySounds.ABYSS2.get(), 1,1);
                 }
-                if(y < -32 && y > -64){
+                else if(y < -32 && y > -64){
                     event.player.playSound(CalamitySounds.ABYSS3.get(), 1,1);
                 }
             }
