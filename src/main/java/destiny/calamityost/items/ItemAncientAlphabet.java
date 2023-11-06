@@ -18,7 +18,7 @@ public class ItemAncientAlphabet extends Item {
     public ItemAncientAlphabet(Properties properties) {
         super(properties);
     }
-
+    // Should open a texture on RMB; If present in hotbar, adds a texture to Spelunkery table GUI on the right side
     public InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity target, InteractionHand hand){
         ItemStack itemStackIn = playerIn.getItemInHand(hand);
         if (playerIn instanceof ServerPlayer) {

@@ -21,7 +21,8 @@ public class ItemCalligraphyKit extends Item {
     public ItemCalligraphyKit(Properties props) {
         super(props);
     }
-
+    // If player looks at enchanting table and holds Shift+RMB on it for 3 seconds with the item,
+    // upon letting go it will turn into Ancient Alphabet item
     public UseAnim getUseAnimation(ItemStack stack) {
         return UseAnim.BOW;
     }
