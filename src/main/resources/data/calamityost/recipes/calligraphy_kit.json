@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:glow_ink_sac"
+    },
+    {
+      "item": "minecraft:feather"
+    },
+    {
+      "item": "alexscaves:cave_tablet"
+    }
+  ],
+  "result": {
+    "item": "calamityost:calligraphy_kit"
+  }
+}
