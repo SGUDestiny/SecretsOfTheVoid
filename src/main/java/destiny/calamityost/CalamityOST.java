@@ -1,5 +1,6 @@
 package destiny.calamityost;
 
+import destiny.calamityost.items.ModItemRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -18,7 +19,8 @@ public class CalamityOST {
         MinecraftForge.EVENT_BUS.register(this);
 
         //Register our Deferred Registries here so it can be registered early enough to avoid NPEs
-        CalamitySounds.SOUNDS.register(modBus);
+        CalamitySounds.DEF_REG.register(modBus);
+        ModItemRegistry.DEF_REG.register(modBus);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

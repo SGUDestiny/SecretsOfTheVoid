@@ -19,9 +19,6 @@ import net.minecraftforge.fml.common.Mod;
 public class CalamityEvents {
     public static boolean HullbreakerSaw = false;
 
-    public static int currentSoundTick = 0;
-    public transient SoundStream stream;
-
     static {
         MinecraftForge.EVENT_BUS.addListener(CalamityEvents::onPlayerTick);
     }
@@ -50,11 +47,7 @@ public class CalamityEvents {
                     System.out.println("TEST" + biome);
                     double y = event.player.getY();
                     if (HullbreakerSaw) {
-                        ResourceLocation soundLocation = new ResourceLocation("calamityost:sounds/adult_eidolon_wyrm");
-                        if(soundHandler.duration >= currentSoundTick) {
-                            event.player.playSound(CalamitySounds.ADULTEIDOLONWYRM.get(), 2.0F, 1);
-                            currentSoundTick += 1;
-                        }
+                        event.player.playSound(CalamitySounds.ADULTEIDOLONWYRM.get(), 2.0F, 1);
                     } else if (y < 64 && y > 32) {
                         event.player.playSound(CalamitySounds.ABYSS1.get(), 2.0F, 1);
                     } else if (y < 32 && y > -32) {
