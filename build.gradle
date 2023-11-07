@@ -139,8 +139,6 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("curse.maven:alexs-caves-924854:4806837")
     implementation fg.deobf("curse.maven:citadel-331936:4813387")
-    implementation fg.deobf("curse.maven:ambientsounds-254284:4814373")
-    implementation fg.deobf("curse.maven:creativecore-257814:4828855")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
