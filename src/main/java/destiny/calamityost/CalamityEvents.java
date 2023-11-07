@@ -19,10 +19,6 @@ import net.minecraftforge.fml.common.Mod;
 public class CalamityEvents {
     public static boolean HullbreakerSaw = false;
 
-    static {
-        MinecraftForge.EVENT_BUS.addListener(CalamityEvents::onPlayerTick);
-    }
-
     @SubscribeEvent
     public static void causeEidolonSound(LivingEvent.LivingTickEvent event) {
         Entity entity = event.getEntity();

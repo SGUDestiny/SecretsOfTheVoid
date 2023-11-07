@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.sound.SoundEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +20,11 @@ import com.github.alexmodguy.alexscaves.server.level.biome.ACBiomeRegistry;
 @EventBusSubscriber(modid = CalamityOST.MODID, value = Dist.CLIENT, bus = Bus.FORGE)
 public class SoundtrackTrigger {
 
+
+    @SubscribeEvent
+    public static void runFancySoundStuff(SoundEvent.SoundSourceEvent event){
+
+    }
 
 }
 

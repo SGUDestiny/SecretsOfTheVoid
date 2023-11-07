@@ -48,7 +48,8 @@ public class ItemCalligraphyKit extends Item {
         }
     }
 
-    public void releaseUsing(ItemStack stack, Level worldIn, LivingEntity livingEntityIn, int i){
-        stack = new ItemStack(ModItemRegistry.ANCIENT_ALPHABET.get());
+    @Override
+    public void onStopUsing(ItemStack stack, LivingEntity entity, int count) {
+        stack = ModItemRegistry.ANCIENT_ALPHABET.get().getDefaultInstance();
     }
 }
