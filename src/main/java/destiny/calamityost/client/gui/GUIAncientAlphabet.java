@@ -15,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class GUIAncientAlphabet extends Screen {
     public static Component TITLE = Component.literal("Ancient Alphabet");
 
-    public static final ResourceLocation ALPHABET = new ResourceLocation(CalamityOST.MODID, "textures/gui/_ancient_alphabet_gui.png");
+    public static final ResourceLocation ALPHABET = new ResourceLocation(CalamityOST.MODID, "textures/gui/ancient_alphabet_gui.png");
     public GUIAncientAlphabet(Component component) {
         super(component);
     }
