@@ -11,6 +11,6 @@ public class ModItemRegistry {
 
     public static final DeferredRegister<Item> DEF_REG = DeferredRegister.create(ForgeRegistries.ITEMS, CalamityOST.MODID);
 
-    public static final RegistryObject<Item> CALLIGRAPHY_KIT = DEF_REG.register("calligraphy_kit", () -> new Item( new Item.Properties().rarity(Rarity.UNCOMMON)));
-    public static final RegistryObject<Item> ANCIENT_ALPHABET = DEF_REG.register("ancient_alphabet", () -> new Item( new Item.Properties().rarity(Rarity.RARE)));
+    public static final RegistryObject<Item> CALLIGRAPHY_KIT = DEF_REG.register("calligraphy_kit", () -> new ItemCalligraphyKit( new Item.Properties().rarity(Rarity.UNCOMMON).stacksTo(1)));
+    public static final RegistryObject<Item> ANCIENT_ALPHABET = DEF_REG.register("ancient_alphabet", () -> new Item( new Item.Properties().rarity(Rarity.RARE).stacksTo(1)));
 }
