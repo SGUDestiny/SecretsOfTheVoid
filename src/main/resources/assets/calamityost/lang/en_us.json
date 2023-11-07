@@ -1,5 +1,7 @@
 {
   "item.calamityost.calligraphy_kit": "Calligraphy Kit",
   "item.calamityost.ancient_alphabet": "Ancient Alphabet",
-  "itemGroup.calamityost.calamityost_group": "Alex's Caves: Calamity OST"
+  "itemGroup.calamityost.calamityost_group": "Alex's Caves: Calamity OST",
+  "tooltip.calamityost.calligraphy_kit": "Hold down RMB on Enchanting Table to create Ancient Alphabet",
+  "tooltip.calamityost.ancient_alphabet": "An alphabet long lost to time... Contains valuable knowledge. Utilize carefully"
 }

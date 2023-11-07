@@ -3,8 +3,11 @@ package destiny.calamityost.items;
 import destiny.calamityost.CalamityOST;
 import destiny.calamityost.client.gui.GUIAncientAlphabet;
 import destiny.calamityost.helper.ClientHelper;
+import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -13,6 +16,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ItemAncientAlphabet extends Item {
 
@@ -32,4 +41,9 @@ public class ItemAncientAlphabet extends Item {
         return InteractionResult.CONSUME;
     }
 
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag) {
+        tooltip.add(Component.translatable("tooltip.calamityost.ancient_alphabet")
+                .setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
+    }
 }
