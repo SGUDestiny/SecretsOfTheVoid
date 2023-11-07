@@ -29,11 +29,11 @@ public class ItemAncientAlphabet extends Item {
         super(properties);
     }
     // Should open a texture on RMB; If present in hotbar, adds a texture to Spelunkery table GUI on the right side
-    public InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity target, InteractionHand hand){
-        ItemStack itemStackIn = playerIn.getItemInHand(hand);
-        if (playerIn instanceof ServerPlayer serverplayerentity) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverplayerentity, itemStackIn);
-            serverplayerentity.awardStat(Stats.ITEM_USED.get(this));
+    public @NotNull InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity target, InteractionHand handIn){
+        stack = playerIn.getItemInHand(handIn);
+        if (playerIn instanceof ServerPlayer serverPlayerEntity) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }
         if (playerIn.level().isClientSide) {
             ClientHelper.openGUI(new GUIAncientAlphabet());
