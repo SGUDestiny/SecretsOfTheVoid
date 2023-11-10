@@ -1,10 +1,13 @@
 package destiny.calamityost.items;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.sounds.SoundEngine;
+import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -30,6 +33,17 @@ public class ItemCalligraphyKit extends Item {
     public ItemCalligraphyKit(Properties props) {
         super(props);
     }
+
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.BOW;
+    }
+
+    public void onUseTick(Level worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
+        if(count % 10 == 0){
+            livingEntityIn.gameEvent(GameEvent.ITEM_INTERACT_START);
+            livingEntityIn.playSound(SoundEvents.BOOK_PAGE_TURN,1.0F, 1.0F + (livingEntityIn.getRandom().nextFloat() - livingEntityIn.getRandom().nextFloat()) * 0.2F);
+        }
+    }
     // If player looks at enchanting table and holds Shift+RMB on it for 3 seconds with the item,
     // upon letting go it will turn into Ancient Alphabet item
 
@@ -43,16 +57,22 @@ public class ItemCalligraphyKit extends Item {
         BlockPos pos = context.getClickedPos();
 
         if(levelIn.isClientSide()){
-            return InteractionResult.SUCCESS;
+            return InteractionResult.PASS;
         } else {
-            if(context.getPlayer() != null && levelIn.getBlockEntity(pos) instanceof EnchantmentTableBlockEntity && context.getPlayer().getUseItemRemainingTicks() == 0){
+            if(context.getPlayer() != null && levelIn.getBlockEntity(pos) instanceof EnchantmentTableBlockEntity && context.getPlayer().getUseItemRemainingTicks() <= 10){
                 context.getItemInHand().shrink(1);
                 ItemUtils.createFilledResult(context.getItemInHand(), context.getPlayer(), ModItemRegistry.ANCIENT_ALPHABET.get().getDefaultInstance());
                 return InteractionResult.SUCCESS;
-            } else return InteractionResult.FAIL;
+            } else return InteractionResult.PASS;
         }
     }
 
+    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
+        ItemStack itemstack = playerIn.getItemInHand(handIn);
+        playerIn.startUsingItem(handIn);
+
+        return InteractionResultHolder.success(itemstack);
+    }
 
     @Override
     public int getUseDuration(ItemStack p_41454_) {

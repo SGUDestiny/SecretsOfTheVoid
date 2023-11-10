@@ -28,10 +28,10 @@ public class GUIAncientAlphabet extends Screen {
 
     public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(guiGraphics);
+        guiGraphics.pose().pushPose();
         guiGraphics.blit(ALPHABET, (width - 80) / 2, (height - 149) / 2, 0, 0, 80, 149);
 
-        guiGraphics.pose().pushPose();
-        guiGraphics.pose().scale(2.5f, 2.5f, 2.5f);
+        guiGraphics.pose().scale(7.0f, 7.0f, 7.0f);
         guiGraphics.pose().popPose();
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
     }
