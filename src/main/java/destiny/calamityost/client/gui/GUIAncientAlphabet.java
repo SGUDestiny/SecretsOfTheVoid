@@ -24,10 +24,15 @@ public class GUIAncientAlphabet extends Screen {
         super(TITLE);
     }
 
-    public void render(GuiGraphics guiGraphics, int x, int y, float f) {
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
         this.renderBackground(guiGraphics);
-        int i = (this.width - 80) / 2;
-        int j = (this.height - 149) / 2;
-        guiGraphics.blit(ALPHABET, i, j, 0, 0, 80, 149);
+        guiGraphics.blit(ALPHABET, (width - 80) / 2, (height - 149) / 2, 0, 0, 80, 149);
+
+        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+    }
+
+    @Override
+    public boolean isPauseScreen() {
+        return false;
     }
 }
