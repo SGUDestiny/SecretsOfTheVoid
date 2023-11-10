@@ -1,6 +1,8 @@
 package destiny.calamityost.client.gui;
 
 import com.github.alexthe666.citadel.client.gui.GuiBasicBook;
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import destiny.calamityost.CalamityOST;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -28,6 +30,9 @@ public class GUIAncientAlphabet extends Screen {
         this.renderBackground(guiGraphics);
         guiGraphics.blit(ALPHABET, (width - 80) / 2, (height - 149) / 2, 0, 0, 80, 149);
 
+        guiGraphics.pose().pushPose();
+        guiGraphics.pose().scale(2.5f, 2.5f, 2.5f);
+        guiGraphics.pose().popPose();
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
     }
 

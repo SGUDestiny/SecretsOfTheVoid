@@ -2,6 +2,7 @@ package destiny.calamityost.items;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Vec3i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
@@ -11,10 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -44,25 +42,21 @@ public class ItemCalligraphyKit extends Item {
         Level levelIn = context.getLevel();
         BlockPos pos = context.getClickedPos();
 
-        if (context.getPlayer() == null) return InteractionResult.PASS;
-
-        BlockEntity blockEntity = levelIn.getBlockEntity(pos);
-
-        ItemStack itemStack = new ItemStack(ModItemRegistry.ANCIENT_ALPHABET.get());
-
-        if (blockEntity instanceof EnchantmentTableBlockEntity) {
-            context.getItemInHand().shrink(1);
-            context.getPlayer().addItem(itemStack);
-
-            Level worldIn = context.getLevel();
-            RandomSource rng = worldIn.getRandom();
-            context.getPlayer().playSound(SoundEvents.BOOK_PAGE_TURN, 1.0F, 1.2F + (rng.nextFloat()) * 0.2F);
-            context.getPlayer().playSound(SoundEvents.ENCHANTMENT_TABLE_USE, 1.0F, 1.2F + (rng.nextFloat()) * 0.2F);
+        if(levelIn.isClientSide()){
             return InteractionResult.SUCCESS;
+        } else {
+            if(context.getPlayer() != null && levelIn.getBlockEntity(pos) instanceof EnchantmentTableBlockEntity && context.getPlayer().getUseItemRemainingTicks() == 0){
+                context.getItemInHand().shrink(1);
+                ItemUtils.createFilledResult(context.getItemInHand(), context.getPlayer(), ModItemRegistry.ANCIENT_ALPHABET.get().getDefaultInstance());
+                return InteractionResult.SUCCESS;
+            } else return InteractionResult.FAIL;
         }
-        else {
-            return InteractionResult.PASS;
-        }
+    }
+
+
+    @Override
+    public int getUseDuration(ItemStack p_41454_) {
+        return 60;
     }
 
     //    @Override
