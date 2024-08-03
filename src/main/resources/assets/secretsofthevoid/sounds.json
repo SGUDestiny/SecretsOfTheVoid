@@ -1,0 +1,29 @@
+{
+    "rebreather_inhale": {
+        "sounds": [
+            "secretsofthevoid:rebreather_inhale_1",
+            "secretsofthevoid:rebreather_inhale_2",
+            "secretsofthevoid:rebreather_inhale_3",
+            "secretsofthevoid:rebreather_inhale_4"
+        ],
+        "subtitle": "sounds.secretsofthevoid.rebreather_inhale"
+    },
+    "rebreather_exhale": {
+        "sounds": [
+            "secretsofthevoid:rebreather_exhale_1",
+            "secretsofthevoid:rebreather_exhale_2",
+            "secretsofthevoid:rebreather_exhale_3",
+            "secretsofthevoid:rebreather_exhale_4",
+            "secretsofthevoid:rebreather_exhale_5"
+        ],
+        "subtitle": "sounds.secretsofthevoid.rebreather_exhale"
+    },
+    "tank_refill": {
+        "sounds": [
+            "secretsofthevoid:tank_refill_1",
+            "secretsofthevoid:tank_refill_2",
+            "secretsofthevoid:tank_refill_3"
+        ],
+        "subtitle": "sounds.secretsofthevoid.tank_refill"
+    }
+}
