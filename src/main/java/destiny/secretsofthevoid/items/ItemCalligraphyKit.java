@@ -88,7 +88,8 @@ public class ItemCalligraphyKit extends Item
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag)
     {
-        tooltip.add(Component.translatable("tooltip.secretsofthevoid.calligraphy_kit_line_1"));
+        tooltip.add(Component.translatable("tooltip.secretsofthevoid.calligraphy_kit_line_1")
+                        .setStyle(Style.EMPTY.withItalic(true)));
     }
 
     public Boolean isEnchantingTable(Player player, Level level){

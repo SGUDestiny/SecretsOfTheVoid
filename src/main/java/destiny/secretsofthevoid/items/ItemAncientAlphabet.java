@@ -46,8 +46,11 @@ public class ItemAncientAlphabet extends Item
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag)
     {
-        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_1"));
-        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_2"));
-        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_3"));
+        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_1")
+                .setStyle(Style.EMPTY.withItalic(true)));
+        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_2")
+                .setStyle(Style.EMPTY.withItalic(true)));
+        tooltip.add(Component.translatable("tooltip.secretsofthevoid.ancient_alphabet_line_3")
+                .setStyle(Style.EMPTY.withItalic(true)));
     }
 }
