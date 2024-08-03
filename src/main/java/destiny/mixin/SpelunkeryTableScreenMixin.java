@@ -15,7 +15,7 @@ import static destiny.secretsofthevoid.client.gui.GUIAncientAlphabet.ALPHABET;
 public class SpelunkeryTableScreenMixin
 {
 
-    @Inject(method = "render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V", at = @At("TAIL"), remap = false)
+    @Inject(method = "render(Lnet/minecraft/client/gui/GuiGraphics;IIF)V", at = @At("TAIL"), remap = true)
     public void render(GuiGraphics guiGraphics, int x, int y, float partialTick, CallbackInfo ci)
     {
         renderAlphabet(guiGraphics);

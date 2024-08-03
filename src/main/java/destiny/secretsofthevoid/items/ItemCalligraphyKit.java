@@ -45,11 +45,15 @@ public class ItemCalligraphyKit extends Item
         return UseAnim.BOW;
     }
 
-    public void onUseTick(Level worldIn, LivingEntity livingEntityIn, ItemStack stack, int count)
+    public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int count)
     {
-        if(count % 10 == 0){
-            livingEntityIn.gameEvent(GameEvent.ITEM_INTERACT_START);
-            livingEntityIn.playSound(SoundEvents.BOOK_PAGE_TURN,1.0F, 1.0F + (livingEntityIn.getRandom().nextFloat() - livingEntityIn.getRandom().nextFloat()) * 0.2F);
+        if(entity instanceof Player player) {
+            if(isEnchantingTable(player, level)) {
+                if (count % 10 == 0) {
+                    entity.gameEvent(GameEvent.ITEM_INTERACT_START);
+                    entity.playSound(SoundEvents.BOOK_PAGE_TURN, 1.0F, 1.0F + (entity.getRandom().nextFloat() - entity.getRandom().nextFloat()) * 0.2F);
+                }
+            }
         }
     }
 
@@ -72,11 +76,8 @@ public class ItemCalligraphyKit extends Item
     {
         if(!level.isClientSide() && entity instanceof Player player)
         {
-            Vec3 targetPos = player.position().add(0, 1, 0).add(player.getViewVector(1).multiply(3, 3, 3));
-            BlockHitResult result = level.clip(new ClipContext(player.position(), targetPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, player));
-            boolean isEnchantingTable = level.getBlockState(result.getBlockPos()).getBlock().equals(Blocks.ENCHANTING_TABLE);
 
-            if(isEnchantingTable)
+            if(isEnchantingTable(player, level))
             {
                 player.setItemInHand(player.getUsedItemHand(), new ItemStack(ItemInit.ANCIENT_ALPHABET.get()));
             }
@@ -87,7 +88,14 @@ public class ItemCalligraphyKit extends Item
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltip, @NotNull TooltipFlag flag)
     {
-        tooltip.add(Component.translatable("tooltip.secretsofthevoid.calligraphy_kit")
-                .setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
+        tooltip.add(Component.translatable("tooltip.secretsofthevoid.calligraphy_kit_line_1"));
+    }
+
+    public Boolean isEnchantingTable(Player player, Level level){
+        Vec3 targetPos = player.position().add(0, 1, 0).add(player.getViewVector(1).multiply(3, 3, 3));
+        BlockHitResult result = level.clip(new ClipContext(player.position(), targetPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, player));
+        boolean isEnchantingTable = level.getBlockState(result.getBlockPos()).getBlock().equals(Blocks.ENCHANTING_TABLE);
+
+        return isEnchantingTable;
     }
 }
