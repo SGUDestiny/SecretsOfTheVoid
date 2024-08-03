@@ -1,5 +1,6 @@
 package destiny.secretsofthevoid.capabilities;
 
+import com.google.common.util.concurrent.AtomicDouble;
 import com.mojang.datafixers.util.Pair;
 import destiny.secretsofthevoid.helper.IAirTank;
 import destiny.secretsofthevoid.init.NetworkInit;
@@ -12,6 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -42,11 +44,12 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
         clientUpdate(level, player);
 
         calculateMaxOxygen(level, player);
+        calculateStoredOxygen(level, player);
 
         if(shouldIncreaseOxygen(level, player))
-            increaseOxygen();
+            increaseOxygen(player);
         if(shouldDecreaseOxygen(level, player))
-            decreaseOxygen();
+            decreaseOxygen(player);
     }
 
     public boolean shouldIncreaseOxygen(Level level, Player player)
@@ -59,20 +62,42 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
         return player.canDrownInFluidType(player.getEyeInFluidType()) && level.getGameTime() % 20 == 0;
     }
 
-    public void increaseOxygen()
+    public void increaseOxygen(Player player)
     {
-        setOxygen(getOxygen()+(getMaxOxygen()/60));
+        List<Pair<ItemStack, IAirTank>> airTanks = new ArrayList<>();
+        player.getArmorSlots().forEach(
+        stack -> {
+            if(stack.getItem() instanceof IAirTank airTank)
+                airTanks.add(new Pair<>(stack, airTank));
+        });
 
-        if(getOxygen() >= getMaxOxygen())
-            this.setOxygen(getMaxOxygen());
+        List<Pair<ItemStack, IAirTank>> sortedTanks = airTanks.stream().sorted(Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst()))).toList();
+        sortedTanks.forEach(
+        airTank -> {
+            ItemStack stack = airTank.getFirst();
+            IAirTank tank = airTank.getSecond();
+
+            tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)+(tank.getMaxOxygen(stack)/60));
+        });
     }
 
-    public void decreaseOxygen()
+    public void decreaseOxygen(Player player)
     {
-        setOxygen(getOxygen()-(3*getOxygenModifier()));
+        List<Pair<ItemStack, IAirTank>> airTanks = new ArrayList<>();
+        player.getArmorSlots().forEach(
+        stack -> {
+            if(stack.getItem() instanceof IAirTank airTank)
+                airTanks.add(new Pair<>(stack, airTank));
+        });
 
-        if(getOxygen() <= 0)
-            setOxygen(0);
+        List<Pair<ItemStack, IAirTank>> sortedTanks = airTanks.stream().sorted(Comparator.comparing(airTank -> airTank.getSecond().getStoredOxygen(airTank.getFirst()))).toList();
+        sortedTanks.forEach(
+        airTank -> {
+            ItemStack stack = airTank.getFirst();
+            IAirTank tank = airTank.getSecond();
+
+            tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)-(3*getOxygenModifier()));
+        });
     }
 
     public void clientUpdate(Level level, Player player)
@@ -119,19 +144,29 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
             });
             setOxygen(storedOxygen.get());
 
-            fillTanks(airTanks, storedOxygen.get());
+            if(!airTanks.isEmpty())
+                fillTanks(airTanks, storedOxygen.get());
         }
     }
 
     public void fillTanks(List<Pair<ItemStack, IAirTank>> airTanks, double storedOxygen)
     {
-        airTanks.forEach(
-        airTank -> {
-              ItemStack stack = airTank.getFirst();
-              IAirTank tank = airTank.getSecond();
+        List<Pair<ItemStack, IAirTank>> sortedByCapacity = airTanks.stream().sorted(Comparator.comparing(func -> func.getSecond().getMaxOxygen(func.getFirst()))).toList();
 
-              tank.setStoredOxygen(stack, storedOxygen-tank.getMaxOxygen(stack));
-        });
+        for(double i = storedOxygen; i > 0D;)
+        {
+            AtomicDouble capacityToRemove = new AtomicDouble(0.0D);
+            sortedByCapacity.forEach(
+            airTank -> {
+                ItemStack stack = airTank.getFirst();
+                IAirTank tank = airTank.getSecond();
+                double maxCapacity = tank.getMaxOxygen(stack);
+
+                tank.setStoredOxygen(stack, Math.min(storedOxygen, maxCapacity));
+                capacityToRemove.set(capacityToRemove.get()+Math.min(storedOxygen, maxCapacity));
+            });
+            i -= capacityToRemove.get();
+        }
     }
 
     @Override
