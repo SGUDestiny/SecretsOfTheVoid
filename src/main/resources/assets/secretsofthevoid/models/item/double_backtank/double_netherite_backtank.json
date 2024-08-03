@@ -1,6 +1,6 @@
 {
     "parent": "secretsofthevoid:item/double_backtank/double_copper_backtank",
     "textures": {
-        "0": "secretsofthevoid:item/double_backtank/double_iron_backtank"
+        "0": "secretsofthevoid:item/double_backtank/double_netherite_backtank"
     }
 }
