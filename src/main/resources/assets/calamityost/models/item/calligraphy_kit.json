@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "calamityost:item/calligraphy_kit"
+    "layer0": "secretsofthevoid:item/calligraphy_kit"
   }
 }

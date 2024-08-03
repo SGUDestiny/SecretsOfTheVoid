@@ -1,4 +1,4 @@
-package destiny.calamityost.helper;
+package destiny.secretsofthevoid.helper;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;

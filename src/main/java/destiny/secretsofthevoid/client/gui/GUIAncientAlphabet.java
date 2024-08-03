@@ -1,15 +1,10 @@
-package destiny.calamityost.client.gui;
+package destiny.secretsofthevoid.client.gui;
 
-import com.github.alexthe666.citadel.client.gui.GuiBasicBook;
-import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.systems.RenderSystem;
-import destiny.calamityost.CalamityOST;
-import net.minecraft.client.Minecraft;
+import destiny.secretsofthevoid.SecretsOfTheVoid;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -17,16 +12,19 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class GUIAncientAlphabet extends Screen {
     public static Component TITLE = Component.literal("Ancient Alphabet");
 
-    public static final ResourceLocation ALPHABET = new ResourceLocation(CalamityOST.MODID, "textures/gui/ancient_alphabet_gui.png");
-    public GUIAncientAlphabet(Component component) {
+    public static final ResourceLocation ALPHABET = new ResourceLocation(SecretsOfTheVoid.MODID, "textures/gui/ancient_alphabet_gui.png");
+    public GUIAncientAlphabet(Component component)
+    {
         super(component);
     }
 
-    public GUIAncientAlphabet(){
+    public GUIAncientAlphabet()
+    {
         super(TITLE);
     }
 
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks)
+    {
         this.renderBackground(guiGraphics);
         guiGraphics.pose().pushPose();
         guiGraphics.blit(ALPHABET, (width - 80) / 2, (height - 149) / 2, 0, 0, 80, 149);
@@ -35,7 +33,8 @@ public class GUIAncientAlphabet extends Screen {
     }
 
     @Override
-    public boolean isPauseScreen() {
+    public boolean isPauseScreen()
+    {
         return false;
     }
 }
