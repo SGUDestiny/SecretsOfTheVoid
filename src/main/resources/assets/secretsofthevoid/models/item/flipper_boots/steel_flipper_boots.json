@@ -1,6 +1,0 @@
-{
-    "parent": "secretsofthevoid:item/flipper_boots/copper_flipper_boots",
-    "textures": {
-        "0": "secretsofthevoid:item/flipper_boots/steel_flipper_boots"
-    }
-}

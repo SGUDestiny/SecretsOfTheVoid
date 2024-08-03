@@ -1,6 +1,0 @@
-{
-    "parent": "secretsofthevoid:item/rebreather/copper_rebreather",
-    "textures": {
-        "0": "secretsofthevoid:item/rebreather/steel_rebreather"
-    }
-}
