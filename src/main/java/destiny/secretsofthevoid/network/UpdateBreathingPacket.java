@@ -15,6 +15,7 @@ public class UpdateBreathingPacket
     {
         this.oxygen = oxygen;
         this.maxOxygen = maxOxygen;
+        this.oxygenModifier = oxygenModifier;
     }
 
     public static void write(UpdateBreathingPacket packet, FriendlyByteBuf buffer)

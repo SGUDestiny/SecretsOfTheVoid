@@ -1,9 +1,12 @@
 package destiny.secretsofthevoid;
 
-import destiny.secretsofthevoid.init.CreativeTabs;
+import destiny.secretsofthevoid.client.Layers;
+import destiny.secretsofthevoid.client.gui.OxygenOverlay;
 import destiny.secretsofthevoid.init.ItemInit;
 import destiny.secretsofthevoid.init.ItemTabInit;
 import destiny.secretsofthevoid.init.NetworkInit;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,24 +24,36 @@ public class SecretsOfTheVoid {
     {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::commonSetup);
+        modBus.addListener(Layers::registerLayers);
         MinecraftForge.EVENT_BUS.register(this);
 
         ItemInit.register(modBus);
-        CreativeTabs.CREATIVE_MODE_TABS.register(modBus);
+        ItemTabInit.register(modBus);
     }
 
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
+    @Mod.EventBusSubscriber(modid = MODID, bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents
     {
         @SubscribeEvent
-        public static void onCreativeTab(BuildCreativeModeTabContentsEvent event) {
+        public static void onCreativeTab(BuildCreativeModeTabContentsEvent event)
+        {
             ItemTabInit.setupTabs(event);
         }
     }
 
+    @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    public static class ClientModEvents
+    {
+        @SubscribeEvent
+        public static void registerOverlays(RegisterGuiOverlaysEvent event)
+        {
+            event.registerAboveAll("oxygen", OxygenOverlay.OVERLAY);
+        }
+    }
+
     private void commonSetup(FMLCommonSetupEvent event) {
-        NetworkInit.registerPackets();
         event.enqueueWork(() -> {
+            NetworkInit.registerPackets();
         });
     }
 }

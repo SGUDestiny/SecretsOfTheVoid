@@ -5,6 +5,7 @@ import destiny.secretsofthevoid.items.AirTankItem;
 import destiny.secretsofthevoid.items.ItemAncientAlphabet;
 import destiny.secretsofthevoid.items.ItemCalligraphyKit;
 import destiny.secretsofthevoid.items.RebreatherItem;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Item;
@@ -32,15 +33,16 @@ public class ItemInit
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<AirTankItem> AIR_TANK = ITEMS.register("air_tank_test",
+    public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("steel_air_tank",
             () -> new AirTankItem(
                     ArmorMaterials.IRON,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1)
+                            .stacksTo(1),
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "texures/armor/steel_backtank.png")
             )
     );
-    public static final RegistryObject<RebreatherItem> REBREATHER = ITEMS.register("rebreather_test",
+    public static final RegistryObject<RebreatherItem> STEEL_REBREATHER = ITEMS.register("steel_rebreather",
             () -> new RebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()

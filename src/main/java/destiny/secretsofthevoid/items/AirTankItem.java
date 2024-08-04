@@ -1,74 +1,53 @@
 package destiny.secretsofthevoid.items;
 
+import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.client.render.airtanks.AirTankRenderProperties;
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class AirTankItem extends ArmorItem implements IAirTank
 {
     public static final String STORED_OXYGEN = "storedOxygen";
     public static final String MAX_OXYGEN = "maxOxygen";
+    public static final String PRESSURE_RESISTANCE = "pressureResistance";
+    public ResourceLocation texture;
 
-    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
+    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, ResourceLocation tankTexture)
+    {
         super(pMaterial, pType, pProperties);
+        this.texture = tankTexture;
     }
 
-    public static ItemStack getAirTank(AirTankItem item, double maxCapacity)
+    public static ItemStack getAirTank(AirTankItem item, double maxCapacity, double storedOxygen, double pressureResistance)
     {
         ItemStack stack = new ItemStack(item);
         item.setMaxOxygen(stack, maxCapacity);
-        item.setStoredOxygen(stack, maxCapacity);
+        item.setStoredOxygen(stack, storedOxygen);
+        item.setPressureResistance(stack, pressureResistance);
 
         return stack;
     }
 
     @Override
-    public boolean isBarVisible(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public int getBarWidth(ItemStack stack) {
-        return Math.round(13.0F * (float)this.getStoredOxygen(stack) / (float)this.getMaxOxygen(stack));
-    }
-
-    @Override
-    public int getBarColor(ItemStack stack) {
-        return 5592575;
-    }
-
-    @Override
-    public double getMaxOxygen(ItemStack stack) {
-        return stack.getOrCreateTag().getDouble(MAX_OXYGEN);
-    }
-
-    @Override
-    public double getStoredOxygen(ItemStack stack) {
-        return stack.getOrCreateTag().getDouble(STORED_OXYGEN);
-    }
-
-    @Override
-    public void setMaxOxygen(ItemStack stack, double oxygen) {
-        stack.getOrCreateTag().putDouble(MAX_OXYGEN, oxygen);
-    }
-
-    @Override
-    public void setStoredOxygen(ItemStack stack, double oxygen) {
-        stack.getOrCreateTag().putDouble(STORED_OXYGEN, oxygen);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag) {
-        if(!stack.getTag().isEmpty()){
+    public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag)
+    {
+        if(!stack.getTag().isEmpty())
+        {
             MutableComponent oxygen = Component.translatable("tooltip.secretsofthevoid.air_tank_oxygen").withStyle(ChatFormatting.DARK_AQUA);
 
             oxygen.append(Component.literal(getStoredOxygen(stack) + "").withStyle(ChatFormatting.DARK_BLUE));
@@ -77,5 +56,76 @@ public class AirTankItem extends ArmorItem implements IAirTank
 
             components.add(oxygen);
         }
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer)
+    {
+        consumer.accept(AirTankRenderProperties.INSTANCE);
+    }
+
+    @Override
+    public boolean isBarVisible(ItemStack stack)
+    {
+        return true;
+    }
+
+    @Override
+    public int getBarWidth(ItemStack stack)
+    {
+        return Math.round(13.0F * (float)this.getStoredOxygen(stack) / (float)this.getMaxOxygen(stack));
+    }
+
+    @Override
+    public int getBarColor(ItemStack stack)
+    {
+        return 5592575;
+    }
+
+    @Override
+    public double getMaxOxygen(ItemStack stack)
+    {
+        return stack.getOrCreateTag().getDouble(MAX_OXYGEN);
+    }
+
+    @Override
+    public double getStoredOxygen(ItemStack stack)
+    {
+        return stack.getOrCreateTag().getDouble(STORED_OXYGEN);
+    }
+
+    @Override
+    public void setMaxOxygen(ItemStack stack, double oxygen)
+    {
+        stack.getOrCreateTag().putDouble(MAX_OXYGEN, oxygen);
+    }
+
+    @Override
+    public void setStoredOxygen(ItemStack stack, double oxygen)
+    {
+        stack.getOrCreateTag().putDouble(STORED_OXYGEN, oxygen);
+    }
+
+    @Override
+    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
+    {
+        return texture.toString();
+    }
+
+    public ResourceLocation getAirTankTexture()
+    {
+        return texture;
+    }
+
+    @Override
+    public double getPressureResistance(ItemStack stack)
+    {
+        return stack.getOrCreateTag().getDouble(PRESSURE_RESISTANCE);
+    }
+
+    @Override
+    public void setPressureResistance(ItemStack stack, double pressureResistance)
+    {
+        stack.getOrCreateTag().putDouble(PRESSURE_RESISTANCE, pressureResistance);
     }
 }

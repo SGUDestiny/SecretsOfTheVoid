@@ -1,9 +1,7 @@
 package destiny.secretsofthevoid.items;
 
 import destiny.secretsofthevoid.init.ItemInit;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -79,7 +77,7 @@ public class ItemCalligraphyKit extends Item
         tooltip.add(Component.translatable("tooltip.secretsofthevoid.calligraphy_kit_line_1"));
     }
 
-    public Boolean isEnchantingTable(Player player, Level level){
+    public boolean isEnchantingTable(Player player, Level level){
         Vec3 targetPos = player.position().add(0, 1, 0).add(player.getViewVector(1).multiply(3, 3, 3));
         BlockHitResult result = level.clip(new ClipContext(player.position(), targetPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, player));
         boolean isEnchantingTable = level.getBlockState(result.getBlockPos()).getBlock().equals(Blocks.ENCHANTING_TABLE);
