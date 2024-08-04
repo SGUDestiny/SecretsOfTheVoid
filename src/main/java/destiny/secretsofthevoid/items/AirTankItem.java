@@ -2,10 +2,16 @@ package destiny.secretsofthevoid.items;
 
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
-import org.jline.utils.Colors;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class AirTankItem extends ArmorItem implements IAirTank
 {
@@ -32,7 +38,7 @@ public class AirTankItem extends ArmorItem implements IAirTank
 
     @Override
     public int getBarWidth(ItemStack stack) {
-        return Math.round(13.0F - (float)this.getMaxOxygen(stack) * 13.0F / (float)this.getStoredOxygen(stack));
+        return Math.round(13.0F * (float)this.getStoredOxygen(stack) / (float)this.getMaxOxygen(stack));
     }
 
     @Override
@@ -58,5 +64,18 @@ public class AirTankItem extends ArmorItem implements IAirTank
     @Override
     public void setStoredOxygen(ItemStack stack, double oxygen) {
         stack.getOrCreateTag().putDouble(STORED_OXYGEN, oxygen);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag) {
+        if(!stack.getTag().isEmpty()){
+            MutableComponent oxygen = Component.translatable("tooltip.secretsofthevoid.air_tank_oxygen").withStyle(ChatFormatting.DARK_AQUA);
+
+            oxygen.append(Component.literal(getStoredOxygen(stack) + "").withStyle(ChatFormatting.DARK_BLUE));
+            oxygen.append(Component.literal(" / ")).withStyle(ChatFormatting.DARK_AQUA);
+            oxygen.append(Component.literal("" + getMaxOxygen(stack)).withStyle(ChatFormatting.DARK_BLUE));
+
+            components.add(oxygen);
+        }
     }
 }

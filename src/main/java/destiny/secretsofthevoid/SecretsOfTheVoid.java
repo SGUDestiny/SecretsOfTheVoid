@@ -1,5 +1,6 @@
 package destiny.secretsofthevoid;
 
+import destiny.secretsofthevoid.init.CreativeTabs;
 import destiny.secretsofthevoid.init.ItemInit;
 import destiny.secretsofthevoid.init.ItemTabInit;
 import destiny.secretsofthevoid.init.NetworkInit;
@@ -22,26 +23,22 @@ public class SecretsOfTheVoid {
         modBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
 
-        //Register our Deferred Registries here so it can be registered early enough to avoid NPEs
         ItemInit.register(modBus);
+        CreativeTabs.CREATIVE_MODE_TABS.register(modBus);
     }
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents
     {
         @SubscribeEvent
-        public static void onCreativeTab(BuildCreativeModeTabContentsEvent event)
-        {
+        public static void onCreativeTab(BuildCreativeModeTabContentsEvent event) {
             ItemTabInit.setupTabs(event);
         }
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
-
         NetworkInit.registerPackets();
-
         event.enqueueWork(() -> {
-
         });
     }
 }

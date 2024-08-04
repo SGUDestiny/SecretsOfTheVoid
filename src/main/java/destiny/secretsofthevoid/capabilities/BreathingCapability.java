@@ -64,7 +64,7 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
 
     public boolean shouldDecreaseOxygen(Level level, Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 20 == 0;
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 60 == 0;
     }
 
     public boolean shouldBreathe(Level level, Player player)

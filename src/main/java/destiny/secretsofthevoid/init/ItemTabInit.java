@@ -10,7 +10,7 @@ public class ItemTabInit
 
     public static void setupTabs(BuildCreativeModeTabContentsEvent event)
     {
-        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES)
+        if (event.getTabKey() == CreativeTabs.CREATIVE_TAB.getKey())
         {
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
