@@ -2,6 +2,7 @@ package destiny.secretsofthevoid;
 
 import destiny.secretsofthevoid.init.ItemInit;
 import destiny.secretsofthevoid.init.ItemTabInit;
+import destiny.secretsofthevoid.init.NetworkInit;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +37,8 @@ public class SecretsOfTheVoid {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+
+        NetworkInit.registerPackets();
 
         event.enqueueWork(() -> {
 

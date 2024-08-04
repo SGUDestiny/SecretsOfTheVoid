@@ -9,8 +9,9 @@ public class UpdateBreathingPacket
 {
     public double oxygen;
     public double maxOxygen;
+    public double oxygenModifier;
 
-    public UpdateBreathingPacket(double oxygen, double maxOxygen)
+    public UpdateBreathingPacket(double oxygen, double maxOxygen, double oxygenModifier)
     {
         this.oxygen = oxygen;
         this.maxOxygen = maxOxygen;
@@ -20,14 +21,16 @@ public class UpdateBreathingPacket
     {
         buffer.writeDouble(packet.oxygen);
         buffer.writeDouble(packet.maxOxygen);
+        buffer.writeDouble(packet.oxygenModifier);
     }
 
     public static UpdateBreathingPacket read(FriendlyByteBuf buffer)
     {
         double oxygen = buffer.readDouble();
         double maxOxygen = buffer.readDouble();
+        double oxygenModifier = buffer.readDouble();
 
-        return new UpdateBreathingPacket(oxygen, maxOxygen);
+        return new UpdateBreathingPacket(oxygen, maxOxygen, oxygenModifier);
     }
 
     public static void handle(UpdateBreathingPacket packet, Supplier<NetworkEvent.Context> context)

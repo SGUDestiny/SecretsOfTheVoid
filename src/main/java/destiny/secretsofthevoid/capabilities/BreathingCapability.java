@@ -3,6 +3,7 @@ package destiny.secretsofthevoid.capabilities;
 import com.google.common.util.concurrent.AtomicDouble;
 import com.mojang.datafixers.util.Pair;
 import destiny.secretsofthevoid.helper.IAirTank;
+import destiny.secretsofthevoid.helper.IRebreather;
 import destiny.secretsofthevoid.init.NetworkInit;
 import destiny.secretsofthevoid.network.UpdateBreathingPacket;
 import net.minecraft.nbt.CompoundTag;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.INBTSerializable;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -43,75 +45,73 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
 
         clientUpdate(level, player);
 
-        calculateMaxOxygen(level, player);
         calculateStoredOxygen(level, player);
+        calculateMaxOxygen(level, player);
+        calculateOxygenModifier(level, player);
 
         if(shouldIncreaseOxygen(level, player))
             increaseOxygen(player);
         if(shouldDecreaseOxygen(level, player))
             decreaseOxygen(player);
+        if(shouldBreathe(level, player))
+            breathe(level, player);
     }
 
     public boolean shouldIncreaseOxygen(Level level, Player player)
     {
-        return !player.isInFluidType() || !player.canDrownInFluidType(player.getEyeInFluidType());
+        return (!player.isInFluidType() || !player.canDrownInFluidType(player.getEyeInFluidType())) && getOxygen() < getMaxOxygen();
     }
 
     public boolean shouldDecreaseOxygen(Level level, Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && level.getGameTime() % 20 == 0;
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 20 == 0;
+    }
+
+    public boolean shouldBreathe(Level level, Player player)
+    {
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0;
     }
 
     public void increaseOxygen(Player player)
     {
-        List<Pair<ItemStack, IAirTank>> airTanks = new ArrayList<>();
-        player.getArmorSlots().forEach(
-        stack -> {
-            if(stack.getItem() instanceof IAirTank airTank)
-                airTanks.add(new Pair<>(stack, airTank));
-        });
-
-        List<Pair<ItemStack, IAirTank>> sortedTanks = airTanks.stream().sorted(Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst()))).toList();
+        List<Pair<ItemStack, IAirTank>> sortedTanks = getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst())));
         sortedTanks.forEach(
         airTank -> {
             ItemStack stack = airTank.getFirst();
             IAirTank tank = airTank.getSecond();
 
-            tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)+(tank.getMaxOxygen(stack)/60));
+            if(tank.getStoredOxygen(stack) != tank.getMaxOxygen(stack))
+                tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)+(tank.getMaxOxygen(stack)/60));
         });
     }
 
     public void decreaseOxygen(Player player)
     {
-        List<Pair<ItemStack, IAirTank>> airTanks = new ArrayList<>();
-        player.getArmorSlots().forEach(
-        stack -> {
-            if(stack.getItem() instanceof IAirTank airTank)
-                airTanks.add(new Pair<>(stack, airTank));
-        });
+        List<Pair<ItemStack, IAirTank>> sortedTanks = getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getStoredOxygen(airTank.getFirst())));
+        Pair<ItemStack, IAirTank> airTank = sortedTanks.get(0);
+        ItemStack stack = airTank.getFirst();
+        IAirTank tank = airTank.getSecond();
 
-        List<Pair<ItemStack, IAirTank>> sortedTanks = airTanks.stream().sorted(Comparator.comparing(airTank -> airTank.getSecond().getStoredOxygen(airTank.getFirst()))).toList();
-        sortedTanks.forEach(
-        airTank -> {
-            ItemStack stack = airTank.getFirst();
-            IAirTank tank = airTank.getSecond();
+        tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)-(3*getOxygenModifier()));
+    }
 
-            tank.setStoredOxygen(stack, tank.getStoredOxygen(stack)-(3*getOxygenModifier()));
-        });
+    public void breathe(Level level, Player player)
+    {
+        player.setAirSupply(player.getMaxAirSupply());
     }
 
     public void clientUpdate(Level level, Player player)
     {
         if(level != null && !level.isClientSide() && player instanceof ServerPlayer serverPlayer)
         {
-            NetworkInit.sendTo(serverPlayer, new UpdateBreathingPacket(getOxygen(), getMaxOxygen()));
+            NetworkInit.sendTo(serverPlayer, new UpdateBreathingPacket(getOxygen(), getMaxOxygen(), getOxygenModifier()));
         }
     }
 
     public void calculateMaxOxygen(Level level, Player player)
     {
         if(level.getGameTime() % 20 == 0) {
-            AtomicReference<Double> maxOxygen = new AtomicReference<>(45.0D);
+            AtomicReference<Double> maxOxygen = new AtomicReference<>(0.0D);
 
             player.getArmorSlots().forEach(
             stack -> {
@@ -127,12 +127,7 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
     {
         if(level.getGameTime() % 20 == 0)
         {
-            List<Pair<ItemStack, IAirTank>> airTanks = new ArrayList<>();
-            player.getArmorSlots().forEach(
-            stack -> {
-                if(stack.getItem() instanceof IAirTank airTank)
-                    airTanks.add(new Pair<>(stack, airTank));
-            });
+            List<Pair<ItemStack, IAirTank>> airTanks = getEquipmentAirTank(player, null);
 
             AtomicReference<Double> storedOxygen = new AtomicReference<>(0.0D);
             airTanks.forEach(
@@ -145,8 +140,50 @@ public class BreathingCapability implements INBTSerializable<CompoundTag>
             setOxygen(storedOxygen.get());
 
             if(!airTanks.isEmpty())
-                fillTanks(airTanks, storedOxygen.get());
+                fillTanks(getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst()))), storedOxygen.get());
         }
+    }
+    
+    public void calculateOxygenModifier(Level level, Player player)
+    {
+        if(level.getGameTime() % 20 == 0)
+        {
+            AtomicReference<Double> oxygenModifier = new AtomicReference<>(0.0D);
+            List<Pair<ItemStack, IRebreather>> rebreathers = getEquipmentRebreather(player, null);
+            rebreathers.forEach(rebreather -> {
+                ItemStack stack = rebreather.getFirst();
+                IRebreather rebreath = rebreather.getSecond();
+
+                oxygenModifier.set(oxygenModifier.get() + rebreath.getOxygenModifier(stack));
+            });
+            setOxygenModifier(oxygenModifier.get()/rebreathers.size());
+        }
+    }
+    
+    public List<Pair<ItemStack, IAirTank>> getEquipmentAirTank(Player player, @Nullable Comparator<Pair<ItemStack, IAirTank>> comparator)
+    {
+        List<Pair<ItemStack, IAirTank>> equipmentList = new ArrayList<>();
+        player.getArmorSlots().forEach(
+        stack -> {
+            if(stack.getItem() instanceof IAirTank tank)
+                equipmentList.add(new Pair<>(stack, tank));
+        });
+        if(comparator != null)
+            return equipmentList.stream().sorted(comparator).toList();
+        else return equipmentList;
+    }
+
+    public List<Pair<ItemStack, IRebreather>> getEquipmentRebreather(Player player, @Nullable Comparator<Pair<ItemStack, IRebreather>> comparator)
+    {
+        List<Pair<ItemStack, IRebreather>> equipmentList = new ArrayList<>();
+        player.getArmorSlots().forEach(
+                stack -> {
+                    if(stack.getItem() instanceof IRebreather tank)
+                        equipmentList.add(new Pair<>(stack, tank));
+                });
+        if(comparator != null)
+            return equipmentList.stream().sorted(comparator).toList();
+        else return equipmentList;
     }
 
     public void fillTanks(List<Pair<ItemStack, IAirTank>> airTanks, double storedOxygen)
