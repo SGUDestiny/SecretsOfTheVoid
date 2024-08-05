@@ -100,4 +100,9 @@ public class AirTankItem extends ArmorItem implements IAirTank {
             components.add(oxygen);
         }
     }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return false;
+    }
 }

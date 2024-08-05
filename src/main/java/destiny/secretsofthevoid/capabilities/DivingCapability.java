@@ -222,32 +222,22 @@ public class DivingCapability implements INBTSerializable<CompoundTag> {
     }
 
     public void calculateOxygenWarnings(Player player) {
-        List<Pair<ItemStack, IAirTank>> airTanks = getEquipmentAirTank(player, null);
+        if(player.getEyeInFluidType().canDrownIn(player)) {
+            if (getOxygen() <= 18) {
+                player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_first").withStyle(ChatFormatting.RED), true);
+                setOxygenWarningFirst(true);
+            }
+            if (getOxygen() > 18) {
+                setOxygenWarningFirst(false);
+            }
 
-        AtomicReference<Double> storedOxygen = new AtomicReference<>(0.0D);
-        airTanks.forEach(
-                airTank -> {
-                    ItemStack stack = airTank.getFirst();
-                    IAirTank tank = airTank.getSecond();
-
-                    storedOxygen.set(storedOxygen.get());
-                }
-        );
-
-        if(getOxygen() <= 18) {
-            player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_first").withStyle(ChatFormatting.RED), true);
-            setOxygenWarningFirst(true);
-        }
-        if(getOxygen() > 18) {
-            setOxygenWarningFirst(false);
-        }
-
-        if(getOxygen() <= 6) {
-            player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_second").withStyle(ChatFormatting.RED), true);
-            setOxygenWarningSecond(true);
-        }
-        if(getOxygen() > 6) {
-            setOxygenWarningSecond(false);
+            if (getOxygen() <= 6) {
+                player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_second").withStyle(ChatFormatting.RED), true);
+                setOxygenWarningSecond(true);
+            }
+            if (getOxygen() > 6) {
+                setOxygenWarningSecond(false);
+            }
         }
     }
 

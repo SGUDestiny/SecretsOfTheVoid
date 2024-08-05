@@ -77,10 +77,15 @@ public class RebreatherItem extends ArmorItem implements IRebreather
     public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag)
     {
         if(!stack.getTag().isEmpty()) {
-            MutableComponent efficiency = Component.translatable("tooltip.secretsofthevoid.rebreather_efficiency").withStyle(ChatFormatting.DARK_AQUA);
-            efficiency.append(Component.literal(getOxygenEfficiency(stack) + "").withStyle(ChatFormatting.DARK_BLUE));
+            MutableComponent efficiency = Component.translatable("tooltip.secretsofthevoid.rebreather_efficiency").withStyle(ChatFormatting.BLUE);
+            efficiency.append(Component.literal(getOxygenEfficiency(stack) + "").withStyle(ChatFormatting.BLUE));
 
             components.add(efficiency);
         }
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return false;
     }
 }
