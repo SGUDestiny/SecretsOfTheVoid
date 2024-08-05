@@ -3,6 +3,7 @@ package destiny.secretsofthevoid.items;
 import destiny.secretsofthevoid.init.ItemInit;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,8 +37,8 @@ public class ItemCalligraphyKit extends Item
         if(entity instanceof Player player) {
             if(isEnchantingTable(player, level)) {
                 if (count % 10 == 0) {
-                    entity.gameEvent(GameEvent.ITEM_INTERACT_START);
-                    entity.playSound(SoundEvents.BOOK_PAGE_TURN, 1.0F, 1.0F + (entity.getRandom().nextFloat() - entity.getRandom().nextFloat()) * 0.2F);
+                    player.gameEvent(GameEvent.ITEM_INTERACT_START);
+                    level.playSound(player, player.blockPosition(), SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS, 1.0F, 1.0F + (player.getRandom().nextFloat() - player.getRandom().nextFloat()) * 0.2F);
                 }
             }
         }
@@ -66,6 +67,7 @@ public class ItemCalligraphyKit extends Item
             if(isEnchantingTable(player, level))
             {
                 player.setItemInHand(player.getUsedItemHand(), new ItemStack(ItemInit.ANCIENT_ALPHABET.get()));
+                level.playSound(player, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.BLOCKS, 1, 1);
             }
         }
         return super.finishUsingItem(stack, level, entity);

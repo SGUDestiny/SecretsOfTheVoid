@@ -22,7 +22,7 @@ public class OxygenOverlay
         AtomicDouble oxygen = new AtomicDouble( 0.0D);
         AtomicDouble maxOxygen = new AtomicDouble(0.0D);
         ClientPacketHandler.getPlayer().ifPresent(
-                player -> player.getCapability(CapabilitiesInit.BREATHING).ifPresent(
+                player -> player.getCapability(CapabilitiesInit.DIVING).ifPresent(
                         cap -> {
                             oxygen.set(cap.getOxygen());
                             maxOxygen.set(cap.getMaxOxygen());

@@ -6,8 +6,9 @@
     "tooltip.secretsofthevoid.ancient_alphabet_line_1": "If present in inventory, will appear in the Spelunkery table",
     "tooltip.secretsofthevoid.ancient_alphabet_line_2": "''Writings lost to uncountable millennia...",
     "tooltip.secretsofthevoid.ancient_alphabet_line_3": "...Until finally ending up in your hands.''",
-    "tooltip.secretsofthevoid.air_tank_oxygen": "Oxygen: ",
-    "sounds.secretsofthevoid.rebreather_inhale": "Oxygen inhale",
+    "tooltip.secretsofthevoid.tank_stored_oxygen": "Oxygen: ",
+    "tooltip.secretsofthevoid.rebreather_efficiency": "Efficiency: ",
+    "sounds.secretsofthevoid.rebreather_inhale": "Rebreather inhale",
     "sounds.secretsofthevoid.rebreather_exhale": "Rebreather bubbling",
-    "sounds.secretsofthevoid.tank_refill": "Oxygen tank refilling"
+    "sounds.secretsofthevoid.tank_refill": "Backtank refilling"
 }

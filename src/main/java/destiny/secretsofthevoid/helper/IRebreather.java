@@ -2,8 +2,7 @@ package destiny.secretsofthevoid.helper;
 
 import net.minecraft.world.item.ItemStack;
 
-public interface IRebreather extends IEquipment
-{
-    double getOxygenModifier(ItemStack stack);
-    void setOxygenModifier(ItemStack stack, double oxygenModifier);
+public interface IRebreather {
+    double getOxygenEfficiency(ItemStack stack);
+    void setOxygenEfficiency(ItemStack stack, double oxygenEfficiency);
 }

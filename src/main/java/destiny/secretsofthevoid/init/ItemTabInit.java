@@ -27,7 +27,8 @@ public class ItemTabInit
     public static final RegistryObject<CreativeModeTab> MAIN = TABS.register("secretsofthevoid",
             () -> CreativeModeTab.builder()
                     .icon(() -> ItemInit.CALLIGRAPHY_KIT.get().getDefaultInstance())
-                    .title(Component.translatable("itemGroup.alexscaves" + ": ")
+                    .title(Component.translatable("itemGroup.alexscaves")
+                            .append(Component.literal(": "))
                             .append(Component.translatable("itemGroup.secretsofthevoid.creative_tab").withStyle(ChatFormatting.DARK_BLUE)))
                     .build()
     );
@@ -43,8 +44,8 @@ public class ItemTabInit
         {
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
-            event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120, 120, 10));
-            event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.5, 5));
+            event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
+            event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.2));
         }
     }
 

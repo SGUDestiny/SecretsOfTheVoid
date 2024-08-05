@@ -1,51 +1,50 @@
 package destiny.secretsofthevoid.items;
 
-import destiny.secretsofthevoid.helper.IAirTank;
 import destiny.secretsofthevoid.helper.IRebreather;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
-public class RebreatherItem extends ArmorItem implements IRebreather
-{
-    public static final String OXYGEN_MODIFIER = "oxygenModifier";
-    public static final String PRESSURE_RESISTANCE = "pressureResistance";
+import java.util.List;
 
-    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
-    {
+public class RebreatherItem extends ArmorItem implements IRebreather {
+    public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
+
+    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
 
-    public static ItemStack getRebreather(RebreatherItem item, double oxygenModifier, double pressureResistance)
-    {
+    public static ItemStack getRebreather(RebreatherItem item, double oxygenEfficiency) {
         ItemStack stack = new ItemStack(item);
-        item.setOxygenModifier(stack, oxygenModifier);
-        item.setPressureResistance(stack, pressureResistance);
+        item.setOxygenEfficiency(stack, oxygenEfficiency);
 
         return stack;
     }
 
     @Override
-    public double getOxygenModifier(ItemStack stack)
+    public double getOxygenEfficiency(ItemStack stack)
     {
-        return stack.getOrCreateTag().getDouble(OXYGEN_MODIFIER);
+        return stack.getOrCreateTag().getDouble(OXYGEN_EFFICIENCY);
     }
 
     @Override
-    public void setOxygenModifier(ItemStack stack, double oxygenModifier)
-    {
-        stack.getOrCreateTag().putDouble(OXYGEN_MODIFIER, oxygenModifier);
+    public void setOxygenEfficiency(ItemStack stack, double oxygenModifier) {
+        stack.getOrCreateTag().putDouble(OXYGEN_EFFICIENCY, oxygenModifier);
     }
 
     @Override
-    public double getPressureResistance(ItemStack stack)
-    {
-        return stack.getOrCreateTag().getDouble(PRESSURE_RESISTANCE);
-    }
+    public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag) {
+        if(!stack.getTag().isEmpty()) {
+            MutableComponent efficiency = Component.translatable("tooltip.secretsofthevoid.rebreather_efficiency").withStyle(ChatFormatting.DARK_AQUA);
+            efficiency.append(Component.literal(getOxygenEfficiency(stack) + "").withStyle(ChatFormatting.DARK_BLUE));
 
-    @Override
-    public void setPressureResistance(ItemStack stack, double pressureResistance)
-    {
-        stack.getOrCreateTag().putDouble(PRESSURE_RESISTANCE, pressureResistance);
+            components.add(efficiency);
+        }
     }
 }

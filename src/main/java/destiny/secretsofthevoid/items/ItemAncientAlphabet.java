@@ -7,6 +7,8 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -30,10 +32,12 @@ public class ItemAncientAlphabet extends Item
         super(properties);
     }
     // Should open a texture on RMB; If present in hotbar, adds a texture to Spelunkery table GUI on the right side
-    public InteractionResultHolder<ItemStack> use(Level level, Player playerIn, InteractionHand handIn)
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
     {
-        ItemStack itemStackIn = playerIn.getItemInHand(handIn);
-        if (playerIn instanceof ServerPlayer serverPlayerEntity) {
+        level.playSound(player, player.blockPosition(), SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS, 1.0F, 1.0F + (player.getRandom().nextFloat() - player.getRandom().nextFloat()) * 0.2F);
+
+        ItemStack itemStackIn = player.getItemInHand(hand);
+        if (player instanceof ServerPlayer serverPlayerEntity) {
             CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, itemStackIn);
             serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
         }

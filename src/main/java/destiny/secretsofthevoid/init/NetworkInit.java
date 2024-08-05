@@ -1,7 +1,7 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.network.UpdateBreathingPacket;
+import destiny.secretsofthevoid.network.UpdateDivingPacket;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,7 +20,7 @@ public class NetworkInit
     public static int ID = 0;
 
     public static void registerPackets(){
-        INSTANCE.registerMessage(id(), UpdateBreathingPacket.class, UpdateBreathingPacket::write, UpdateBreathingPacket::read, UpdateBreathingPacket::handle);
+        INSTANCE.registerMessage(id(), UpdateDivingPacket.class, UpdateDivingPacket::write, UpdateDivingPacket::read, UpdateDivingPacket::handle);
     }
 
     public static void sendPacketToAll(Object message){

@@ -5,6 +5,7 @@ import destiny.secretsofthevoid.client.gui.OxygenOverlay;
 import destiny.secretsofthevoid.init.ItemInit;
 import destiny.secretsofthevoid.init.ItemTabInit;
 import destiny.secretsofthevoid.init.NetworkInit;
+import destiny.secretsofthevoid.init.SoundInit;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +30,7 @@ public class SecretsOfTheVoid {
 
         ItemInit.register(modBus);
         ItemTabInit.register(modBus);
+        SoundInit.SOUNDS.register(modBus);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus=Mod.EventBusSubscriber.Bus.MOD)

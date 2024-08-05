@@ -1,7 +1,7 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.capabilities.BreathingCapability;
+import destiny.secretsofthevoid.capabilities.DivingCapability;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
@@ -12,11 +12,11 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = SecretsOfTheVoid.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CapabilitiesInit
 {
-    public static final Capability<BreathingCapability> BREATHING = CapabilityManager.get(new CapabilityToken<>() {});
+    public static final Capability<DivingCapability> DIVING = CapabilityManager.get(new CapabilityToken<>() {});
 
     @SubscribeEvent
     public static void register(RegisterCapabilitiesEvent event)
     {
-        event.register(BreathingCapability.class);
+        event.register(DivingCapability.class);
     }
 }

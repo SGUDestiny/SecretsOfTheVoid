@@ -9,28 +9,26 @@ import java.util.Optional;
 
 public class ClientPacketHandler
 {
-    public static void handleUpdateBreathingPacket(UpdateBreathingPacket packet)
-    {
+    public static void handleUpdateBreathingPacket(UpdateDivingPacket packet) {
         getPlayer().ifPresent(
-                player -> player.getCapability(CapabilitiesInit.BREATHING).ifPresent(
+                player -> player.getCapability(CapabilitiesInit.DIVING).ifPresent(
                         cap -> {
                             cap.setOxygen(packet.oxygen);
                             cap.setMaxOxygen(packet.maxOxygen);
-                            cap.setOxygenModifier(packet.oxygenModifier);
-                        })
+                            cap.setOxygenEfficiency(packet.oxygenEfficiency);
+                        }
+                )
         );
     }
 
 
-    public static Optional<Level> getLevel()
-    {
+    public static Optional<Level> getLevel() {
         Minecraft minecraft = Minecraft.getInstance();
 
         return minecraft.level == null ? Optional.empty() : Optional.of(Minecraft.getInstance().level);
     }
 
-    public static Optional<LocalPlayer> getPlayer()
-    {
+    public static Optional<LocalPlayer> getPlayer() {
         Minecraft minecraft = Minecraft.getInstance();
 
         return minecraft.player == null ? Optional.empty() : Optional.of(Minecraft.getInstance().player);
