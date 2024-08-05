@@ -29,7 +29,7 @@ public class ItemTabInit
                     .icon(() -> ItemInit.CALLIGRAPHY_KIT.get().getDefaultInstance())
                     .title(Component.translatable("itemGroup.alexscaves")
                             .append(Component.literal(": "))
-                            .append(Component.translatable("itemGroup.secretsofthevoid.creative_tab").withStyle(ChatFormatting.DARK_BLUE)))
+                            .append(Component.translatable("itemGroup.secretsofthevoid.creative_tab")))
                     .build()
     );
 
@@ -44,8 +44,8 @@ public class ItemTabInit
         {
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
-            event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
-            event.accept(AirTankItem.getAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
+            event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 72));
+            event.accept(AirTankItem.getAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 180));
             event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.2));
             event.accept(RebreatherItem.getRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.3));
         }

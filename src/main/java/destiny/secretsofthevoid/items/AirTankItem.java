@@ -91,11 +91,11 @@ public class AirTankItem extends ArmorItem implements IAirTank {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level pLevel, List<Component> components, TooltipFlag flag) {
         if(!stack.getTag().isEmpty()) {
-            MutableComponent oxygen = Component.translatable("tooltip.secretsofthevoid.tank_stored_oxygen").withStyle(ChatFormatting.DARK_AQUA);
+            MutableComponent oxygen = Component.translatable("tooltip.secretsofthevoid.tank_stored_oxygen").withStyle(ChatFormatting.BLUE);
 
-            oxygen.append(Component.literal(getStoredOxygen(stack) + "").withStyle(ChatFormatting.DARK_BLUE));
-            oxygen.append(Component.literal(" / ")).withStyle(ChatFormatting.DARK_AQUA);
-            oxygen.append(Component.literal("" + getMaxOxygen(stack)).withStyle(ChatFormatting.DARK_BLUE));
+            oxygen.append(Component.literal(Math.round(getStoredOxygen(stack)) + "").withStyle(ChatFormatting.BLUE));
+            oxygen.append(Component.literal(" / ")).withStyle(ChatFormatting.BLUE);
+            oxygen.append(Component.literal("" + getMaxOxygen(stack)).withStyle(ChatFormatting.BLUE));
 
             components.add(oxygen);
         }

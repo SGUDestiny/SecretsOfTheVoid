@@ -10,8 +10,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
-public class OxygenOverlay
-{
+public class OxygenOverlay {
     public static final ResourceLocation FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/full.png");
     public static final ResourceLocation HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
@@ -31,20 +30,30 @@ public class OxygenOverlay
                         cap -> {
                             oxygen.set(cap.getOxygen());
                             maxOxygen.set(cap.getMaxOxygen());
-                        }));
+                        }
+                )
+        );
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        double percentage = (oxygen.get()/maxOxygen.get())*100;
-        for(int i = 0; i < 10; i++)
-        {
-            if(percentage > 10)
-                OxygenOverlay.blitFull(poseStack, x + 64 - (i * 9), y - 54);
-            if(percentage < 10 && percentage > 0)
-                OxygenOverlay.blitPartial(poseStack, x + 64 - (i * 9), y - 54);
-            if(!(percentage > 0))
-                OxygenOverlay.blitEmpty(poseStack, x + 64 - (i * 9), y - 54);
-            percentage -= 10;
+
+        double percentage = (oxygen.get() / maxOxygen.get()) * 100;
+
+        if (oxygen.get() > 0) {
+            for(int i = 0; i < 10; i++) {
+                //Render empty gauge first
+                OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
+
+                if (percentage >= 10) {
+                    OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
+                }
+
+                if (percentage < 10 && percentage > 0) {
+                    OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                }
+
+                percentage -= 10;
+            }
         }
     });
 
@@ -60,6 +69,6 @@ public class OxygenOverlay
 
     public static void blitFull(GuiGraphics stack, int x, int y)
     {
-        stack.blit(FULL, x, y, 10, 0, 9, 9,9, 9);
+        stack.blit(FULL, x, y, 9, 0, 9, 9,9, 9);
     }
 }

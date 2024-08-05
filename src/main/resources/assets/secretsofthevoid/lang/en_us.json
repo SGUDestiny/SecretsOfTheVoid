@@ -10,5 +10,7 @@
     "tooltip.secretsofthevoid.rebreather_efficiency": "Efficiency: ",
     "sounds.secretsofthevoid.rebreather_inhale": "Rebreather inhale",
     "sounds.secretsofthevoid.rebreather_exhale": "Rebreather bubbling",
-    "sounds.secretsofthevoid.tank_refill": "Backtank refilling"
+    "sounds.secretsofthevoid.tank_refill": "Backtank refilling",
+    "warning.secretsofthevoid.oxygen_warning_first": "30 seconds.",
+    "warning.secretsofthevoid.oxygen_warning_second": "Oxygen."
 }
