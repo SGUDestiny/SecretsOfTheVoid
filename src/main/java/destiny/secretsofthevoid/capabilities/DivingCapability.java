@@ -27,16 +27,14 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
     public static final String SPEED_MODIFIER = "speedModifier";
     public static final String SINKING_MODIFIER = "sinkingModifier";
-    public static final String OXYGEN_WARNING_FIRST = "oxygenWarningFirst";
-    public static final String OXYGEN_WARNING_SECOND = "oxygenWarningSecond";
+    public static final String REFILL_SOUND = "refillSound";
 
     public double oxygen = 0.0;
     public double maxOxygen = 0.0;
     public double oxygenEfficiency = 0.0;
     public double speedModifier = 0.0;
     public double sinkingModifier = 0.0;
-    public boolean oxygenWarningFirst = false;
-    public boolean oxygenWarningSecond = false;
+    public boolean refillSound = false;
 
     public DivingCapability()
     {
@@ -53,19 +51,18 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         clientUpdate(level, player);
 
         //Rebreather
-        if(shouldCalculateRebreather(player))
+        if(shouldCalculateRebreather(player)) {
             calculateOxygenEfficiency(player);
+            rebreatherExhaleSound(level, player);
+        }
 
         //Tank
         if(shouldCalculateTank(player))
         {
             calculateMaxOxygen(player);
             calculateStoredOxygen(player);
-            calculateOxygenWarnings(player);
-        }
-
-        if(shouldRefillTank(player))
             refillTank(player);
+        }
 
         if(shouldConsumeOxygen(level, player))
             consumeOxygen(player);
@@ -85,14 +82,16 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         return !getEquipmentRebreather(player, null).isEmpty();
     }
 
-    public boolean shouldRefillTank(Player player)
-    {
-        return (!player.isInFluidType() || !player.canDrownInFluidType(player.getEyeInFluidType())) && getOxygen() < getMaxOxygen();
-    }
-
     public boolean shouldConsumeOxygen(Level level, Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 100 == 0;
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 200 == 0;
+    }
+
+    public void rebreatherExhaleSound(Level level, Player player)
+    {
+        if(!getEquipmentRebreather(player, null).isEmpty() && player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 300 == 0) {
+            NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
+        }
     }
 
     public boolean hasOxygen(Player player)
@@ -107,8 +106,18 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             ItemStack stack = airTank.getFirst();
             IAirTank tank = airTank.getSecond();
 
-            if (tank.getStoredOxygen(stack) != tank.getMaxOxygen(stack))
-                tank.setStoredOxygen(stack, tank.getStoredOxygen(stack) + (tank.getMaxOxygen(stack) / 60));
+            if (!player.getEyeInFluidType().canDrownIn(player) && getOxygen() < getMaxOxygen()) {
+                if (tank.getStoredOxygen(stack) != tank.getMaxOxygen(stack)) {
+                    tank.setStoredOxygen(stack, tank.getStoredOxygen(stack) + (tank.getMaxOxygen(stack) / 60));
+                }
+                if (!getRefillSound()) {
+                    NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.TankRefill(player.blockPosition()));
+                    setRefillSound(true);
+                }
+            }
+            if (getRefillSound() && player.getEyeInFluidType().canDrownIn(player)) {
+                setRefillSound(false);
+            }
         }
     }
 
@@ -119,8 +128,14 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         ItemStack stack = airTank.getFirst();
         IAirTank tank = airTank.getSecond();
 
-        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (3 / getOxygenEfficiency())));
-        NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
+        tank.setStoredOxygen(stack, Math.max(0, (tank.getStoredOxygen(stack) - (10 * getOxygenEfficiency()))));
+
+        if(!getEquipmentRebreather(player, null).isEmpty()) {
+            NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
+        }
+        if(getEquipmentRebreather(player, null).isEmpty()) {
+            NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
+        }
     }
 
 
@@ -228,26 +243,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         }
     }
 
-    public void calculateOxygenWarnings(Player player)
-    {
-
-        if(getOxygen() <= 18) {
-            player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_first").withStyle(ChatFormatting.RED), true);
-            setOxygenWarningFirst(true);
-        }
-        if(getOxygen() > 18) {
-            setOxygenWarningFirst(false);
-        }
-
-        if(getOxygen() <= 6) {
-            player.displayClientMessage(Component.translatable("warning.secretsofthevoid.oxygen_warning_second").withStyle(ChatFormatting.RED), true);
-            setOxygenWarningSecond(true);
-        }
-        if(getOxygen() > 6) {
-            setOxygenWarningSecond(false);
-        }
-    }
-
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
@@ -257,8 +252,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         tag.putDouble(OXYGEN_EFFICIENCY, oxygenEfficiency);
         tag.putDouble(SPEED_MODIFIER, speedModifier);
         tag.putDouble(SINKING_MODIFIER, sinkingModifier);
-        tag.putBoolean(OXYGEN_WARNING_FIRST, oxygenWarningFirst);
-        tag.putBoolean(OXYGEN_WARNING_SECOND, oxygenWarningSecond);
+        tag.putBoolean(REFILL_SOUND, refillSound);
 
         return tag;
     }
@@ -271,8 +265,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         this.oxygenEfficiency = tag.getDouble(OXYGEN_EFFICIENCY);
         this.speedModifier = tag.getDouble(SPEED_MODIFIER);
         this.sinkingModifier = tag.getDouble(SINKING_MODIFIER);
-        this.oxygenWarningFirst = tag.getBoolean(OXYGEN_WARNING_FIRST);
-        this.oxygenWarningSecond = tag.getBoolean(OXYGEN_WARNING_SECOND);
+        this.refillSound = tag.getBoolean(REFILL_SOUND);
     }
 
     public double getOxygen()
@@ -320,21 +313,10 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         this.sinkingModifier = sinkingModifier;
     }
 
-    public boolean getOxygenWarningFirst()
-    {
-        return oxygenWarningFirst;
+    public void setRefillSound(boolean refillSound) {
+        this.refillSound = refillSound;
     }
-    public void setOxygenWarningFirst(boolean oxygenWarningFirst)
-    {
-        this.oxygenWarningFirst = oxygenWarningFirst;
-    }
-
-    public void setOxygenWarningSecond(boolean oxygenWarningSecond)
-    {
-        this.oxygenWarningSecond = oxygenWarningSecond;
-    }
-    public boolean getOxygenWarningSecond()
-    {
-        return oxygenWarningSecond;
+    public boolean getRefillSound() {
+        return refillSound;
     }
 }
