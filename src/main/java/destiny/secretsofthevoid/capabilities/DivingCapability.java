@@ -81,7 +81,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public boolean shouldConsumeOxygen(Level level, Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty() && level.getGameTime() % 60 == 0;
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty() && level.getGameTime() % 200 == 0;
     }
 
     public boolean hasOxygen(Player player)
@@ -118,7 +118,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         ItemStack stack = airTank.getFirst();
         IAirTank tank = airTank.getSecond();
 
-        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (3 * getOxygenEfficiency())));
+        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (10 * getOxygenEfficiency())));
 
         if(!getEquipmentRebreather(player, null).isEmpty()) {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
@@ -234,7 +234,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public void rebreatherExhaleSound(Level level, Player player)
     {
-        if(!getEquipmentRebreather(player, null).isEmpty() && player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 300 == 0) {
+        if(!getEquipmentRebreather(player, null).isEmpty() && player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 260 == 0) {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
         }
     }
