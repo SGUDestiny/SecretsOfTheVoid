@@ -5,6 +5,7 @@ import destiny.secretsofthevoid.capabilities.DivingCapability;
 import destiny.secretsofthevoid.capabilities.GenericProvider;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -23,8 +24,7 @@ public class Events {
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
-        event.player.getCapability(CapabilitiesInit.DIVING).ifPresent(
-                cap -> cap.tick(event.player.level(), event.player)
-        );
+        if(event.phase == TickEvent.Phase.END && event.side.isServer() && event.player instanceof ServerPlayer player)
+            event.player.getCapability(CapabilitiesInit.DIVING).ifPresent(cap -> cap.tick(event.player.level(), player));
     }
 }
