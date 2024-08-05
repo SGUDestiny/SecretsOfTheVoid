@@ -1,7 +1,6 @@
-package destiny.secretsofthevoid.client.models.airtanks;
+package destiny.secretsofthevoid.client.models;
 
 import com.google.common.collect.ImmutableList;
-import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.client.Layers;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -14,12 +13,12 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = SecretsOfTheVoid.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class SteelAirTank extends HumanoidModel<LivingEntity>
+@Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class SteelGearModel extends HumanoidModel<LivingEntity>
 {
-    public static SteelAirTank INSTANCE;
+    public static SteelGearModel INSTANCE;
 
-    public SteelAirTank(ModelPart root)
+    public SteelGearModel(ModelPart root)
     {
         super(root);
     }
@@ -29,8 +28,35 @@ public class SteelAirTank extends HumanoidModel<LivingEntity>
         MeshDefinition mesh = HumanoidModel.createMesh(CubeDeformation.NONE, 0.0f);
         PartDefinition root = mesh.getRoot();
 
+        PartDefinition head = root.getChild("head");
         PartDefinition body = root.getChild("body");
 
+        //Rebreather
+        head.addOrReplaceChild("mouth_cover", CubeListBuilder.create()
+                .texOffs(3, 3)
+                .addBox(5.0F, 22.0F, 2.0F, 6.0F, 3.0F, 3.0F,
+                        new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        head.addOrReplaceChild("line1", CubeListBuilder.create()
+                        .texOffs(8, 28)
+                        .addBox(3.0F, 23.0F, 3.0F, 2.0F, 2.0F, 8.0F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        head.addOrReplaceChild("line2", CubeListBuilder.create()
+                        .texOffs(12, 8)
+                        .addBox(3.0F, 23.0F, 11.0F, 10.0F, 2.0F, 2.0F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        head.addOrReplaceChild("line3", CubeListBuilder.create()
+                        .texOffs(8, 18)
+                        .addBox(11.0F, 23.0F, 3.0F, 2.0F, 2.0F, 8.0F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        //Backtank
         body.addOrReplaceChild("tank", CubeListBuilder.create()
                 .texOffs(15, 5)
                 .addBox(5.5F, 12.0F, 10.0F, 5.0F, 11.0F, 5.0F,
@@ -59,22 +85,16 @@ public class SteelAirTank extends HumanoidModel<LivingEntity>
     }
 
     @Override
-    public void setupAnim(LivingEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch)
-    {
-
-    }
-
-    @Override
     protected Iterable<ModelPart> bodyParts()
     {
         return ImmutableList.of();
     }
 
     @SubscribeEvent
-    public void bakeModelLayers(EntityRenderersEvent.AddLayers event)
+    public static void bakeModelLayers(EntityRenderersEvent.AddLayers event)
     {
         EntityModelSet entityModelSet = event.getEntityModels();
-        INSTANCE = new SteelAirTank(entityModelSet.bakeLayer(Layers.STEEL_DIVING_GEAR));
+        INSTANCE = new SteelGearModel(entityModelSet.bakeLayer(Layers.STEEL_GEAR));
     }
 
 }

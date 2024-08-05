@@ -1,6 +1,8 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.client.render.NetheriteGearRenderProperties;
+import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.items.AirTankItem;
 import destiny.secretsofthevoid.items.ItemAncientAlphabet;
 import destiny.secretsofthevoid.items.ItemCalligraphyKit;
@@ -33,20 +35,45 @@ public class ItemInit
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("steel_air_tank",
+    public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
             () -> new AirTankItem(
                     ArmorMaterials.IRON,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
                             .stacksTo(1),
-                    new ResourceLocation(SecretsOfTheVoid.MODID, "texures/armor/steel_backtank.png")
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/steel/steel_backtank.png"),
+                    SteelGearRenderProperties.INSTANCE
             )
     );
-    public static final RegistryObject<RebreatherItem> STEEL_REBREATHER = ITEMS.register("steel_rebreather",
+
+    public static final RegistryObject<AirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
+            () -> new AirTankItem(
+                    ArmorMaterials.IRON,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()
+                            .stacksTo(1),
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite/double_netherite_backtank.png"),
+                    NetheriteGearRenderProperties.INSTANCE
+            )
+    );
+
+    public static final RegistryObject<RebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_rebreather",
             () -> new RebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
-                            .stacksTo(1)
+                            .stacksTo(1),
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/steel/steel_rebreather.png"),
+                    SteelGearRenderProperties.INSTANCE
+            )
+    );
+
+    public static final RegistryObject<RebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
+            () -> new RebreatherItem(ArmorMaterials.IRON,
+                    ArmorItem.Type.HELMET,
+                    new Item.Properties()
+                            .stacksTo(1),
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite_scuba.png"),
+                    NetheriteGearRenderProperties.INSTANCE
             )
     );
 

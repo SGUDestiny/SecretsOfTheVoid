@@ -12,8 +12,13 @@ import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
 public class OxygenOverlay
 {
-    public static final ResourceLocation ELEMENTS = new ResourceLocation(SecretsOfTheVoid.MODID,
-            "textures/gui/tank_elements.png");
+    public static final ResourceLocation FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/full.png");
+    public static final ResourceLocation HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/half.png");
+    public static final ResourceLocation EMPTY = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/empty.png");
+
 
     public static final IGuiOverlay OVERLAY = ((gui, poseStack, partialTicks, width, height)
     -> {
@@ -34,27 +39,27 @@ public class OxygenOverlay
         for(int i = 0; i < 10; i++)
         {
             if(percentage > 10)
-                OxygenOverlay.blitFull(poseStack, x - 64 + (i * 9), y - 54);
+                OxygenOverlay.blitFull(poseStack, x + 64 - (i * 9), y - 54);
             if(percentage < 10 && percentage > 0)
-                OxygenOverlay.blitPartial(poseStack, x - 64 + (i * 9), y - 54);
-            if(!(percentage > 0 ))
-                OxygenOverlay.blitEmpty(poseStack, x - 64 + (i * 9), y - 54);
+                OxygenOverlay.blitPartial(poseStack, x + 64 - (i * 9), y - 54);
+            if(!(percentage > 0))
+                OxygenOverlay.blitEmpty(poseStack, x + 64 - (i * 9), y - 54);
             percentage -= 10;
         }
     });
 
     public static void blitEmpty(GuiGraphics stack, int x, int y)
     {
-        stack.blit(ELEMENTS, x, y, 0, 0, 9, 9, 9, 9);
+        stack.blit(EMPTY, x, y, 0, 0, 9, 9, 9, 9);
     }
 
     public static void blitPartial(GuiGraphics stack, int x, int y)
     {
-        stack.blit(ELEMENTS, x, y, 18, 0, 9, 9, 9, 9);
+        stack.blit(HALF, x, y, 18, 0, 9, 9, 9, 9);
     }
 
     public static void blitFull(GuiGraphics stack, int x, int y)
     {
-        stack.blit(ELEMENTS, x, y, 10, 0, 9, 9,9, 9);
+        stack.blit(FULL, x, y, 10, 0, 9, 9,9, 9);
     }
 }

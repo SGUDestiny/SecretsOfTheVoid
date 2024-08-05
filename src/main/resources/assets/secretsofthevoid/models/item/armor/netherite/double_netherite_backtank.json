@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "secretsofthevoid:item/netherite/double_netherite_backtank"
+		"0": "secretsofthevoid:item/armor/netherite/double_netherite_backtank"
 	},
 	"elements": [
 		{

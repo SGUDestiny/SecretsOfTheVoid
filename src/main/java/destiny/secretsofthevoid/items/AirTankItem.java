@@ -1,6 +1,6 @@
 package destiny.secretsofthevoid.items;
 
-import destiny.secretsofthevoid.client.render.airtanks.AirTankRenderProperties;
+import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -20,13 +20,17 @@ public class AirTankItem extends ArmorItem implements IAirTank {
     public static final String STORED_OXYGEN = "storedOxygen";
     public static final String MAX_OXYGEN = "maxOxygen";
     public ResourceLocation texture;
+    public IClientItemExtensions model;
 
-    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, ResourceLocation tankTexture) {
+    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, ResourceLocation tankTexture, IClientItemExtensions model)
+    {
         super(pMaterial, pType, pProperties);
         this.texture = tankTexture;
+        this.model = model;
     }
 
-    public static ItemStack getAirTank(AirTankItem item, double capacity) {
+    public static ItemStack getAirTank(AirTankItem item, double capacity)
+    {
         ItemStack stack = new ItemStack(item);
         item.setMaxOxygen(stack, capacity);
         item.setStoredOxygen(stack, capacity);
@@ -35,8 +39,9 @@ public class AirTankItem extends ArmorItem implements IAirTank {
     }
 
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(AirTankRenderProperties.INSTANCE);
+    public void initializeClient(Consumer<IClientItemExtensions> consumer)
+    {
+        consumer.accept(model);
     }
 
     @Override
