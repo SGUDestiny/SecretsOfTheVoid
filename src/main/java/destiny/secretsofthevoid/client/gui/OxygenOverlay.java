@@ -3,9 +3,11 @@ package destiny.secretsofthevoid.client.gui;
 import com.google.common.util.concurrent.AtomicDouble;
 import com.mojang.blaze3d.systems.RenderSystem;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.capabilities.DivingCapability;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
 import destiny.secretsofthevoid.network.ClientPacketHandler;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
@@ -23,36 +25,40 @@ public class OxygenOverlay {
     -> {
         int x = width/2;
         int y = height;
-        AtomicDouble oxygen = new AtomicDouble( 0.0D);
-        AtomicDouble maxOxygen = new AtomicDouble(0.0D);
-        ClientPacketHandler.getPlayer().ifPresent(
-                player -> player.getCapability(CapabilitiesInit.DIVING).ifPresent(
-                        cap -> {
-                            oxygen.set(cap.getOxygen());
-                            maxOxygen.set(cap.getMaxOxygen());
-                        }
-                )
-        );
+        double oxygen =  0.0D;
+        double maxOxygen = 0.0D;
+        LocalPlayer player = ClientPacketHandler.getPlayer().orElse(null);
+        if(player != null && player.getCapability(CapabilitiesInit.DIVING).isPresent())
+        {
+            DivingCapability cap = player.getCapability(CapabilitiesInit.DIVING).orElse(null);
 
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
-        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+            oxygen = cap.getOxygen();
+            maxOxygen = cap.getMaxOxygen();
 
-        double percentage = (oxygen.get() / maxOxygen.get()) * 100;
+            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
-        if (oxygen.get() > 0) {
-            for(int i = 0; i < 10; i++) {
-                //Render empty gauge first
-                OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
+            double percentage = (oxygen / maxOxygen) * 100;
 
-                if (percentage >= 10) {
-                    OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
+            if (oxygen > 0)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    //Render empty gauge first
+                    OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
+
+                    if (percentage >= 10)
+                    {
+                        OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
+                    }
+
+                    if (percentage < 10 && percentage > 0)
+                    {
+                        OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                    }
+
+                    percentage -= 10;
                 }
-
-                if (percentage < 10 && percentage > 0) {
-                    OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
-                }
-
-                percentage -= 10;
             }
         }
     });
