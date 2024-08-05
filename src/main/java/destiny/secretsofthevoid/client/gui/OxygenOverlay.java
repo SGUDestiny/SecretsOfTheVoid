@@ -1,6 +1,5 @@
 package destiny.secretsofthevoid.client.gui;
 
-import com.google.common.util.concurrent.AtomicDouble;
 import com.mojang.blaze3d.systems.RenderSystem;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.capabilities.DivingCapability;
@@ -12,6 +11,7 @@ import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
 
+@SuppressWarnings("ConstantConditions")
 public class OxygenOverlay {
     public static final ResourceLocation FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/full.png");
@@ -24,7 +24,6 @@ public class OxygenOverlay {
     public static final IGuiOverlay OVERLAY = ((gui, poseStack, partialTicks, width, height)
     -> {
         int x = width/2;
-        int y = height;
         double oxygen =  0.0D;
         double maxOxygen = 0.0D;
         LocalPlayer player = ClientPacketHandler.getPlayer().orElse(null);
@@ -45,16 +44,16 @@ public class OxygenOverlay {
                 for (int i = 0; i < 10; i++)
                 {
                     //Render empty gauge first
-                    OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
+                    OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), height - 59);
 
                     if (percentage >= 10)
                     {
-                        OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
+                        OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), height - 59);
                     }
 
                     if (percentage < 10 && percentage > 0)
                     {
-                        OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                        OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), height - 59);
                     }
 
                     percentage -= 10;
