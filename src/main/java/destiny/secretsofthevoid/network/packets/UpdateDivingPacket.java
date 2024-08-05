@@ -1,5 +1,6 @@
-package destiny.secretsofthevoid.network;
+package destiny.secretsofthevoid.network.packets;
 
+import destiny.secretsofthevoid.network.ClientPacketHandler;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 

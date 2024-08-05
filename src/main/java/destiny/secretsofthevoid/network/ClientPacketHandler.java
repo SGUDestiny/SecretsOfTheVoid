@@ -1,6 +1,7 @@
 package destiny.secretsofthevoid.network;
 
 import destiny.secretsofthevoid.init.CapabilitiesInit;
+import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.level.Level;
