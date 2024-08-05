@@ -52,7 +52,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
         //Rebreather
         if(shouldCalculateRebreather(player)) {
-            calculateOxygenEfficiency(player);
             rebreatherExhaleSound(level, player);
         }
 
@@ -62,6 +61,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             calculateMaxOxygen(player);
             calculateStoredOxygen(player);
             refillTank(player);
+            calculateOxygenEfficiency(player);
         }
 
         if(shouldConsumeOxygen(level, player))
@@ -132,8 +132,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
         if(!getEquipmentRebreather(player, null).isEmpty()) {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
-        }
-        if(getEquipmentRebreather(player, null).isEmpty()) {
+        } else {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
         }
     }
@@ -197,7 +196,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             oxygenEfficiency -= rebreath.getOxygenEfficiency(stack);
         }
 
-        setOxygenEfficiency(oxygenEfficiency / Math.max(1, rebreathers.size()));
+        setOxygenEfficiency(oxygenEfficiency);
     }
     
     public List<Pair<ItemStack, IAirTank>> getEquipmentAirTank(Player player, @Nullable Comparator<Pair<ItemStack, IAirTank>> comparator)
