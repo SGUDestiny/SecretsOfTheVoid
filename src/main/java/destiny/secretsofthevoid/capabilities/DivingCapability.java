@@ -53,7 +53,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         clientUpdate(level, player);
 
         //Rebreather
-        calculateOxygenEfficiency(player);
+        if(shouldCalculateRebreather(player))
+            calculateOxygenEfficiency(player);
 
         //Tank
         if(shouldCalculateTank(player))
@@ -77,6 +78,11 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public boolean shouldCalculateTank(Player player)
     {
         return !getEquipmentAirTank(player, null).isEmpty();
+    }
+
+    public boolean shouldCalculateRebreather(Player player)
+    {
+        return !getEquipmentRebreather(player, null).isEmpty();
     }
 
     public boolean shouldRefillTank(Player player)
