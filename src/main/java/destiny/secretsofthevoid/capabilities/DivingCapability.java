@@ -9,6 +9,7 @@ import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -35,6 +36,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public double speedModifier = 0.0;
     public double sinkingModifier = 0.0;
     public boolean refillSound = false;
+    public int breathTicker = 0;
 
     public DivingCapability()
     {
@@ -43,10 +45,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     //Code that runs each tick
     public void tick(Level level, Player player)
     {
-        if(level.isClientSide())
-        {
+        if(level.isClientSide() || level.getServer() == null)
             return;
-        }
 
         clientUpdate(level, player);
 
@@ -62,7 +62,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         calculateOxygenEfficiency(player);
 
         if(shouldConsumeOxygen(level, player))
-            consumeOxygen(player);
+            consumeOxygen(level, player);
         
         if(hasOxygen(player))
             maxOutAirSupply(player);
@@ -111,20 +111,23 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         }
     }
 
-    public void consumeOxygen(Player player)
+    public void consumeOxygen(Level level, Player player)
     {
         List<Pair<ItemStack, IAirTank>> sortedTanks = getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getStoredOxygen(airTank.getFirst())));
         Pair<ItemStack, IAirTank> airTank = sortedTanks.get(0);
         ItemStack stack = airTank.getFirst();
         IAirTank tank = airTank.getSecond();
 
-        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (10 * getOxygenEfficiency())));
+        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (3 * getOxygenEfficiency())));
 
-        if(!getEquipmentRebreather(player, null).isEmpty()) {
+        if (!getEquipmentRebreather(player, null).isEmpty())
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
-        } else {
+
+        if (breathTicker > 60)
+        {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
-        }
+            breathTicker = 0;
+        } else breathTicker++;
     }
 
 

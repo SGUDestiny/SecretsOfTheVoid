@@ -1,5 +1,7 @@
 package destiny.secretsofthevoid.items;
 
+import com.github.alexmodguy.alexscaves.client.model.layered.DivingArmorModel;
+import com.github.alexmodguy.alexscaves.server.item.DivingArmorItem;
 import destiny.secretsofthevoid.helper.IRebreather;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

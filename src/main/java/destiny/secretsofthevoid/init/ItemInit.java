@@ -72,7 +72,7 @@ public class ItemInit
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1),
-                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite_scuba.png"),
+                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite/netherite_scuba.png"),
                     NetheriteGearRenderProperties.INSTANCE
             )
     );
