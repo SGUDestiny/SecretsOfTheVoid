@@ -56,13 +56,10 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         }
 
         //Tank
-        if(shouldCalculateTank(player))
-        {
-            calculateMaxOxygen(player);
-            calculateStoredOxygen(player);
-            refillTank(player);
-            calculateOxygenEfficiency(player);
-        }
+        calculateMaxOxygen(player);
+        calculateStoredOxygen(player);
+        refillTank(player);
+        calculateOxygenEfficiency(player);
 
         if(shouldConsumeOxygen(level, player))
             consumeOxygen(player);
