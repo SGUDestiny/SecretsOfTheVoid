@@ -36,7 +36,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public double speedModifier = 0.0;
     public double sinkingModifier = 0.0;
     public boolean refillSound = false;
-    public int breathTicker = 0;
+    public int inhaleTicker = 0;
+    public int exhaleTicker = -1;
 
     public DivingCapability()
     {
@@ -51,9 +52,9 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         clientUpdate(level, player);
 
         //Rebreather
-        if(shouldCalculateRebreather(player)) {
-            rebreatherExhaleSound(level, player);
-        }
+//        if(shouldCalculateRebreather(player)) {
+//            rebreatherExhaleSound(level, player);
+//        }
 
         //Tank
         calculateMaxOxygen(player);
@@ -81,7 +82,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public boolean shouldConsumeOxygen(Level level, Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty() && level.getGameTime() % 200 == 0;
+        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty();
     }
 
     public boolean hasOxygen(Player player)
@@ -118,16 +119,21 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         ItemStack stack = airTank.getFirst();
         IAirTank tank = airTank.getSecond();
 
-        tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (3 * getOxygenEfficiency())));
-
-        if (!getEquipmentRebreather(player, null).isEmpty())
+        if (inhaleTicker > 200) {
+            tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (3 * getOxygenEfficiency())));
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
 
-        if (breathTicker > 60)
+            inhaleTicker = 0;
+            exhaleTicker = 0;
+        } else inhaleTicker++;
+
+        if (exhaleTicker > 60)
         {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
-            breathTicker = 0;
-        } else breathTicker++;
+            exhaleTicker = -1;
+        } else if (exhaleTicker >= 0) {
+            exhaleTicker++;
+        }
     }
 
 
