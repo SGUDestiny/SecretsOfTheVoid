@@ -4,21 +4,27 @@ import destiny.secretsofthevoid.helper.IRebreather;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
-public class RebreatherItem extends NetheriteDivingGearItem implements IRebreather
+public class RebreatherItem extends ArmorItem implements IRebreather
 {
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
+    public IClientItemExtensions model;
 
-    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
+
+    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, IClientItemExtensions model)
     {
         super(pMaterial, pType, pProperties);
+        this.model = model;
     }
 
     public static ItemStack getRebreather(RebreatherItem item, double oxygenEfficiency)
@@ -27,6 +33,12 @@ public class RebreatherItem extends NetheriteDivingGearItem implements IRebreath
         item.setOxygenEfficiency(stack, oxygenEfficiency);
 
         return stack;
+    }
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer)
+    {
+        consumer.accept(model);
     }
 
     @Override

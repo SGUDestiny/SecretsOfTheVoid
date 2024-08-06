@@ -1,13 +1,9 @@
 package destiny.secretsofthevoid.items;
 
-import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -19,13 +15,11 @@ import java.util.function.Consumer;
 public class AirTankItem extends ArmorItem implements IAirTank {
     public static final String STORED_OXYGEN = "storedOxygen";
     public static final String MAX_OXYGEN = "maxOxygen";
-    public ResourceLocation texture;
     public IClientItemExtensions model;
 
-    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, ResourceLocation tankTexture, IClientItemExtensions model)
+    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, IClientItemExtensions model)
     {
         super(pMaterial, pType, pProperties);
-        this.texture = tankTexture;
         this.model = model;
     }
 
@@ -77,15 +71,6 @@ public class AirTankItem extends ArmorItem implements IAirTank {
     @Override
     public void setStoredOxygen(ItemStack stack, double oxygen) {
         stack.getOrCreateTag().putDouble(STORED_OXYGEN, oxygen);
-    }
-
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
-        return texture.toString();
-    }
-
-    public ResourceLocation getAirTankTexture() {
-        return texture;
     }
 
     @Override
