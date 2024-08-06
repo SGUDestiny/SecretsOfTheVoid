@@ -7,6 +7,8 @@ import destiny.secretsofthevoid.init.NetworkInit;
 import destiny.secretsofthevoid.network.packets.SoundPackets;
 import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.TickTask;
@@ -38,6 +40,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public boolean refillSound = false;
     public int inhaleTicker = 0;
     public int exhaleTicker = -1;
+    public int bubbleTicker = -1;
 
     public DivingCapability()
     {
@@ -131,8 +134,21 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
             exhaleTicker = -1;
+            bubbleTicker = 10;
         } else if (exhaleTicker >= 0) {
             exhaleTicker++;
+        }
+
+        if (bubbleTicker > 40) {
+            bubbleTicker = -1;
+        } else if (bubbleTicker % 10 == 0) {
+            double x = player.getEyePosition().x();
+            double y = player.getEyePosition().y();
+            double z = player.getEyePosition().z();
+
+            level.addParticle(ParticleTypes.BUBBLE, x, y, z, 0.0D, 0.2D, 0.0D);
+        } else if (bubbleTicker >= 0) {
+            bubbleTicker++;
         }
     }
 
@@ -238,13 +254,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
                 tank.setStoredOxygen(stack, Math.min(storedOxygen, maxCapacity));
                 i -= Math.min(storedOxygen, maxCapacity);
             }
-        }
-    }
-
-    public void rebreatherExhaleSound(Level level, Player player)
-    {
-        if(!getEquipmentRebreather(player, null).isEmpty() && player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && level.getGameTime() % 260 == 0) {
-            NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
         }
     }
 
