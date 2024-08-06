@@ -1,36 +1,24 @@
 package destiny.secretsofthevoid.items;
 
-import com.github.alexmodguy.alexscaves.client.model.layered.DivingArmorModel;
-import com.github.alexmodguy.alexscaves.server.item.DivingArmorItem;
 import destiny.secretsofthevoid.helper.IRebreather;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.function.Consumer;
 
-public class RebreatherItem extends ArmorItem implements IRebreather
+public class RebreatherItem extends NetheriteDivingGearItem implements IRebreather
 {
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
-    public ResourceLocation texture;
-    public IClientItemExtensions model;
 
-    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, ResourceLocation texture, IClientItemExtensions extension)
+    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
-        this.texture = texture;
-        this.model = extension;
     }
 
     public static ItemStack getRebreather(RebreatherItem item, double oxygenEfficiency)
@@ -39,12 +27,6 @@ public class RebreatherItem extends ArmorItem implements IRebreather
         item.setOxygenEfficiency(stack, oxygenEfficiency);
 
         return stack;
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer)
-    {
-        consumer.accept(model);
     }
 
     @Override
@@ -57,22 +39,6 @@ public class RebreatherItem extends ArmorItem implements IRebreather
     public void setOxygenEfficiency(ItemStack stack, double oxygenModifier)
     {
         stack.getOrCreateTag().putDouble(OXYGEN_EFFICIENCY, oxygenModifier);
-    }
-
-    @Override
-    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
-    {
-        return texture.toString();
-    }
-
-    public ResourceLocation getRebreatherTexture()
-    {
-        return texture;
-    }
-
-    public IClientItemExtensions getRebreatherModel()
-    {
-        return model;
     }
 
     @Override

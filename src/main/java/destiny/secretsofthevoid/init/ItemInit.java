@@ -61,9 +61,7 @@ public class ItemInit
             () -> new RebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
-                            .stacksTo(1),
-                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/steel/steel_rebreather.png"),
-                    SteelGearRenderProperties.INSTANCE
+                            .stacksTo(1)
             )
     );
 
@@ -71,9 +69,7 @@ public class ItemInit
             () -> new RebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
-                            .stacksTo(1),
-                    new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite/netherite_scuba.png"),
-                    NetheriteGearRenderProperties.INSTANCE
+                            .stacksTo(1)
             )
     );
 
