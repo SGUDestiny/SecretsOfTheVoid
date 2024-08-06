@@ -11,6 +11,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket;
 import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -147,6 +148,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             double z = player.getEyePosition().z();
 
             level.addParticle(ParticleTypes.BUBBLE, x, y, z, 0.0D, 0.2D, 0.0D);
+            NetworkInit.sendTo((ServerPlayer) player, new ClientboundLevelParticlesPacket(ParticleTypes.BUBBLE, false, x, y, z, 0.0F, 0.2F, 0.0F, 0.2F, 1));
         } else if (bubbleTicker >= 0) {
             bubbleTicker++;
         }
