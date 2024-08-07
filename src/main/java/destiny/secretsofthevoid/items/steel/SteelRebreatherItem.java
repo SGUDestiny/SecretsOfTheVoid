@@ -1,6 +1,9 @@
-package destiny.secretsofthevoid.items;
+package destiny.secretsofthevoid.items.steel;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.client.render.NetheriteGearRenderProperties;
+import destiny.secretsofthevoid.items.AirTankItem;
+import destiny.secretsofthevoid.items.RebreatherItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorMaterial;
@@ -14,20 +17,23 @@ import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.core.animation.AnimationController;
 import software.bernie.geckolib.core.object.PlayState;
 
-public class NetheriteDivingGearItem extends AirTankItem implements GeoItem {
-    private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
-    public NetheriteDivingGearItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, IClientItemExtensions model)
+import java.util.function.Consumer;
+
+public class SteelRebreatherItem extends RebreatherItem {
+    public SteelRebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
-        super(pMaterial, pType, pProperties, model);
+        super(pMaterial, pType, pProperties);
     }
 
     @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
-        controllers.add(new AnimationController(this, "controller", 0, state -> PlayState.STOP));
+    public void initializeClient(Consumer<IClientItemExtensions> consumer)
+    {
+        consumer.accept(NetheriteGearRenderProperties.INSTANCE);
     }
 
     @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return cache;
+    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
+    {
+        return SecretsOfTheVoid.MODID + ":textures/item/armor/steel/steel_diving_gear";
     }
 }

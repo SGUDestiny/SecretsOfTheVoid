@@ -33,53 +33,56 @@ public class SteelGearModel extends HumanoidModel<LivingEntity>
 
         //Rebreather
         head.addOrReplaceChild("mouth_cover", CubeListBuilder.create()
-                .texOffs(3, 3)
+                .texOffs(22, 0)
                 .addBox(5.0F, 22.0F, 2.0F, 6.0F, 3.0F, 3.0F,
                         new CubeDeformation(1.0F)),
                 PartPose.ZERO);
 
-        head.addOrReplaceChild("line1", CubeListBuilder.create()
-                        .texOffs(8, 28)
+        head.addOrReplaceChild("tube_right", CubeListBuilder.create()
+                        .texOffs(22, 10)
+                        .addBox(11.0F, 23.0F, 2.0F, 2.0F, 2.0F, 8.0F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        head.addOrReplaceChild("tube_left", CubeListBuilder.create()
+                        .texOffs(22, 20)
                         .addBox(3.0F, 23.0F, 3.0F, 2.0F, 2.0F, 8.0F,
                                 new CubeDeformation(1.0F)),
                 PartPose.ZERO);
 
-        head.addOrReplaceChild("line2", CubeListBuilder.create()
-                        .texOffs(12, 8)
+        head.addOrReplaceChild("tube_back", CubeListBuilder.create()
+                        .texOffs(22, 6)
                         .addBox(3.0F, 23.0F, 11.0F, 10.0F, 2.0F, 2.0F,
                                 new CubeDeformation(1.0F)),
                 PartPose.ZERO);
 
-        head.addOrReplaceChild("line3", CubeListBuilder.create()
-                        .texOffs(8, 18)
-                        .addBox(11.0F, 23.0F, 3.0F, 2.0F, 2.0F, 8.0F,
-                                new CubeDeformation(1.0F)),
-                PartPose.ZERO);
-
-        //Backtank
-        body.addOrReplaceChild("tank", CubeListBuilder.create()
-                .texOffs(15, 5)
-                .addBox(5.5F, 12.0F, 10.0F, 5.0F, 11.0F, 5.0F,
-                        new CubeDeformation(1.0F)),
-                PartPose.ZERO);
-
-        body.addOrReplaceChild("cover", CubeListBuilder.create()
-                        .texOffs(15, 34)
-                        .addBox(5.25F, 11.75F, 9.75F, 5.5F, 11.5F, 5.5F,
-                                new CubeDeformation(1.0F)),
-                PartPose.ZERO);
-
-        body.addOrReplaceChild("tip", CubeListBuilder.create()
-                        .texOffs(12, 19)
+        //Air tank
+        body.addOrReplaceChild("valve", CubeListBuilder.create()
+                        .texOffs(0, 16)
                         .addBox(6.5F, 23.0F, 11.0F, 3.0F, 2.0F, 3.0F,
                                 new CubeDeformation(1.0F)),
                 PartPose.ZERO);
 
-        body.addOrReplaceChild("strap", CubeListBuilder.create()
-                        .texOffs(16, 44)
+        body.addOrReplaceChild("tank", CubeListBuilder.create()
+                        .texOffs(0, 0)
+                        .addBox(5.5F, 12.0F, 10.0F, 5.0F, 11.0F, 5.0F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        body.addOrReplaceChild("strap_body", CubeListBuilder.create()
+                        .texOffs(0, 40)
                         .addBox(3.75F, 11.75F, 5.75F, 8.5F, 12.5F, 4.5F,
                                 new CubeDeformation(1.0F)),
                 PartPose.ZERO);
+
+        body.addOrReplaceChild("strap_tank", CubeListBuilder.create()
+                        .texOffs(0, 29)
+                        .addBox(5.25F, 11.75F, 9.75F, 5.5F, 11.5F, 5.5F,
+                                new CubeDeformation(1.0F)),
+                PartPose.ZERO);
+
+        //Flippers
+
 
         return LayerDefinition.create(mesh, 64, 64);
     }

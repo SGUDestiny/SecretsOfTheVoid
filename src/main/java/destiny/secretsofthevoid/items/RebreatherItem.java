@@ -18,13 +18,10 @@ import java.util.function.Consumer;
 public class RebreatherItem extends ArmorItem implements IRebreather
 {
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
-    public IClientItemExtensions model;
 
-
-    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, IClientItemExtensions model)
+    public RebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
-        this.model = model;
     }
 
     public static ItemStack getRebreather(RebreatherItem item, double oxygenEfficiency)
@@ -33,12 +30,6 @@ public class RebreatherItem extends ArmorItem implements IRebreather
         item.setOxygenEfficiency(stack, oxygenEfficiency);
 
         return stack;
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer)
-    {
-        consumer.accept(model);
     }
 
     @Override

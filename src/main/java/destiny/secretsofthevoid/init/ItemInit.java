@@ -1,10 +1,10 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.client.render.NetheriteGearRenderProperties;
-import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.items.*;
-import net.minecraft.resources.ResourceLocation;
+import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
+import destiny.secretsofthevoid.items.steel.SteelAirTankItem;
+import destiny.secretsofthevoid.items.steel.SteelRebreatherItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.Item;
@@ -33,31 +33,26 @@ public class ItemInit
             )
     );
     public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
-            () -> new AirTankItem(
+            () -> new SteelAirTankItem(
                     ArmorMaterials.IRON,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1),
-                    SteelGearRenderProperties.INSTANCE
+                            .stacksTo(1)
             )
     );
 
     public static final RegistryObject<AirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
-            () -> new NetheriteDivingGearItem(
+            () -> new NetheriteAirTankItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1),
-                    NetheriteGearRenderProperties.INSTANCE
-            )
+                            .stacksTo(1))
     );
 
     public static final RegistryObject<RebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_rebreather",
-            () -> new RebreatherItem(ArmorMaterials.IRON,
+            () -> new SteelRebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
-                            .stacksTo(1),
-                    SteelGearRenderProperties.INSTANCE
             )
     );
 
@@ -65,8 +60,7 @@ public class ItemInit
             () -> new RebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
-                            .stacksTo(1),
-                    NetheriteGearRenderProperties.INSTANCE
+                            .stacksTo(1)
             )
     );
 

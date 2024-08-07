@@ -1,9 +1,13 @@
 package destiny.secretsofthevoid.items;
 
+import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
@@ -15,12 +19,10 @@ import java.util.function.Consumer;
 public class AirTankItem extends ArmorItem implements IAirTank {
     public static final String STORED_OXYGEN = "storedOxygen";
     public static final String MAX_OXYGEN = "maxOxygen";
-    public IClientItemExtensions model;
 
-    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties, IClientItemExtensions model)
+    public AirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
-        this.model = model;
     }
 
     public static ItemStack getAirTank(AirTankItem item, double capacity)
@@ -30,12 +32,6 @@ public class AirTankItem extends ArmorItem implements IAirTank {
         item.setStoredOxygen(stack, capacity);
 
         return stack;
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer)
-    {
-        consumer.accept(model);
     }
 
     @Override
