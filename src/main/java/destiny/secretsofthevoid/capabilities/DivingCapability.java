@@ -49,21 +49,19 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         if(level.isClientSide() || level.getServer() == null)
             return;
 
-        if(isPlayerSurvival(player)) {
-            clientUpdate(level, player);
+        clientUpdate(level, player);
 
-            //Tank
-            calculateMaxOxygen(player);
-            calculateStoredOxygen(player);
-            refillTank(player);
-            calculateOxygenEfficiency(player);
+        //Tank
+        calculateMaxOxygen(player);
+        calculateStoredOxygen(player);
+        refillTank(player);
+        calculateOxygenEfficiency(player);
 
-            if (shouldConsumeOxygen(player))
-                consumeOxygen(level, player);
+        if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
+            consumeOxygen(level, player);
 
-            if (hasOxygen(player))
-                maxOutAirSupply(player);
-        }
+        if (hasOxygen(player))
+            maxOutAirSupply(player);
     }
 
     public boolean isPlayerSurvival(Player player) {
