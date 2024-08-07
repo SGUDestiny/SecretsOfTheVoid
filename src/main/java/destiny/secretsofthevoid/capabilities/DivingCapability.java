@@ -54,8 +54,9 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         //Tank
         calculateMaxOxygen(player);
         calculateStoredOxygen(player);
-        refillTank(player);
         calculateOxygenEfficiency(player);
+        calculateDepthEfficiency(player);
+        refillTank(player);
 
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
@@ -97,6 +98,14 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             if (getRefillSound() && player.getEyeInFluidType().canDrownIn(player)) {
                 setRefillSound(false);
             }
+        }
+    }
+
+    public void calculateDepthEfficiency(Player player) {
+        if (player.getY() < 64) {
+            double depth = (64 - player.getY()) * 0.025;
+
+            setOxygenEfficiency(getOxygenEfficiency() + depth);
         }
     }
 
