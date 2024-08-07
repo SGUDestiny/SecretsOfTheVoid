@@ -34,27 +34,33 @@ public class OxygenOverlay {
             oxygen = cap.getOxygen();
             maxOxygen = cap.getMaxOxygen();
 
+            boolean tankPresent = !cap.getEquipmentAirTank(player, null).isEmpty();
+
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
             double percentage = (oxygen / maxOxygen) * 100;
 
+            //If underwater, move gauge up to not overlap with vanilla oxygen meter
             if(!player.getEyeInFluidType().canDrownIn(player)) {
                 y += 9;
             }
 
             if (!player.isCreative() && !player.isSpectator()) {
-                if (oxygen > 0) {
+                if (tankPresent) {
                     for (int i = 0; i < 10; i++) {
                         //Render empty gauge first
                         OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
 
-                        if (percentage >= 10) {
-                            OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
-                        }
+                        //If tank not empty, render
+                        if (oxygen > 0) {
+                            if (percentage >= 10) {
+                                OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
+                            }
 
-                        if (percentage < 10 && percentage > 0) {
-                            OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                            if (percentage < 10 && percentage > 0) {
+                                OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                            }
                         }
 
                         percentage -= 10;

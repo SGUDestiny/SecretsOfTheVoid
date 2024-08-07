@@ -6,13 +6,8 @@ import destiny.secretsofthevoid.helper.IRebreather;
 import destiny.secretsofthevoid.init.NetworkInit;
 import destiny.secretsofthevoid.network.packets.SoundPackets;
 import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket;
-import net.minecraft.server.TickTask;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -54,38 +49,28 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         if(level.isClientSide() || level.getServer() == null)
             return;
 
-        clientUpdate(level, player);
+        if(isPlayerSurvival(player)) {
+            clientUpdate(level, player);
 
-        //Rebreather
-//        if(shouldCalculateRebreather(player)) {
-//            rebreatherExhaleSound(level, player);
-//        }
+            //Tank
+            calculateMaxOxygen(player);
+            calculateStoredOxygen(player);
+            refillTank(player);
+            calculateOxygenEfficiency(player);
 
-        //Tank
-        calculateMaxOxygen(player);
-        calculateStoredOxygen(player);
-        refillTank(player);
-        calculateOxygenEfficiency(player);
+            if (shouldConsumeOxygen(player))
+                consumeOxygen(level, player);
 
-        if(shouldConsumeOxygen(level, player))
-            consumeOxygen(level, player);
-        
-        if(hasOxygen(player))
-            maxOutAirSupply(player);
-        
+            if (hasOxygen(player))
+                maxOutAirSupply(player);
+        }
     }
 
-    public boolean shouldCalculateTank(Player player)
-    {
-        return !getEquipmentAirTank(player, null).isEmpty();
+    public boolean isPlayerSurvival(Player player) {
+        return !player.isCreative() && !player.isSpectator();
     }
 
-    public boolean shouldCalculateRebreather(Player player)
-    {
-        return !getEquipmentRebreather(player, null).isEmpty();
-    }
-
-    public boolean shouldConsumeOxygen(Level level, Player player)
+    public boolean shouldConsumeOxygen(Player player)
     {
         return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty();
     }
