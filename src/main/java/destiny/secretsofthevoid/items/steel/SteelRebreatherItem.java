@@ -35,6 +35,6 @@ public class SteelRebreatherItem extends RebreatherItem {
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
     {
-        return SecretsOfTheVoid.MODID + ":textures/item/armor/steel/steel_diving_gear";
+        return SecretsOfTheVoid.MODID + ":textures/item/armor/steel/steel_diving_gear.png";
     }
 }
