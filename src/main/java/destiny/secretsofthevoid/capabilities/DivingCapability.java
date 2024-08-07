@@ -103,7 +103,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public void calculateDepthEfficiency(Player player) {
         if (player.getY() < 64) {
-            double depth = (64 - player.getY()) * 0.015;
+            double depth = (64 - player.getY()) * 0.02;
 
             setOxygenEfficiency(getOxygenEfficiency() + depth);
         }
