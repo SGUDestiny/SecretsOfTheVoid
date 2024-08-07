@@ -2,6 +2,7 @@ package destiny.secretsofthevoid.items.steel;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.client.render.NetheriteGearRenderProperties;
+import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.items.AirTankItem;
 import destiny.secretsofthevoid.items.RebreatherItem;
 import net.minecraft.world.entity.Entity;
@@ -28,7 +29,7 @@ public class SteelRebreatherItem extends RebreatherItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer)
     {
-        consumer.accept(NetheriteGearRenderProperties.INSTANCE);
+        consumer.accept(SteelGearRenderProperties.INSTANCE);
     }
 
     @Override

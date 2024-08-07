@@ -2,6 +2,7 @@ package destiny.secretsofthevoid.items.steel;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.client.render.NetheriteGearRenderProperties;
+import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
 import destiny.secretsofthevoid.items.AirTankItem;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -27,7 +28,7 @@ public class SteelAirTankItem extends AirTankItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer)
     {
-        consumer.accept(NetheriteGearRenderProperties.INSTANCE);
+        consumer.accept(SteelGearRenderProperties.INSTANCE);
     }
 
     @Override
