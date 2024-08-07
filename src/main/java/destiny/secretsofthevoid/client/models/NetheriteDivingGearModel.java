@@ -13,7 +13,7 @@ public class NetheriteDivingGearModel extends GeoModel<NetheriteDivingGearItem> 
 
     @Override
     public ResourceLocation getTextureResource(NetheriteDivingGearItem animatable) {
-        return new ResourceLocation(SecretsOfTheVoid.MODID, "textures/armor/netherite/netherite_diving_gear.png");
+        return new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite/netherite_diving_gear.png");
     }
 
     @Override
