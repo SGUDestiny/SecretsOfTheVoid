@@ -13,6 +13,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket;
 import net.minecraft.server.TickTask;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -134,22 +135,22 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         if (exhaleTicker > 60)
         {
             NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherExhale(player.blockPosition()));
+
             exhaleTicker = -1;
-            bubbleTicker = 10;
+            bubbleTicker = 0;
         } else if (exhaleTicker >= 0) {
             exhaleTicker++;
         }
 
-        if (bubbleTicker > 40) {
+        if (bubbleTicker > 60) {
             bubbleTicker = -1;
-        } else if (bubbleTicker % 10 == 0) {
+        } else if (bubbleTicker >= 0) {
             double x = player.getEyePosition().x();
             double y = player.getEyePosition().y();
             double z = player.getEyePosition().z();
 
-            level.addParticle(ParticleTypes.BUBBLE, x, y, z, 0.0D, 0.2D, 0.0D);
-            NetworkInit.sendTo((ServerPlayer) player, new ClientboundLevelParticlesPacket(ParticleTypes.BUBBLE, false, x, y, z, 0.0F, 0.2F, 0.0F, 0.2F, 1));
-        } else if (bubbleTicker >= 0) {
+            ((ServerLevel) level).sendParticles(ParticleTypes.BUBBLE, x, y, z, 0, 0, 5, 0, 0.1D);
+
             bubbleTicker++;
         }
     }
