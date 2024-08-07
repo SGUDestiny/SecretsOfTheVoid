@@ -46,8 +46,8 @@ public class ItemTabInit
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
             event.accept(AirTankItem.getAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
-            event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.2));
-            event.accept(RebreatherItem.getRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.3));
+            event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.3));
+            event.accept(RebreatherItem.getRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.5));
         }
     }
 
