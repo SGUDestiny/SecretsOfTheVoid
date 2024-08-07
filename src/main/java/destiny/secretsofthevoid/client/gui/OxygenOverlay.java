@@ -35,6 +35,7 @@ public class OxygenOverlay {
             maxOxygen = cap.getMaxOxygen();
 
             boolean tankPresent = !cap.getEquipmentAirTank(player, null).isEmpty();
+            boolean isSurvival = cap.isPlayerSurvival(player);
 
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -46,25 +47,23 @@ public class OxygenOverlay {
                 y += 9;
             }
 
-            if (!player.isCreative() && !player.isSpectator()) {
-                if (tankPresent) {
-                    for (int i = 0; i < 10; i++) {
-                        //Render empty gauge first
-                        OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
+            if (isSurvival && tankPresent) {
+                for (int i = 0; i < 10; i++) {
+                    //Render empty gauge first
+                    OxygenOverlay.blitEmpty(poseStack, x + 82 - (i * 8), y - 59);
 
-                        //If tank not empty, render
-                        if (oxygen > 0) {
-                            if (percentage >= 10) {
-                                OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
-                            }
-
-                            if (percentage < 10 && percentage > 0) {
-                                OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
-                            }
+                    //If tank not empty, render
+                    if (oxygen > 0) {
+                        if (percentage >= 10) {
+                            OxygenOverlay.blitFull(poseStack, x + 82 - (i * 8), y - 59);
                         }
 
-                        percentage -= 10;
+                        if (percentage < 10 && percentage > 0) {
+                            OxygenOverlay.blitPartial(poseStack, x + 82 - (i * 8), y - 59);
+                        }
                     }
+
+                    percentage -= 10;
                 }
             }
         }
