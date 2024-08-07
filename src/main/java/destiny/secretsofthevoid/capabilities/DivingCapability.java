@@ -304,7 +304,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     }
     public void setOxygenEfficiency(double oxygenEfficiency)
     {
-        this.oxygenEfficiency = oxygenEfficiency;
+        this.oxygenEfficiency = Math.max(0, oxygenEfficiency);
     }
 
     public double getSpeedModifier()
