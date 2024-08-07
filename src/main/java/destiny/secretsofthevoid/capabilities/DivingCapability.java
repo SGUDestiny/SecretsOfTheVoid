@@ -126,7 +126,10 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
         if (inhaleTicker > 200) {
             tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (10 * getOxygenEfficiency())));
-            NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
+
+            if(!getEquipmentRebreather(player, null).isEmpty()) {
+                NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
+            }
 
             inhaleTicker = 0;
             exhaleTicker = 0;
