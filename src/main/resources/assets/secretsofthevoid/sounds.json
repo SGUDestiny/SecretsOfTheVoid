@@ -28,13 +28,19 @@
     },
     "disc_hadal": {
         "sounds": [
-            "secretsofthevoid:disc/hadal"
+            {
+                "name": "secretsofthevoid:disc_hadal",
+                "stream": true
+            }
         ],
         "subtitle": "sounds.secretsofthevoid.disc_hadal"
     },
     "disc_hadal_ambient": {
         "sounds": [
-            "secretsofthevoid:disc/hadal_ambient"
+            {
+                "name": "secretsofthevoid:disc_hadal_ambient",
+                "stream": true
+            }
         ],
         "subtitle": "sounds.secretsofthevoid.disc_hadal"
     }
