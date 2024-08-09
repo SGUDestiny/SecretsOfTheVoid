@@ -5,10 +5,7 @@ import destiny.secretsofthevoid.items.*;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
 import destiny.secretsofthevoid.items.steel.SteelAirTankItem;
 import destiny.secretsofthevoid.items.steel.SteelRebreatherItem;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterials;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -32,6 +29,22 @@ public class ItemInit
                             .stacksTo(1)
             )
     );
+
+    public static final RegistryObject<Item> HADAL_DISC = ITEMS.register("hadal_disc",
+            () -> new RecordItem(0, SoundInit.DISK_HADAL,
+                    new Item.Properties()
+                            .rarity(Rarity.EPIC)
+                            .stacksTo(1),
+                    7620
+            ));
+
+    public static final RegistryObject<Item> HADAL_DISC_AMBIENT = ITEMS.register("hadal_disc_ambient",
+            () -> new RecordItem(0, SoundInit.DISK_HADAL,
+                    new Item.Properties()
+                            .rarity(Rarity.EPIC)
+                            .stacksTo(1),
+                    7600
+            ));
     public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
             () -> new SteelAirTankItem(
                     ArmorMaterials.IRON,

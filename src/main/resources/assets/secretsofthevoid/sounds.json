@@ -25,5 +25,17 @@
             "secretsofthevoid:tank_refill_3"
         ],
         "subtitle": "sounds.secretsofthevoid.tank_refill"
+    },
+    "disc_hadal": {
+        "sounds": [
+            "secretsofthevoid:disc/CARAM4TH"
+        ],
+        "subtitle": "sounds.secretsofthevoid.disc_hadal"
+    },
+    "disc_hadal_ambient": {
+        "sounds": [
+            "secretsofthevoid:disc/CARAM4TH_AMB13NT"
+        ],
+        "subtitle": "sounds.secretsofthevoid.disc_hadal"
     }
 }

@@ -44,6 +44,8 @@ public class ItemTabInit
         {
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
+            event.accept(ItemInit.HADAL_DISC);
+            event.accept(ItemInit.HADAL_DISC_AMBIENT);
             event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
             event.accept(AirTankItem.getAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
             event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.3));
