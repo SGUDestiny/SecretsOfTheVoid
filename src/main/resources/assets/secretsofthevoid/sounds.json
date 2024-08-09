@@ -28,13 +28,13 @@
     },
     "disc_hadal": {
         "sounds": [
-            "secretsofthevoid:disc/CARAM4TH"
+            "secretsofthevoid:disc/hadal"
         ],
         "subtitle": "sounds.secretsofthevoid.disc_hadal"
     },
     "disc_hadal_ambient": {
         "sounds": [
-            "secretsofthevoid:disc/CARAM4TH_AMB13NT"
+            "secretsofthevoid:disc/hadal_ambient"
         ],
         "subtitle": "sounds.secretsofthevoid.disc_hadal"
     }
