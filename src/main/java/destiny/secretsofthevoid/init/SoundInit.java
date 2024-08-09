@@ -16,9 +16,9 @@ public class SoundInit {
 
     public static RegistryObject<SoundEvent> TANK_REFILL = registerSoundEvent("tank_refill");
 
-    public static RegistryObject<SoundEvent> DISK_HADAL = registerSoundEvent("disc/disc_hadal");
+    public static RegistryObject<SoundEvent> DISK_HADAL = registerSoundEvent("disc/hadal");
 
-    public static RegistryObject<SoundEvent> DISK_HADAL_AMBIENT = registerSoundEvent("disc/disc_hadal_ambient");
+    public static RegistryObject<SoundEvent> DISK_HADAL_AMBIENT = registerSoundEvent("disc/hadal_ambient");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String sound)
     {
