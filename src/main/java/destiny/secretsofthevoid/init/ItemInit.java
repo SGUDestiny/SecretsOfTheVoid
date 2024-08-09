@@ -30,7 +30,7 @@ public class ItemInit
             )
     );
 
-    public static final RegistryObject<Item> HADAL_DISC = ITEMS.register("hadal_disc",
+    public static final RegistryObject<Item> HADAL_DISC = ITEMS.register("disc_hadal",
             () -> new RecordItem(0, SoundInit.DISK_HADAL,
                     new Item.Properties()
                             .rarity(Rarity.EPIC)
@@ -38,7 +38,7 @@ public class ItemInit
                     7620
             ));
 
-    public static final RegistryObject<Item> HADAL_DISC_AMBIENT = ITEMS.register("hadal_disc_ambient",
+    public static final RegistryObject<Item> HADAL_DISC_AMBIENT = ITEMS.register("disc_hadal_ambient",
             () -> new RecordItem(0, SoundInit.DISK_HADAL,
                     new Item.Properties()
                             .rarity(Rarity.EPIC)
