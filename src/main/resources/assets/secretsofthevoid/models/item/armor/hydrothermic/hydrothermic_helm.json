@@ -1,0 +1,128 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "secretsofthevoid:item/armor/hydrothermic/hydrothermic_helm"
+	},
+	"elements": [
+		{
+			"from": [5, 22, 2],
+			"to": [11, 25, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 23.74375, 7.75625]},
+			"faces": {
+				"north": {"uv": [0.75, 0.75, 2.25, 1.5], "texture": "#0"},
+				"east": {"uv": [0, 0.75, 0.75, 1.5], "texture": "#0"},
+				"south": {"uv": [3, 0.75, 4.5, 1.5], "texture": "#0"},
+				"west": {"uv": [2.25, 0.75, 3, 1.5], "texture": "#0"},
+				"up": {"uv": [2.25, 0.75, 0.75, 0], "texture": "#0"},
+				"down": {"uv": [3.75, 0, 2.25, 0.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3, 23, 3],
+			"to": [5, 25, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 23.74375, 7.75625]},
+			"faces": {
+				"north": {"uv": [2, 7, 2.5, 7.5], "texture": "#0"},
+				"east": {"uv": [0, 7, 2, 7.5], "texture": "#0"},
+				"west": {"uv": [2.5, 7, 4.5, 7.5], "texture": "#0"},
+				"up": {"uv": [2.5, 7, 2, 5], "texture": "#0"},
+				"down": {"uv": [3, 5, 2.5, 7], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3, 23, 11],
+			"to": [13, 25, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 23.74375, 7.75625]},
+			"faces": {
+				"north": {"uv": [3, 2, 0.5, 2.5], "texture": "#0"},
+				"east": {"uv": [3.5, 2, 3, 2.5], "texture": "#0"},
+				"south": {"uv": [6, 2, 3.5, 2.5], "texture": "#0"},
+				"west": {"uv": [0.5, 2, 0, 2.5], "texture": "#0"},
+				"up": {"uv": [0.5, 2, 3, 1.5], "texture": "#0"},
+				"down": {"uv": [3, 1.5, 5.5, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [11, 23, 3],
+			"to": [13, 25, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 23.74375, 7.75625]},
+			"faces": {
+				"north": {"uv": [2, 4.5, 2.5, 5], "texture": "#0"},
+				"east": {"uv": [0, 4.5, 2, 5], "texture": "#0"},
+				"west": {"uv": [2.5, 4.5, 4.5, 5], "texture": "#0"},
+				"up": {"uv": [2.5, 4.5, 2, 2.5], "texture": "#0"},
+				"down": {"uv": [3, 2.5, 2.5, 4.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [2, 24, 6],
+			"to": [5, 30, 10],
+			"faces": {
+				"north": {"uv": [1, 9.75, 1.75, 11.25], "texture": "#0"},
+				"east": {"uv": [0, 9.75, 1, 11.25], "texture": "#0"},
+				"south": {"uv": [2.75, 9.75, 3.5, 11.25], "texture": "#0"},
+				"west": {"uv": [1.75, 9.75, 2.75, 11.25], "texture": "#0"},
+				"up": {"uv": [1.75, 9.75, 1, 8.75], "texture": "#0"},
+				"down": {"uv": [2.5, 8.75, 1.75, 9.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [11, 24, 6],
+			"to": [14, 30, 10],
+			"faces": {
+				"north": {"uv": [1, 12.25, 1.75, 13.75], "texture": "#0"},
+				"east": {"uv": [0, 12.25, 1, 13.75], "texture": "#0"},
+				"south": {"uv": [2.75, 12.25, 3.5, 13.75], "texture": "#0"},
+				"west": {"uv": [1.75, 12.25, 2.75, 13.75], "texture": "#0"},
+				"up": {"uv": [1.75, 12.25, 1, 11.25], "texture": "#0"},
+				"down": {"uv": [2.5, 11.25, 1.75, 12.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 25, 3],
+			"to": [11, 29, 4],
+			"faces": {
+				"north": {"uv": [0.25, 7.75, 1.75, 8.75], "texture": "#0"},
+				"east": {"uv": [0, 7.75, 0.25, 8.75], "texture": "#0"},
+				"south": {"uv": [2, 7.75, 3.5, 8.75], "texture": "#0"},
+				"west": {"uv": [1.75, 7.75, 2, 8.75], "texture": "#0"},
+				"up": {"uv": [1.75, 7.75, 0.25, 7.5], "texture": "#0"},
+				"down": {"uv": [3.25, 7.5, 1.75, 7.75], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -8, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -8, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"translation": [-1, -5.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"translation": [-1, -5.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, -9.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [17, 149, 0],
+			"translation": [0, -15, 0]
+		},
+		"head": {
+			"translation": [0, -8.5, 0]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0.5, 16]
+		}
+	}
+}

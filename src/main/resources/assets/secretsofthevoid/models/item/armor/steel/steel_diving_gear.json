@@ -92,8 +92,8 @@
 		},
 		{
 			"name": "strap_body",
-			"from": [3.75, 11.75, 5.75],
-			"to": [12.25, 24.25, 10.25],
+			"from": [4, 12, 6],
+			"to": [12, 24, 10],
 			"rotation": {"angle": 0, "axis": "y", "origin": [4, 12, 6]},
 			"faces": {
 				"north": {"uv": [1, 11, 3, 14], "texture": "#0"},
@@ -106,8 +106,8 @@
 		},
 		{
 			"name": "strap_tank",
-			"from": [5.25, 11.75, 9.75],
-			"to": [10.75, 23.25, 15.25],
+			"from": [5.5, 12, 10],
+			"to": [10.5, 23, 15],
 			"rotation": {"angle": 0, "axis": "y", "origin": [3, 14, 10]},
 			"faces": {
 				"north": {"uv": [1.25, 8.5, 2.5, 11.25], "texture": "#0"},
@@ -120,9 +120,9 @@
 		},
 		{
 			"name": "flipper",
-			"from": [6, 0, -2],
-			"to": [14, 0, 6],
-			"rotation": {"angle": 0, "axis": "y", "origin": [14, 0, -1]},
+			"from": [5.9, 0, -2],
+			"to": [13.9, 0, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [13.9, 0, -1]},
 			"faces": {
 				"north": {"uv": [8, 13.5, 6, 13.5], "texture": "#0"},
 				"east": {"uv": [10, 13.5, 8, 13.5], "texture": "#0"},
@@ -134,9 +134,9 @@
 		},
 		{
 			"name": "boot_layer",
-			"from": [7.725, -0.275, 5.725],
-			"to": [12.275, 1.275, 10.275],
-			"rotation": {"angle": 0, "axis": "y", "origin": [12, 0, 6]},
+			"from": [7.9, 0, 6],
+			"to": [11.9, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11.9, 0, 6]},
 			"faces": {
 				"north": {"uv": [8, 15.75, 7, 16], "texture": "#0"},
 				"east": {"uv": [9, 15.75, 8, 16], "texture": "#0"},
@@ -148,9 +148,9 @@
 		},
 		{
 			"name": "boot",
-			"from": [7.875, -0.025, 5.975],
-			"to": [12.025, 1.025, 10.025],
-			"rotation": {"angle": 0, "axis": "y", "origin": [12, 0, 6]},
+			"from": [7.9, 0, 6],
+			"to": [11.9, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11.9, 0, 6]},
 			"faces": {
 				"north": {"uv": [8, 14.5, 7, 14.75], "texture": "#0"},
 				"east": {"uv": [9, 14.5, 8, 14.75], "texture": "#0"},
@@ -162,9 +162,9 @@
 		},
 		{
 			"name": "flipper",
-			"from": [2, 0, -2],
-			"to": [10, 0, 6],
-			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, -1]},
+			"from": [2.1, 0, -2],
+			"to": [10.1, 0, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2.1, 0, -1]},
 			"faces": {
 				"north": {"uv": [6, 13.5, 8, 13.5], "texture": "#0"},
 				"east": {"uv": [4, 13.5, 6, 13.5], "texture": "#0"},
@@ -176,9 +176,9 @@
 		},
 		{
 			"name": "boot_layer",
-			"from": [3.725, -0.275, 5.725],
-			"to": [8.275, 1.275, 10.275],
-			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 6]},
+			"from": [4.1, 0, 6],
+			"to": [8.1, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4.1, 0, 6]},
 			"faces": {
 				"north": {"uv": [7, 15.75, 8, 16], "texture": "#0"},
 				"east": {"uv": [6, 15.75, 7, 16], "texture": "#0"},
@@ -190,9 +190,9 @@
 		},
 		{
 			"name": "boot",
-			"from": [3.975, -0.025, 5.975],
-			"to": [8.125, 1.025, 10.025],
-			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 6]},
+			"from": [4.1, 0, 6],
+			"to": [8.1, 1, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4.1, 0, 6]},
 			"faces": {
 				"north": {"uv": [7, 14.5, 8, 14.75], "texture": "#0"},
 				"east": {"uv": [6, 14.5, 7, 14.75], "texture": "#0"},
