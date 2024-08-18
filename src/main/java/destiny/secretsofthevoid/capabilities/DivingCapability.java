@@ -2,6 +2,7 @@ package destiny.secretsofthevoid.capabilities;
 
 import com.mojang.datafixers.util.Pair;
 import destiny.secretsofthevoid.helper.IAirTank;
+import destiny.secretsofthevoid.helper.IFlippers;
 import destiny.secretsofthevoid.helper.IRebreather;
 import destiny.secretsofthevoid.init.NetworkInit;
 import destiny.secretsofthevoid.network.packets.SoundPackets;
@@ -10,6 +11,8 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.ai.attributes.AttributeMap;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -57,6 +60,9 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         calculateOxygenEfficiency(player);
         calculateDepthEfficiency(player);
         refillTank(player);
+
+        //Flippers
+        calculateSpeedModifier(player);
 
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
@@ -196,6 +202,26 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             fillTanks(getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst()))), storedOxygen);
         }
     }
+
+    public void calculateSpeedModifier(Player player) {
+        double speedModifier = 0.0D;
+        List<Pair<ItemStack, IFlippers>> flippers = getEquipmentFlippers(player, null);
+        for(Pair<ItemStack, IFlippers> flipper : flippers)
+        {
+            ItemStack stack = flipper.getFirst();
+            IFlippers flip = flipper.getSecond();
+
+            speedModifier += flip.getSpeedModifier(stack);
+        }
+
+        setSpeedModifier(speedModifier);
+
+        if(player.getEyeInFluidType().canDrownIn(player)){
+            player.setSpeed(player.getSpeed() * (1 + (float) getSpeedModifier()));
+        } else {
+            player.setSpeed(player.getSpeed() * (1 - (float) getSpeedModifier()));
+        }
+    }
     
     public void calculateOxygenEfficiency(Player player)
     {
@@ -231,8 +257,22 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         List<Pair<ItemStack, IRebreather>> equipmentList = new ArrayList<>();
         for (ItemStack stack : player.getArmorSlots())
         {
-            if (stack.getItem() instanceof IRebreather tank)
-                equipmentList.add(new Pair<>(stack, tank));
+            if (stack.getItem() instanceof IRebreather rebreather)
+                equipmentList.add(new Pair<>(stack, rebreather));
+        }
+
+        if (comparator != null) return equipmentList.stream().sorted(comparator).toList();
+
+        return equipmentList;
+    }
+
+    public List<Pair<ItemStack, IFlippers>> getEquipmentFlippers(Player player, @Nullable Comparator<Pair<ItemStack, IFlippers>> comparator)
+    {
+        List<Pair<ItemStack, IFlippers>> equipmentList = new ArrayList<>();
+        for (ItemStack stack : player.getArmorSlots())
+        {
+            if (stack.getItem() instanceof IFlippers flippers)
+                equipmentList.add(new Pair<>(stack, flippers));
         }
 
         if (comparator != null) return equipmentList.stream().sorted(comparator).toList();

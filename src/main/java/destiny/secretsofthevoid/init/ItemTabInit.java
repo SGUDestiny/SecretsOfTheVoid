@@ -46,7 +46,7 @@ public class ItemTabInit
 
             event.accept(ItemHelper.makeRebreather(ItemInit.STEEL_REBREATHER.get(), 0.2));
             event.accept(ItemHelper.makeAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
-            event.accept(ItemHelper.makeFlipperss(ItemInit.STEEL_FLIPPERS.get(), 0.1, 0.2));
+            event.accept(ItemHelper.makeFlipperss(ItemInit.STEEL_FLIPPERS.get(), 0.1, 2.0));
 
             event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_REBREATHER.get(), 0.5));
             event.accept(ItemHelper.makeAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
