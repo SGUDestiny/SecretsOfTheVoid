@@ -1,13 +1,10 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.items.AirTankItem;
-import destiny.secretsofthevoid.items.RebreatherItem;
-import net.minecraft.ChatFormatting;
+import destiny.secretsofthevoid.helper.ItemHelper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -46,10 +43,8 @@ public class ItemTabInit
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(ItemInit.DISC_HADAL);
             event.accept(ItemInit.DISC_HADAL_AMBIENT);
-            event.accept(AirTankItem.getAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
-            event.accept(AirTankItem.getAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
-            event.accept(RebreatherItem.getRebreather(ItemInit.STEEL_REBREATHER.get(), 0.3));
-            event.accept(RebreatherItem.getRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.5));
+            event.accept(ItemHelper.makeAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
+            event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.5f));
         }
     }
 

@@ -3,8 +3,7 @@ package destiny.secretsofthevoid.init;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.items.*;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
-import destiny.secretsofthevoid.items.steel.SteelAirTankItem;
-import destiny.secretsofthevoid.items.steel.SteelRebreatherItem;
+import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -45,16 +44,8 @@ public class ItemInit
                             .stacksTo(1),
                     7600
             ));
-    public static final RegistryObject<AirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
-            () -> new SteelAirTankItem(
-                    ArmorMaterials.IRON,
-                    ArmorItem.Type.CHESTPLATE,
-                    new Item.Properties()
-                            .stacksTo(1)
-            )
-    );
 
-    public static final RegistryObject<AirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
+    public static final RegistryObject<NetheriteAirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
             () -> new NetheriteAirTankItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
@@ -62,15 +53,8 @@ public class ItemInit
                             .stacksTo(1))
     );
 
-    public static final RegistryObject<RebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_rebreather",
-            () -> new SteelRebreatherItem(ArmorMaterials.IRON,
-                    ArmorItem.Type.HELMET,
-                    new Item.Properties()
-            )
-    );
-
-    public static final RegistryObject<RebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
-            () -> new RebreatherItem(ArmorMaterials.IRON,
+    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
+            () -> new NetheriteRebreatherItem(ArmorMaterials.IRON,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
