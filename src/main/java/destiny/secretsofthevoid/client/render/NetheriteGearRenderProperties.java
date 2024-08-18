@@ -9,7 +9,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 public class NetheriteGearRenderProperties implements IClientItemExtensions
 {
     public static final NetheriteGearRenderProperties INSTANCE = new NetheriteGearRenderProperties();
-    private NetheriteDivingGearRenderer renderer;
+    private NetheriteGearRenderer renderer;
 
     public NetheriteGearRenderProperties()
     {
@@ -19,7 +19,7 @@ public class NetheriteGearRenderProperties implements IClientItemExtensions
     @Override
     public HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
         if(this.renderer == null)
-            this.renderer = new NetheriteDivingGearRenderer();
+            this.renderer = new NetheriteGearRenderer();
 
         this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
         return this.renderer;

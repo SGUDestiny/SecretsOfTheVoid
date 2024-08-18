@@ -1,16 +1,12 @@
 package destiny.secretsofthevoid.client.models;
 
 import com.google.common.collect.ImmutableList;
-import destiny.secretsofthevoid.client.Layers;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -92,12 +88,4 @@ public class SteelGearModel extends HumanoidModel<LivingEntity>
     {
         return ImmutableList.of();
     }
-
-    @SubscribeEvent
-    public static void bakeModelLayers(EntityRenderersEvent.AddLayers event)
-    {
-        EntityModelSet entityModelSet = event.getEntityModels();
-        INSTANCE = new SteelGearModel(entityModelSet.bakeLayer(Layers.STEEL_GEAR));
-    }
-
 }

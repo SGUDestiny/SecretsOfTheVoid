@@ -1,6 +1,5 @@
 package destiny.secretsofthevoid;
 
-import destiny.secretsofthevoid.client.Layers;
 import destiny.secretsofthevoid.client.gui.OxygenOverlay;
 import destiny.secretsofthevoid.init.ItemInit;
 import destiny.secretsofthevoid.init.ItemTabInit;
@@ -25,7 +24,6 @@ public class SecretsOfTheVoid {
     {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(this::commonSetup);
-        modBus.addListener(Layers::registerLayers);
         MinecraftForge.EVENT_BUS.register(this);
 
         ItemInit.register(modBus);

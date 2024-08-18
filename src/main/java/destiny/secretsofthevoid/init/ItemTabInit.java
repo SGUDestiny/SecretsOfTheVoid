@@ -43,8 +43,10 @@ public class ItemTabInit
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(ItemInit.DISC_HADAL);
             event.accept(ItemInit.DISC_HADAL_AMBIENT);
+
+            event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.5));
             event.accept(ItemHelper.makeAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
-            event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_SCUBA.get(), 0.5f));
+            event.accept(ItemHelper.makeFlipperss(ItemInit.NETHERITE_FLIPPERS.get(), 0.2, 0.3));
         }
     }
 

@@ -13,7 +13,7 @@ public class ItemHelper
     public static final String SPEED_MODIFIER = "speedModifier";
 
     public static  <T extends Item & IAirTank> ItemStack makeAirTank
-        (T item, float maxOxygen, float storedOxygen)
+        (T item, double maxOxygen, double storedOxygen)
     {
         ItemStack stack = new ItemStack(item);
         item.setMaxOxygen(stack, maxOxygen);
@@ -23,7 +23,7 @@ public class ItemHelper
     }
 
     public static  <T extends Item & IAirTank> ItemStack makeAirTank
-            (T item, float maxOxygen)
+            (T item, double maxOxygen)
     {
         ItemStack stack = new ItemStack(item);
         item.setMaxOxygen(stack, maxOxygen);
@@ -33,7 +33,7 @@ public class ItemHelper
     }
 
     public static  <T extends Item & IRebreather> ItemStack makeRebreather
-            (T item, float oxygenEfficiency)
+            (T item, double oxygenEfficiency)
     {
         ItemStack stack = new ItemStack(item);
         item.setOxygenEfficiency(stack, oxygenEfficiency);
@@ -42,7 +42,7 @@ public class ItemHelper
     }
 
     public static  <T extends Item & IFlippers> ItemStack makeFlipperss
-            (T item, float sinkingModifier, float speedModifier)
+            (T item, double sinkingModifier, double speedModifier)
     {
         ItemStack stack = new ItemStack(item);
         item.setSinkingModifier(stack, sinkingModifier);

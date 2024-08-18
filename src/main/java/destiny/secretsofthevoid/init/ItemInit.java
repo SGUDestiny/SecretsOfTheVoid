@@ -3,6 +3,7 @@ package destiny.secretsofthevoid.init;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.items.*;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
+import destiny.secretsofthevoid.items.netherite.NetheriteFlippersItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -45,6 +46,14 @@ public class ItemInit
                     7600
             ));
 
+    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
+            () -> new NetheriteRebreatherItem(ArmorMaterials.IRON,
+                    ArmorItem.Type.HELMET,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+
     public static final RegistryObject<NetheriteAirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
             () -> new NetheriteAirTankItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
@@ -53,9 +62,10 @@ public class ItemInit
                             .stacksTo(1))
     );
 
-    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
-            () -> new NetheriteRebreatherItem(ArmorMaterials.IRON,
-                    ArmorItem.Type.HELMET,
+    public static final RegistryObject<NetheriteFlippersItem> NETHERITE_FLIPPERS = ITEMS.register("armor/netherite/netherite_flipper_boots",
+            () -> new NetheriteFlippersItem(
+                    ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
+                    ArmorItem.Type.BOOTS,
                     new Item.Properties()
                             .stacksTo(1)
             )
