@@ -28,8 +28,8 @@ public enum ArmorMaterialsInit implements ArmorMaterial {
         p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 10, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.5F, 0.1F, () -> {
-        return Ingredient.of(Items.NETHERITE_INGOT);
+    }), 10, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
+        return Ingredient.of(Items.IRON_INGOT);
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);

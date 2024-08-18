@@ -10,6 +10,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 public class SteelGearRenderProperties implements IClientItemExtensions
 {
     public static final SteelGearRenderProperties INSTANCE = new SteelGearRenderProperties();
+    private SteelGearRenderer renderer;
 
     public SteelGearRenderProperties()
     {
@@ -18,6 +19,10 @@ public class SteelGearRenderProperties implements IClientItemExtensions
 
     @Override
     public HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-        return SteelGearModel.INSTANCE;
+        if(this.renderer == null)
+            this.renderer = new SteelGearRenderer();
+
+        this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
+        return this.renderer;
     }
 }

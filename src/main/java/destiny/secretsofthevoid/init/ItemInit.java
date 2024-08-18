@@ -5,6 +5,9 @@ import destiny.secretsofthevoid.items.*;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteFlippersItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
+import destiny.secretsofthevoid.items.steel.SteelAirTankItem;
+import destiny.secretsofthevoid.items.steel.SteelFlippersItem;
+import destiny.secretsofthevoid.items.steel.SteelRebreatherItem;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -46,14 +49,38 @@ public class ItemInit
                     7600
             ));
 
-    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
-            () -> new NetheriteRebreatherItem(ArmorMaterials.IRON,
+    public static final RegistryObject<SteelRebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_rebreather",
+            () -> new SteelRebreatherItem(
+                    ArmorMaterialsInit.STEEL_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
             )
     );
+    public static final RegistryObject<SteelAirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
+            () -> new SteelAirTankItem(
+                    ArmorMaterialsInit.STEEL_DIVING_GEAR,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()
+                            .stacksTo(1))
+    );
+    public static final RegistryObject<SteelFlippersItem> STEEL_FLIPPERS = ITEMS.register("armor/steel/steel_flippers",
+            () -> new SteelFlippersItem(
+                    ArmorMaterialsInit.STEEL_DIVING_GEAR,
+                    ArmorItem.Type.BOOTS,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
 
+    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_REBREATHER = ITEMS.register("armor/netherite/netherite_scuba",
+            () -> new NetheriteRebreatherItem(
+                    ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
+                    ArmorItem.Type.HELMET,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
     public static final RegistryObject<NetheriteAirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
             () -> new NetheriteAirTankItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
@@ -61,7 +88,6 @@ public class ItemInit
                     new Item.Properties()
                             .stacksTo(1))
     );
-
     public static final RegistryObject<NetheriteFlippersItem> NETHERITE_FLIPPERS = ITEMS.register("armor/netherite/netherite_flipper_boots",
             () -> new NetheriteFlippersItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
