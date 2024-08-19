@@ -10,7 +10,7 @@ public class ItemHelper
     public static final String MAX_OXYGEN = "maxOxygen";
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
     public static final String SINKING_MODIFIER = "sinkingModifier";
-    public static final String SPEED_MODIFIER = "speedModifier";
+    public static final String SWIMMING_SPEED = "swimmingSpeed";
 
     public static  <T extends Item & IAirTank> ItemStack makeAirTank
         (T item, double maxOxygen, double storedOxygen)
@@ -42,11 +42,10 @@ public class ItemHelper
     }
 
     public static  <T extends Item & IFlippers> ItemStack makeFlipperss
-            (T item, double sinkingModifier, double speedModifier)
+            (T item, double swimmingSpeed)
     {
         ItemStack stack = new ItemStack(item);
-        item.setSinkingModifier(stack, sinkingModifier);
-        item.setSpeedModifier(stack, speedModifier);
+        item.setSwimmingSpeed(stack, swimmingSpeed);
 
         return stack;
     }

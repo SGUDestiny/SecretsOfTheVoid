@@ -26,15 +26,13 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public static final String OXYGEN = "oxygen";
     public static final String MAX_OXYGEN = "maxOxygen";
     public static final String OXYGEN_EFFICIENCY = "oxygenEfficiency";
-    public static final String SPEED_MODIFIER = "speedModifier";
-    public static final String SINKING_MODIFIER = "sinkingModifier";
+    public static final String SWIMMING_SPEED = "swimmingSpeed";
     public static final String REFILL_SOUND = "refillSound";
 
     public double oxygen = 0.0;
     public double maxOxygen = 0.0;
     public double oxygenEfficiency = 0.0;
-    public double speedModifier = 0.0;
-    public double sinkingModifier = 0.0;
+    public double swimmingSpeed = 0.0;
     public boolean refillSound = false;
     public int inhaleTicker = 0;
     public int exhaleTicker = -1;
@@ -58,9 +56,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         calculateOxygenEfficiency(player);
         calculateDepthEfficiency(player);
         refillTank(player);
-
-        //Flippers
-        //calculateSpeedModifier(player);
 
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
@@ -200,26 +195,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             fillTanks(getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst()))), storedOxygen);
         }
     }
-
-    public void calculateSpeedModifier(Player player) {
-        double speedModifier = 0.0D;
-        List<Pair<ItemStack, IFlippers>> flippers = getEquipmentFlippers(player, null);
-        for(Pair<ItemStack, IFlippers> flipper : flippers)
-        {
-            ItemStack stack = flipper.getFirst();
-            IFlippers flip = flipper.getSecond();
-
-            speedModifier += flip.getSpeedModifier(stack);
-        }
-
-        setSpeedModifier(speedModifier);
-
-        if(player.getEyeInFluidType().canDrownIn(player)){
-            player.setSpeed(player.getSpeed() * (1 + (float) getSpeedModifier()));
-        } else {
-            player.setSpeed(player.getSpeed() * (1 - (float) getSpeedModifier()));
-        }
-    }
     
     public void calculateOxygenEfficiency(Player player)
     {
@@ -300,8 +275,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         tag.putDouble(OXYGEN, oxygen);
         tag.putDouble(MAX_OXYGEN, maxOxygen);
         tag.putDouble(OXYGEN_EFFICIENCY, oxygenEfficiency);
-        tag.putDouble(SPEED_MODIFIER, speedModifier);
-        tag.putDouble(SINKING_MODIFIER, sinkingModifier);
+        tag.putDouble(SWIMMING_SPEED, swimmingSpeed);
         tag.putBoolean(REFILL_SOUND, refillSound);
 
         return tag;
@@ -313,8 +287,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         this.oxygen = tag.getDouble(OXYGEN);
         this.maxOxygen = tag.getDouble(MAX_OXYGEN);
         this.oxygenEfficiency = tag.getDouble(OXYGEN_EFFICIENCY);
-        this.speedModifier = tag.getDouble(SPEED_MODIFIER);
-        this.sinkingModifier = tag.getDouble(SINKING_MODIFIER);
+        this.swimmingSpeed = tag.getDouble(SWIMMING_SPEED);
         this.refillSound = tag.getBoolean(REFILL_SOUND);
     }
 
@@ -345,22 +318,13 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         this.oxygenEfficiency = Math.max(0.1, oxygenEfficiency);
     }
 
-    public double getSpeedModifier()
+    public double getSwimmingSpeed()
     {
-        return speedModifier;
+        return swimmingSpeed;
     }
-    public void setSpeedModifier(double speedModifier)
+    public void setSwimmingSpeed(double swimmingSpeed)
     {
-        this.speedModifier = speedModifier;
-    }
-
-    public double getSinkingModifier()
-    {
-        return sinkingModifier;
-    }
-    public void setSinkingModifier(double sinkingModifier)
-    {
-        this.sinkingModifier = sinkingModifier;
+        this.swimmingSpeed = swimmingSpeed;
     }
 
     public void setRefillSound(boolean refillSound) {
