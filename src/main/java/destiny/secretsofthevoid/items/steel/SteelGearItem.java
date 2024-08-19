@@ -1,9 +1,14 @@
 package destiny.secretsofthevoid.items.steel;
 
+import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.client.render.SteelGearRenderProperties;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
@@ -21,11 +26,16 @@ public class SteelGearItem extends ArmorItem implements GeoItem {
         super(pMaterial, pType, pProperties);
     }
 
-
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer)
     {
         consumer.accept(SteelGearRenderProperties.INSTANCE);
+    }
+
+    @Override
+    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
+    {
+        return SecretsOfTheVoid.MODID + ":textures/item/armor/steel/steel_diving_gear.png";
     }
 
     @Override

@@ -12,4 +12,10 @@ public class NetheriteGearRenderer extends GeoArmorRenderer<NetheriteGearItem> {
     public NetheriteGearRenderer() {
         super(new NetheriteGearModel());
     }
+
+    @Override
+    public RenderType getRenderType(NetheriteGearItem animatable, ResourceLocation texture, @Nullable MultiBufferSource bufferSource, float partialTick)
+    {
+        return RenderType.entityTranslucent(texture);
+    }
 }

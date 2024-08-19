@@ -11,8 +11,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -62,7 +60,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         refillTank(player);
 
         //Flippers
-        calculateSpeedModifier(player);
+        //calculateSpeedModifier(player);
 
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
