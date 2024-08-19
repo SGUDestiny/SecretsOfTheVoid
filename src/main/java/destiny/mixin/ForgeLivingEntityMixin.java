@@ -16,7 +16,7 @@ public abstract class ForgeLivingEntityMixin
 {
     @Shadow public abstract LivingEntity self();
 
-    @Inject(method = "sinkInFluid(Lnet/minecraftforge/fluids/FluidType;)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "sinkInFluid(Lnet/minecraftforge/fluids/FluidType;)V", at = @At("HEAD"), cancellable = true, remap = false)
     public void dontSinkWithFlippers(FluidType type, CallbackInfo ci)
     {
         if(self() instanceof Player player)
