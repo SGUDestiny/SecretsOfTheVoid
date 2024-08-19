@@ -3,15 +3,15 @@
 	"category": "misc",
 	"pattern":
 	[
-		"TIT",
-		"T T",
-		"TFT"
+		"   ",
+		" G ",
+		"NRN"
 	],
 	"key":
 	{
-		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"T": { "item": "secretsofthevoid:steel_tube" },
-		"F": { "item": "secretsofthevoid:steel_filter" }
+		"R": { "item": "secretsofthevoid:armor/steel/steel_respirator"},
+		"N": { "item": "minecraft:netherite_ingot" },
+		"G": { "item": "minecraft:tinted_glass" }
 	},
 	"result": { "item": "secretsofthevoid:armor/netherite/netherite_scuba", "count": 1 }
 }

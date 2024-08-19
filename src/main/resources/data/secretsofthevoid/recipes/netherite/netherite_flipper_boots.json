@@ -4,13 +4,13 @@
 	"pattern":
 	[
 		"   ",
-		"I I",
-		"K K"
+		"   ",
+		"NFN"
 	],
 	"key":
 	{
-		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"K": { "item": "minecraft:dried_kelp" }
+		"F": { "item": "secretsofthevoid:armor/steel/steel_flippers"},
+		"N": { "item": "minecraft:netherite_ingot" }
 	},
 	"result": { "item": "secretsofthevoid:armor/netherite/netherite_flipper_boots", "count": 1 }
 }
