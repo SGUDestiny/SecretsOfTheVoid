@@ -9,7 +9,7 @@
 	],
 	"key":
 	{
-		"R": { "item": "secretsofthevoid:armor/steel/steel_respirator"},
+		"R": { "item": "secretsofthevoid:armor/steel/steel_rebreather"},
 		"N": { "item": "minecraft:netherite_ingot" },
 		"G": { "item": "minecraft:tinted_glass" }
 	},
