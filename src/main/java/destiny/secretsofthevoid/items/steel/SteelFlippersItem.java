@@ -20,8 +20,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.UUID;
 
-import static destiny.secretsofthevoid.helper.ItemHelper.SINKING_MODIFIER;
-import static destiny.secretsofthevoid.helper.ItemHelper.SPEED_MODIFIER;
+import static destiny.secretsofthevoid.helper.ItemHelper.*;
 
 public class SteelFlippersItem extends SteelGearItem implements IFlippers {
     private static final EnumMap<Type, UUID> ARMOR_MODIFIER_UUID_PER_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266744_) -> {
@@ -49,8 +48,8 @@ public class SteelFlippersItem extends SteelGearItem implements IFlippers {
             {
                 builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", (double) this.knockbackResistance, AttributeModifier.Operation.ADDITION));
             }
-            builder.put(ForgeMod.SWIM_SPEED.get(), new AttributeModifier(uuid, "Swimming speed", this.getSpeedModifier(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
-            builder.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "Walking speed", -this.getSpeedModifier(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
+            builder.put(ForgeMod.SWIM_SPEED.get(), new AttributeModifier(uuid, "Swimming speed", this.getSwimmingSpeed(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
+            builder.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "Walking speed", -this.getSwimmingSpeed(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
             
             return builder.build();
         }
@@ -58,35 +57,19 @@ public class SteelFlippersItem extends SteelGearItem implements IFlippers {
     }
 
     @Override
-    public double getSpeedModifier(ItemStack stack)
+    public double getSwimmingSpeed(ItemStack stack)
     {
-        if(stack.getTag() != null && stack.getTag().contains(SPEED_MODIFIER))
-            return stack.getTag().getDouble(SPEED_MODIFIER);
+        if(stack.getTag() != null && stack.getTag().contains(SWIMMING_SPEED))
+            return stack.getTag().getDouble(SWIMMING_SPEED);
         else return 1D;
     }
 
     @Override
-    public void setSpeedModifier(ItemStack stack, double speedModifier)
+    public void setSwimmingSpeed(ItemStack stack, double swimmingSpeed)
     {
         if(stack.getTag() != null)
-            stack.getTag().putDouble(SPEED_MODIFIER, speedModifier);
-        else stack.getOrCreateTag().putDouble(SPEED_MODIFIER, speedModifier);
-    }
-
-    @Override
-    public double getSinkingModifier(ItemStack stack)
-    {
-        if(stack.getTag() != null && stack.getTag().contains(SINKING_MODIFIER))
-            return stack.getTag().getDouble(SINKING_MODIFIER);
-        else return 1D;
-    }
-
-    @Override
-    public void setSinkingModifier(ItemStack stack, double sinkingModifier)
-    {
-        if(stack.getTag() != null)
-            stack.getTag().putDouble(SINKING_MODIFIER, sinkingModifier);
-        else stack.getOrCreateTag().putDouble(SINKING_MODIFIER, sinkingModifier);
+            stack.getTag().putDouble(SWIMMING_SPEED, swimmingSpeed);
+        else stack.getOrCreateTag().putDouble(SWIMMING_SPEED, swimmingSpeed);
     }
 
     @Override
@@ -94,10 +77,9 @@ public class SteelFlippersItem extends SteelGearItem implements IFlippers {
     {
         if(!stack.getTag().isEmpty()) {
             MutableComponent sinking = Component.translatable("tooltip.secretsofthevoid.flippers_sinking").withStyle(ChatFormatting.BLUE);
-            sinking.append(Component.literal(getSinkingModifier(stack) + "").withStyle(ChatFormatting.BLUE));
 
             MutableComponent speed = Component.translatable("tooltip.secretsofthevoid.flippers_speed").withStyle(ChatFormatting.BLUE);
-            speed.append(Component.literal(getSpeedModifier(stack) + "").withStyle(ChatFormatting.BLUE));
+            speed.append(Component.literal(getSwimmingSpeed(stack) + "").withStyle(ChatFormatting.BLUE));
 
             components.add(sinking);
             components.add(speed);

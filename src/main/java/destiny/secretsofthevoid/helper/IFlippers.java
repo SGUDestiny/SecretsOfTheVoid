@@ -4,9 +4,6 @@ import net.minecraft.world.item.ItemStack;
 
 public interface IFlippers
 {
-    double getSpeedModifier(ItemStack stack);
-    void setSpeedModifier(ItemStack stack, double speedModifier);
-
-    double getSinkingModifier(ItemStack stack);
-    void setSinkingModifier(ItemStack stack, double sinkingModifier);
+    double getSwimmingSpeed(ItemStack stack);
+    void setSwimmingSpeed(ItemStack stack, double swimmingSpeed);
 }
