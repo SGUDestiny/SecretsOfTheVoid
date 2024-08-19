@@ -39,6 +39,8 @@ public class ItemTabInit
     {
         if (event.getTabKey() == MAIN.getKey())
         {
+            event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);
+
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(ItemInit.DISC_HADAL);

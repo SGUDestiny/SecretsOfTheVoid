@@ -1,10 +1,7 @@
 package destiny.secretsofthevoid;
 
 import destiny.secretsofthevoid.client.gui.OxygenOverlay;
-import destiny.secretsofthevoid.init.ItemInit;
-import destiny.secretsofthevoid.init.ItemTabInit;
-import destiny.secretsofthevoid.init.NetworkInit;
-import destiny.secretsofthevoid.init.SoundInit;
+import destiny.secretsofthevoid.init.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import static destiny.secretsofthevoid.init.BlockInit.BLOCKS;
 
 @Mod(SecretsOfTheVoid.MODID)
 
@@ -28,6 +27,7 @@ public class SecretsOfTheVoid {
 
         ItemInit.register(modBus);
         ItemTabInit.register(modBus);
+        BLOCKS.register(modBus);
         SoundInit.SOUNDS.register(modBus);
     }
 

@@ -50,7 +50,6 @@ public class NetheriteFlippersItem extends NetheriteGearItem implements IFlipper
                 builder.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Armor knockback resistance", (double) this.knockbackResistance, AttributeModifier.Operation.ADDITION));
             }
             builder.put(ForgeMod.SWIM_SPEED.get(), new AttributeModifier(uuid, "Swimming speed", this.getSwimmingSpeed(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
-            builder.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "Walking speed", -this.getSwimmingSpeed(stack), AttributeModifier.Operation.MULTIPLY_TOTAL));
 
             return builder.build();
         }
