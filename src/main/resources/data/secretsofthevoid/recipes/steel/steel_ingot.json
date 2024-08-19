@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": { "item": "minecraft:iron_ingot" },
+	"result": { "item": "secretsofthevoid:steel_ingot" },
+	"experience": 5.0,
+	"cookingtime": 300
+}

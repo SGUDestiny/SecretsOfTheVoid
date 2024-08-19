@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients":
+	[
+		{ "item": "secretsofthevoid:steel_ingot" }
+	],
+	"result": { "item": "secretsofthevoid:steel_tube", "count": 8 }
+}

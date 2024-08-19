@@ -18,6 +18,38 @@ public class ItemInit
 {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SecretsOfTheVoid.MODID);
 
+    public static final RegistryObject<Item> RAW_SCORIA = ITEMS.register("raw_scoria",
+            () -> new Item(
+                    new Item.Properties()
+                            .rarity(Rarity.RARE)
+                            .stacksTo(16)
+                            .fireResistant()
+            )
+    );
+    public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
+            () -> new Item(
+                    new Item.Properties()
+            )
+    );
+    public static final RegistryObject<Item> STEEL_TUBE = ITEMS.register("steel_tube",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(16)
+            )
+    );
+    public static final RegistryObject<Item> STEEL_FILTER = ITEMS.register("steel_filter",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+    public static final RegistryObject<Item> STEEL_TANK = ITEMS.register("steel_tank",
+            () -> new Item(
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+
     public static final RegistryObject<ItemCalligraphyKit> CALLIGRAPHY_KIT = ITEMS.register("calligraphy_kit",
             () -> new ItemCalligraphyKit(
             new Item.Properties()

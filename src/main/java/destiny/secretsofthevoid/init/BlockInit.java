@@ -23,7 +23,7 @@ public class BlockInit {
                             .requiresCorrectToolForDrops()
                             .strength(4.0F, 60)
                             .sound(SoundType.DEEPSLATE)
-                            .lightLevel(state -> 6)
+                            .lightLevel(state -> 10)
             ));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){

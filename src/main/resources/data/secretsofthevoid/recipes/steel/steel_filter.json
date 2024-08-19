@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"III",
+		"TKT",
+		"III"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:steel_ingot"},
+		"T": { "item": "secretsofthevoid:steel_tube" },
+		"K": { "item": "minecraft:dried_kelp_block" }
+	},
+	"result": { "item": "secretsofthevoid:steel_filter", "count": 1 }
+}

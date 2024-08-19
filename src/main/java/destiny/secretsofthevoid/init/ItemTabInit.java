@@ -41,6 +41,12 @@ public class ItemTabInit
         {
             event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);
 
+            event.accept(ItemInit.RAW_SCORIA);
+            event.accept(ItemInit.STEEL_INGOT);
+            event.accept(ItemInit.STEEL_TUBE);
+            event.accept(ItemInit.STEEL_FILTER);
+            event.accept(ItemInit.STEEL_TANK);
+
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(ItemInit.DISC_HADAL);

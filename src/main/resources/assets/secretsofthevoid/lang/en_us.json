@@ -1,6 +1,12 @@
 {
     "block.secretsofthevoid.deepslate_scoria_ore": "Deepslate Scoria Ore",
 
+    "item.secretsofthevoid.raw_scoria": "Raw Scoria",
+    "item.secretsofthevoid.steel_ingot": "Steel Ingot",
+    "item.secretsofthevoid.steel_tube": "Steel Tube",
+    "item.secretsofthevoid.steel_filter": "Steel Filter",
+    "item.secretsofthevoid.steel_tank": "Steel Tank",
+
     "item.secretsofthevoid.calligraphy_kit": "Calligraphy Kit",
     "item.secretsofthevoid.ancient_alphabet": "Ancient Alphabet",
 

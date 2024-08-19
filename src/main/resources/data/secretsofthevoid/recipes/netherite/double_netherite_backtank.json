@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"STS",
+		" A ",
+		"SIS"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:steel_ingot"},
+		"T": { "item": "secretsofthevoid:steel_tube" },
+		"A": { "item": "secretsofthevoid:steel_tank" },
+		"S": { "item": "minecraft:string" }
+	},
+	"result": { "item": "secretsofthevoid:armor/netherite/double_netherite_backtank", "count": 1 }
+}
