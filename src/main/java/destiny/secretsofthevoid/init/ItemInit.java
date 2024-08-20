@@ -2,6 +2,10 @@ package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.items.*;
+import destiny.secretsofthevoid.items.hydrothermic.HydrothermicAirTankItem;
+import destiny.secretsofthevoid.items.hydrothermic.HydrothermicFlippersItem;
+import destiny.secretsofthevoid.items.hydrothermic.HydrothermicLeggingsItem;
+import destiny.secretsofthevoid.items.hydrothermic.HydrothermicRebreatherItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteFlippersItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
@@ -123,6 +127,38 @@ public class ItemInit
     public static final RegistryObject<NetheriteFlippersItem> NETHERITE_FLIPPERS = ITEMS.register("armor/netherite/netherite_flipper_boots",
             () -> new NetheriteFlippersItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
+                    ArmorItem.Type.BOOTS,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+
+    public static final RegistryObject<HydrothermicRebreatherItem> HYDROTHERMIC_HELM = ITEMS.register("armor/hydrothermic/hydrothermic_helm",
+            () -> new HydrothermicRebreatherItem(
+                    ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
+                    ArmorItem.Type.HELMET,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+    public static final RegistryObject<HydrothermicAirTankItem> PRESSURIZED_HYDROTHERMIC_BACKTANK = ITEMS.register("armor/hydrothermic/pressurized_hydrothermic_backtank",
+            () -> new HydrothermicAirTankItem(
+                    ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
+                    ArmorItem.Type.CHESTPLATE,
+                    new Item.Properties()
+                            .stacksTo(1))
+    );
+    public static final RegistryObject<HydrothermicLeggingsItem> HYDROTHERMIC_LEGGINGS = ITEMS.register("armor/hydrothermic/hydrothermic_leggings",
+            () -> new HydrothermicLeggingsItem(
+                    ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
+                    ArmorItem.Type.LEGGINGS,
+                    new Item.Properties()
+                            .stacksTo(1)
+            )
+    );
+    public static final RegistryObject<HydrothermicFlippersItem> HYDROTHERMIC_RAZOR_BOOTS = ITEMS.register("armor/hydrothermic/hydrothermic_razor_boots",
+            () -> new HydrothermicFlippersItem(
+                    ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.BOOTS,
                     new Item.Properties()
                             .stacksTo(1)

@@ -56,9 +56,14 @@ public class ItemTabInit
             event.accept(ItemHelper.makeAirTank(ItemInit.STEEL_AIR_TANK.get(), 120));
             event.accept(ItemHelper.makeFlipperss(ItemInit.STEEL_FLIPPERS.get(), 0.2));
 
-            event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_REBREATHER.get(), 0.5));
+            event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_REBREATHER.get(), 0.3));
             event.accept(ItemHelper.makeAirTank(ItemInit.NETHERITE_AIR_TANK.get(), 300));
             event.accept(ItemHelper.makeFlipperss(ItemInit.NETHERITE_FLIPPERS.get(), 0.3));
+
+            event.accept(ItemHelper.makeRebreather(ItemInit.HYDROTHERMIC_HELM.get(), 0.5));
+            event.accept(ItemHelper.makeAirTank(ItemInit.PRESSURIZED_HYDROTHERMIC_BACKTANK.get(), 900));
+            event.accept(ItemInit.HYDROTHERMIC_LEGGINGS);
+            event.accept(ItemHelper.makeFlipperss(ItemInit.HYDROTHERMIC_RAZOR_BOOTS.get(), 0.5));
         }
     }
 
