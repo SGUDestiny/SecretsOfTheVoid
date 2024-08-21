@@ -3,28 +3,33 @@ package destiny.mixin;
 import destiny.secretsofthevoid.capabilities.DivingCapability;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.fluids.FluidType;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import java.util.Optional;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin
 {
 
-    public void sinkInFluid(FluidType type)
+    @Inject(method = "travel(Lnet/minecraft/world/phys/Vec3;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getFluidFallingAdjustedMovement(DZLnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
+    public void dontSink(Vec3 pTravelVector, CallbackInfo ci, double d0, AttributeInstance gravity, boolean flag, FluidState fluidstate, double d9, float f4, float f5, float f6, Vec3 vec36)
     {
-        LivingEntity self = ((LivingEntity) (Object) this);
-        if(self instanceof Player player)
-            if(player.getCapability(CapabilitiesInit.DIVING).isPresent())
-            {
-                DivingCapability cap = player.getCapability(CapabilitiesInit.DIVING).orElse(null);
-
-                if(cap != null && !cap.getEquipmentFlippers(player, null).isEmpty())
-                    return;
-            }
-
-        self.setDeltaMovement(self.getDeltaMovement().add(0.0D, (double)-0.04F * self.getAttributeValue(ForgeMod.SWIM_SPEED.get()), 0.0D));
-
+        LivingEntity living = ((LivingEntity) (Object) this);
+        if(living instanceof Player player)
+        {
+            Optional<DivingCapability> capability = player.getCapability(CapabilitiesInit.DIVING).resolve();
+            if (capability.isPresent() && !capability.get().getEquipmentFlippers(player, null).isEmpty())
+                d0 = 0D;
+        }
     }
 }
