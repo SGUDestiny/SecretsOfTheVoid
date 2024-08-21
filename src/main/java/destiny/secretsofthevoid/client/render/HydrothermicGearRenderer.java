@@ -14,7 +14,7 @@ public class HydrothermicGearRenderer extends GeoArmorRenderer<HydrothermicGearI
     public HydrothermicGearRenderer() {
         super(new HydrothermicGearModel());
 
-        addRenderLayer(new AutoGlowingGeoLayer<>(this));
+        //addRenderLayer(new AutoGlowingGeoLayer<>(this));
     }
 
     @Override

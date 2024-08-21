@@ -24,7 +24,19 @@ public class BlockInit {
                             .strength(4.0F, 60)
                             .sound(SoundType.DEEPSLATE)
                             .lightLevel(state -> 10)
-            ));
+            )
+    );
+
+    public static final RegistryObject<Block> MOLTEN_CRYSTAL = registerBlock("molten_crystal",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_ORANGE)
+                            .requiresCorrectToolForDrops()
+                            .strength(5.0F, -1)
+                            .sound(SoundType.AMETHYST_CLUSTER)
+                            .lightLevel(state -> 16)
+            )
+    );
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

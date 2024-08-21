@@ -11,6 +11,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -38,6 +39,9 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public int exhaleTicker = -1;
     public int bubbleTicker = -1;
 
+    public final double oxygenDepthModifier = 0.03;
+    public final double oxygenPerBreath = 10;
+
     public DivingCapability()
     {
     }
@@ -60,8 +64,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
 
-        if (hasOxygen(player))
-            maxOutAirSupply(player);
+//        if (hasOxygen(player))
+//            maxOutAirSupply(player);
     }
 
     public boolean isPlayerSurvival(Player player) {
@@ -70,7 +74,10 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public boolean shouldConsumeOxygen(Player player)
     {
-        return player.canDrownInFluidType(player.getEyeInFluidType()) && getOxygen() > 0 && !getEquipmentAirTank(player, null).isEmpty();
+        return player.canDrownInFluidType(player.getEyeInFluidType())
+                && getOxygen() > 0
+                && !getEquipmentAirTank(player, null).isEmpty()
+                && !player.getActiveEffects().contains(MobEffects.WATER_BREATHING);
     }
 
     public boolean hasOxygen(Player player)
@@ -102,7 +109,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
     public void calculateDepthEfficiency(Player player) {
         if (player.getY() < 64) {
-            double depth = (64 - player.getY()) * 0.02;
+            double depth = (64 - player.getY()) * oxygenDepthModifier;
 
             setOxygenEfficiency(getOxygenEfficiency() + depth);
         }
@@ -116,7 +123,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         IAirTank tank = airTank.getSecond();
 
         if (inhaleTicker > 200) {
-            tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (10 * getOxygenEfficiency())));
+            tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (oxygenPerBreath * getOxygenEfficiency())));
+            maxOutAirSupply(player);
 
             if(!getEquipmentRebreather(player, null).isEmpty()) {
                 NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));
@@ -198,14 +206,14 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     
     public void calculateOxygenEfficiency(Player player)
     {
-        double oxygenEfficiency = 1.0D;
+        double oxygenEfficiency = 0.0D;
         List<Pair<ItemStack, IRebreather>> rebreathers = getEquipmentRebreather(player, null);
         for(Pair<ItemStack, IRebreather> rebreather : rebreathers)
         {
             ItemStack stack = rebreather.getFirst();
             IRebreather rebreath = rebreather.getSecond();
 
-            oxygenEfficiency -= rebreath.getOxygenEfficiency(stack);
+            oxygenEfficiency += rebreath.getOxygenEfficiency(stack);
         }
 
         setOxygenEfficiency(oxygenEfficiency);
