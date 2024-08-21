@@ -1,6 +1,7 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -23,18 +24,17 @@ public class BlockInit {
                             .requiresCorrectToolForDrops()
                             .strength(4.0F, 60)
                             .sound(SoundType.DEEPSLATE)
-                            .lightLevel(state -> 10)
             )
     );
 
     public static final RegistryObject<Block> MOLTEN_CRYSTAL = registerBlock("molten_crystal",
-            () -> new Block(
+            () -> new HydrothermicCrystalBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_ORANGE)
                             .requiresCorrectToolForDrops()
                             .strength(5.0F, -1)
                             .sound(SoundType.AMETHYST_CLUSTER)
-                            .lightLevel(state -> 16)
+                            .lightLevel(state -> 12)
                             .noOcclusion()
             )
     );
