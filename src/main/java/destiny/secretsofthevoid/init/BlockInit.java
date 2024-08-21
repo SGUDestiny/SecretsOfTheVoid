@@ -35,6 +35,7 @@ public class BlockInit {
                             .strength(5.0F, -1)
                             .sound(SoundType.AMETHYST_CLUSTER)
                             .lightLevel(state -> 16)
+                            .noOcclusion()
             )
     );
 
