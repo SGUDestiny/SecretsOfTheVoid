@@ -84,11 +84,11 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [0, 4.25, 0],
+			"translation": [0, 4, 0],
 			"scale": [0.5, 0.5, 0.5]
 		},
 		"thirdperson_lefthand": {
-			"translation": [0, 4.25, 0],
+			"translation": [0, 4, 0],
 			"scale": [0.5, 0.5, 0.5]
 		},
 		"firstperson_righthand": {
@@ -107,7 +107,7 @@
 		},
 		"gui": {
 			"rotation": [30, 140, 0],
-			"translation": [2, 5.75, 0]
+			"translation": [0, 4.5, 0]
 		},
 		"fixed": {
 			"translation": [0, 5, 1]
