@@ -93,7 +93,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             ItemStack stack = airTank.getFirst();
             IAirTank tank = airTank.getSecond();
 
-            if (!player.getEyeInFluidType().canDrownIn(player) && getOxygen() < getMaxOxygen() || !isPlayerSurvival(player)) {
+            if (!player.getEyeInFluidType().canDrownIn(player) && getOxygen() < getMaxOxygen()) {
                 if (tank.getStoredOxygen(stack) != tank.getMaxOxygen(stack)) {
                     tank.setStoredOxygen(stack, tank.getStoredOxygen(stack) + (tank.getMaxOxygen(stack) / 60));
                 }
