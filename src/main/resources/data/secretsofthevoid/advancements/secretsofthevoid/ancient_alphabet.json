@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:ancient_alphabet"
+    },
+    "title": "Spelunk Me This!",
+    "description": "Copy ancient texts from the Enchanting Table",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:secretsofthevoid/root",
+  "criteria": {
+    "alphabet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:ancient_alphabet"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "alphabet"
+    ]
+  ],
+  "sends_telemetry_event": false
+}
