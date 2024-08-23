@@ -13,6 +13,7 @@ public class GUIAncientAlphabet extends Screen {
     public static Component TITLE = Component.literal("Ancient Alphabet");
 
     public static final ResourceLocation ALPHABET = new ResourceLocation(SecretsOfTheVoid.MODID, "textures/gui/ancient_alphabet_gui.png");
+    public static final ResourceLocation ALPHABET_SPELUNKING = new ResourceLocation(SecretsOfTheVoid.MODID, "textures/gui/spelunkery_table_ancient_alphabet.png");
     public GUIAncientAlphabet(Component component)
     {
         super(component);

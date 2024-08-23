@@ -11,6 +11,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +40,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
     public int exhaleTicker = -1;
     public int bubbleTicker = -1;
 
-    public final double oxygenDepthModifier = 0.03;
+    public final double oxygenDepthModifier = 0.02;
     public final double oxygenPerBreath = 10;
 
     public DivingCapability()
@@ -64,8 +65,8 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
         if (shouldConsumeOxygen(player) && isPlayerSurvival(player))
             consumeOxygen(level, player);
 
-//        if (hasOxygen(player))
-//            maxOutAirSupply(player);
+        if (hasOxygen(player))
+            maxOutAirSupply(player);
     }
 
     public boolean isPlayerSurvival(Player player) {
@@ -92,7 +93,7 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
             ItemStack stack = airTank.getFirst();
             IAirTank tank = airTank.getSecond();
 
-            if (!player.getEyeInFluidType().canDrownIn(player) && getOxygen() < getMaxOxygen()) {
+            if (!player.getEyeInFluidType().canDrownIn(player) && getOxygen() < getMaxOxygen() || !isPlayerSurvival(player)) {
                 if (tank.getStoredOxygen(stack) != tank.getMaxOxygen(stack)) {
                     tank.setStoredOxygen(stack, tank.getStoredOxygen(stack) + (tank.getMaxOxygen(stack) / 60));
                 }
@@ -124,7 +125,6 @@ public class DivingCapability implements INBTSerializable<CompoundTag>
 
         if (inhaleTicker > 200) {
             tank.setStoredOxygen(stack, Math.max(0, tank.getStoredOxygen(stack) - (oxygenPerBreath * getOxygenEfficiency())));
-            maxOutAirSupply(player);
 
             if(!getEquipmentRebreather(player, null).isEmpty()) {
                 NetworkInit.sendTo((ServerPlayer) player, new SoundPackets.RebreatherInhale(player.blockPosition()));

@@ -1,4 +1,4 @@
-package destiny.secretsofthevoid.items.hydrothermic;
+package destiny.secretsofthevoid.items.scoria;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -22,7 +22,7 @@ import java.util.UUID;
 
 import static destiny.secretsofthevoid.helper.ItemHelper.SWIMMING_SPEED;
 
-public class HydrothermicFlippersItem extends HydrothermicGearItem implements IFlippers {
+public class ScoriaFlippersItem extends ScoriaGearItem implements IFlippers {
     private static final EnumMap<ArmorItem.Type, UUID> ARMOR_MODIFIER_UUID_PER_TYPE = Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266744_) -> {
         p_266744_.put(ArmorItem.Type.BOOTS, UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"));
         p_266744_.put(ArmorItem.Type.LEGGINGS, UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"));
@@ -30,7 +30,7 @@ public class HydrothermicFlippersItem extends HydrothermicGearItem implements IF
         p_266744_.put(ArmorItem.Type.HELMET, UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150"));
     });
 
-    public HydrothermicFlippersItem(ArmorMaterial pMaterial, ArmorItem.Type pType, Item.Properties pProperties)
+    public ScoriaFlippersItem(ArmorMaterial pMaterial, ArmorItem.Type pType, Item.Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
     }

@@ -4,6 +4,7 @@ import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -27,7 +28,7 @@ public class BlockInit {
             )
     );
 
-    public static final RegistryObject<Block> MOLTEN_CRYSTAL = registerBlock("molten_crystal",
+    public static final RegistryObject<Block> HYDROTHERMIC_CRYSTAL = registerBlock("hydrothermic_crystal",
             () -> new HydrothermicCrystalBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_ORANGE)

@@ -10,8 +10,8 @@
 	"key":
 	{
 		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"T": { "item": "secretsofthevoid:steel_tube" },
-		"A": { "item": "secretsofthevoid:steel_tank" },
+		"T": { "item": "secretsofthevoid:air_tube" },
+		"A": { "item": "secretsofthevoid:air_tank" },
 		"S": { "item": "minecraft:string" }
 	},
 	"result": { "item": "secretsofthevoid:armor/steel/steel_backtank", "count": 1 }

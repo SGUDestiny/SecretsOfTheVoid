@@ -1,4 +1,4 @@
-package destiny.secretsofthevoid.items.hydrothermic;
+package destiny.secretsofthevoid.items.scoria;
 
 import destiny.secretsofthevoid.helper.IRebreather;
 import net.minecraft.ChatFormatting;
@@ -14,8 +14,8 @@ import java.util.List;
 
 import static destiny.secretsofthevoid.helper.ItemHelper.OXYGEN_EFFICIENCY;
 
-public class HydrothermicRebreatherItem extends HydrothermicGearItem implements IRebreather {
-    public HydrothermicRebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
+public class ScoriaRebreatherItem extends ScoriaGearItem implements IRebreather {
+    public ScoriaRebreatherItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
     }

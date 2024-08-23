@@ -6,12 +6,12 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 
-public class HydrothermicGearRenderProperties implements IClientItemExtensions
+public class ScoriaGearRenderProperties implements IClientItemExtensions
 {
-    public static final HydrothermicGearRenderProperties INSTANCE = new HydrothermicGearRenderProperties();
-    private HydrothermicGearRenderer renderer;
+    public static final ScoriaGearRenderProperties INSTANCE = new ScoriaGearRenderProperties();
+    private ScoriaGearRenderer renderer;
 
-    public HydrothermicGearRenderProperties()
+    public ScoriaGearRenderProperties()
     {
 
     }
@@ -19,7 +19,7 @@ public class HydrothermicGearRenderProperties implements IClientItemExtensions
     @Override
     public HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
         if(this.renderer == null)
-            this.renderer = new HydrothermicGearRenderer();
+            this.renderer = new ScoriaGearRenderer();
 
         this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
         return this.renderer;

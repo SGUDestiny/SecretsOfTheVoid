@@ -10,8 +10,8 @@
 	"key":
 	{
 		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"T": { "item": "secretsofthevoid:steel_tube" },
-		"F": { "item": "secretsofthevoid:steel_filter" }
+		"T": { "item": "secretsofthevoid:air_tube" },
+		"F": { "item": "secretsofthevoid:air_filter" }
 	},
 	"result": { "item": "secretsofthevoid:armor/steel/steel_rebreather", "count": 1 }
 }

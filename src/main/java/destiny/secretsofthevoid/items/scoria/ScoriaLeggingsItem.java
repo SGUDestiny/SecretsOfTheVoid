@@ -1,10 +1,10 @@
-package destiny.secretsofthevoid.items.hydrothermic;
+package destiny.secretsofthevoid.items.scoria;
 
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 
-public class HydrothermicLeggingsItem extends HydrothermicGearItem {
-    public HydrothermicLeggingsItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
+public class ScoriaLeggingsItem extends ScoriaGearItem {
+    public ScoriaLeggingsItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
     }

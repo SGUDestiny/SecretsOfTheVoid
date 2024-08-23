@@ -5,5 +5,5 @@
 	[
 		{ "item": "secretsofthevoid:steel_ingot" }
 	],
-	"result": { "item": "secretsofthevoid:steel_tube", "count": 8 }
+	"result": { "item": "secretsofthevoid:air_tube", "count": 8 }
 }

@@ -1,11 +1,12 @@
 package destiny.secretsofthevoid.init;
 
+import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.items.*;
-import destiny.secretsofthevoid.items.hydrothermic.HydrothermicAirTankItem;
-import destiny.secretsofthevoid.items.hydrothermic.HydrothermicFlippersItem;
-import destiny.secretsofthevoid.items.hydrothermic.HydrothermicLeggingsItem;
-import destiny.secretsofthevoid.items.hydrothermic.HydrothermicRebreatherItem;
+import destiny.secretsofthevoid.items.scoria.ScoriaAirTankItem;
+import destiny.secretsofthevoid.items.scoria.ScoriaFlippersItem;
+import destiny.secretsofthevoid.items.scoria.ScoriaLeggingsItem;
+import destiny.secretsofthevoid.items.scoria.ScoriaRebreatherItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteAirTankItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteFlippersItem;
 import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
@@ -35,19 +36,19 @@ public class ItemInit
                     new Item.Properties()
             )
     );
-    public static final RegistryObject<Item> STEEL_TUBE = ITEMS.register("steel_tube",
+    public static final RegistryObject<Item> AIR_TUBE = ITEMS.register("air_tube",
             () -> new Item(
                     new Item.Properties()
                             .stacksTo(16)
             )
     );
-    public static final RegistryObject<Item> STEEL_FILTER = ITEMS.register("steel_filter",
+    public static final RegistryObject<Item> AIR_FILTER = ITEMS.register("air_filter",
             () -> new Item(
                     new Item.Properties()
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<Item> STEEL_TANK = ITEMS.register("steel_tank",
+    public static final RegistryObject<Item> AIR_TANK = ITEMS.register("air_tank",
             () -> new Item(
                     new Item.Properties()
                             .stacksTo(1)
@@ -59,6 +60,7 @@ public class ItemInit
             new Item.Properties()
                     .rarity(Rarity.UNCOMMON)
                     .stacksTo(1)
+                    .craftRemainder(Items.GLOW_INK_SAC)
             )
     );
     public static final RegistryObject<ItemAncientAlphabet> ANCIENT_ALPHABET = ITEMS.register("ancient_alphabet",
@@ -93,7 +95,7 @@ public class ItemInit
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<SteelAirTankItem> STEEL_AIR_TANK = ITEMS.register("armor/steel/steel_backtank",
+    public static final RegistryObject<SteelAirTankItem> STEEL_BACKTANK = ITEMS.register("armor/steel/steel_backtank",
             () -> new SteelAirTankItem(
                     ArmorMaterialsInit.STEEL_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
@@ -109,7 +111,7 @@ public class ItemInit
             )
     );
 
-    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_REBREATHER = ITEMS.register("armor/netherite/netherite_scuba",
+    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
             () -> new NetheriteRebreatherItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
@@ -117,7 +119,7 @@ public class ItemInit
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<NetheriteAirTankItem> NETHERITE_AIR_TANK = ITEMS.register("armor/netherite/double_netherite_backtank",
+    public static final RegistryObject<NetheriteAirTankItem> DOUBLE_NETHERITE_BACKTANK = ITEMS.register("armor/netherite/double_netherite_backtank",
             () -> new NetheriteAirTankItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
@@ -133,31 +135,31 @@ public class ItemInit
             )
     );
 
-    public static final RegistryObject<HydrothermicRebreatherItem> HYDROTHERMIC_HELM = ITEMS.register("armor/hydrothermic/hydrothermic_helm",
-            () -> new HydrothermicRebreatherItem(
+    public static final RegistryObject<ScoriaRebreatherItem> HYDROTHERMIC_HELM = ITEMS.register("armor/scoria/scoria_helm",
+            () -> new ScoriaRebreatherItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<HydrothermicAirTankItem> PRESSURIZED_HYDROTHERMIC_BACKTANK = ITEMS.register("armor/hydrothermic/pressurized_hydrothermic_backtank",
-            () -> new HydrothermicAirTankItem(
+    public static final RegistryObject<ScoriaAirTankItem> PRESSURIZED_HYDROTHERMIC_BACKTANK = ITEMS.register("armor/scoria/pressurized_scoria_backtank",
+            () -> new ScoriaAirTankItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
                             .stacksTo(1))
     );
-    public static final RegistryObject<HydrothermicLeggingsItem> HYDROTHERMIC_LEGGINGS = ITEMS.register("armor/hydrothermic/hydrothermic_leggings",
-            () -> new HydrothermicLeggingsItem(
+    public static final RegistryObject<ScoriaLeggingsItem> HYDROTHERMIC_LEGGINGS = ITEMS.register("armor/scoria/scoria_leggings",
+            () -> new ScoriaLeggingsItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.LEGGINGS,
                     new Item.Properties()
                             .stacksTo(1)
             )
     );
-    public static final RegistryObject<HydrothermicFlippersItem> HYDROTHERMIC_RAZOR_BOOTS = ITEMS.register("armor/hydrothermic/hydrothermic_razor_boots",
-            () -> new HydrothermicFlippersItem(
+    public static final RegistryObject<ScoriaFlippersItem> HYDROTHERMIC_RAZOR_BOOTS = ITEMS.register("armor/scoria/scoria_razor_boots",
+            () -> new ScoriaFlippersItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.BOOTS,
                     new Item.Properties()

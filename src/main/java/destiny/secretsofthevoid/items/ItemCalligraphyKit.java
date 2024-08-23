@@ -80,7 +80,7 @@ public class ItemCalligraphyKit extends Item
     }
 
     public boolean isEnchantingTable(Player player, Level level){
-        Vec3 targetPos = player.position().add(0, 1, 0).add(player.getViewVector(1).multiply(3, 3, 3));
+        Vec3 targetPos = player.position().add(0, 3, 0).add(player.getViewVector(1).multiply(3, 3, 3));
         BlockHitResult result = level.clip(new ClipContext(player.position(), targetPos, ClipContext.Block.COLLIDER, ClipContext.Fluid.ANY, player));
         boolean isEnchantingTable = level.getBlockState(result.getBlockPos()).getBlock().equals(Blocks.ENCHANTING_TABLE);
 

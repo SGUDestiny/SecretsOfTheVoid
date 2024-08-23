@@ -1,11 +1,12 @@
 {
     "block.secretsofthevoid.deepslate_scoria_ore": "Deepslate Scoria Ore",
+    "block.secretsofthevoid.hydrothermic_crystal": "Hydrothermic Crystal",
 
     "item.secretsofthevoid.raw_scoria": "Raw Scoria",
     "item.secretsofthevoid.steel_ingot": "Steel Ingot",
-    "item.secretsofthevoid.steel_tube": "Steel Tube",
-    "item.secretsofthevoid.steel_filter": "Steel Filter",
-    "item.secretsofthevoid.steel_tank": "Steel Tank",
+    "item.secretsofthevoid.air_tube": "Air Tube",
+    "item.secretsofthevoid.air_filter": "Air Filter",
+    "item.secretsofthevoid.air_tank": "Air Tank",
 
     "item.secretsofthevoid.calligraphy_kit": "Calligraphy Kit",
     "item.secretsofthevoid.ancient_alphabet": "Ancient Alphabet",
@@ -22,6 +23,11 @@
     "item.secretsofthevoid.armor.netherite.netherite_scuba": "Netherite Scuba",
     "item.secretsofthevoid.armor.netherite.double_netherite_backtank": "Double Netherite Backtank",
     "item.secretsofthevoid.armor.netherite.netherite_flipper_boots": "Netherite Flipper Boots",
+
+    "item.secretsofthevoid.armor.scoria.scoria_helm": "Scoria Helm",
+    "item.secretsofthevoid.armor.scoria.pressurized_scoria_backtank": "Pressurized Scoria Backtank",
+    "item.secretsofthevoid.armor.scoria.scoria_leggings": "Scoria Leggings",
+    "item.secretsofthevoid.armor.scoria.scoria_razor_boots": "Scoria Razor Boots",
 
     "itemGroup.secretsofthevoid.creative_tab": "Secrets of the Void",
 

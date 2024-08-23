@@ -10,8 +10,8 @@
 	"key":
 	{
 		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"T": { "item": "secretsofthevoid:steel_tube" },
+		"T": { "item": "secretsofthevoid:air_tube" },
 		"B": { "item": "alexscaves:metal_barrel" }
 	},
-	"result": { "item": "secretsofthevoid:steel_tank", "count": 1 }
+	"result": { "item": "secretsofthevoid:air_tank", "count": 1 }
 }

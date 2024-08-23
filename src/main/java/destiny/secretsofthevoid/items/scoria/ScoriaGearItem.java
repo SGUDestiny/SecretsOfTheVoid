@@ -1,7 +1,7 @@
-package destiny.secretsofthevoid.items.hydrothermic;
+package destiny.secretsofthevoid.items.scoria;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.client.render.HydrothermicGearRenderProperties;
+import destiny.secretsofthevoid.client.render.ScoriaGearRenderProperties;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
@@ -18,10 +18,10 @@ import software.bernie.geckolib.core.object.PlayState;
 
 import java.util.function.Consumer;
 
-public class HydrothermicGearItem extends ArmorItem implements GeoItem {
+public class ScoriaGearItem extends ArmorItem implements GeoItem {
     private AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
-    public HydrothermicGearItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
+    public ScoriaGearItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
     }
@@ -29,7 +29,7 @@ public class HydrothermicGearItem extends ArmorItem implements GeoItem {
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer)
     {
-        consumer.accept(HydrothermicGearRenderProperties.INSTANCE);
+        consumer.accept(ScoriaGearRenderProperties.INSTANCE);
     }
 
     @Override

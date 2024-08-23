@@ -10,8 +10,8 @@
 	"key":
 	{
 		"I": { "item": "secretsofthevoid:steel_ingot"},
-		"T": { "item": "secretsofthevoid:steel_tube" },
+		"T": { "item": "secretsofthevoid:air_tube" },
 		"K": { "item": "minecraft:dried_kelp_block" }
 	},
-	"result": { "item": "secretsofthevoid:steel_filter", "count": 1 }
+	"result": { "item": "secretsofthevoid:air_filter", "count": 1 }
 }

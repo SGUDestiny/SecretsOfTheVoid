@@ -1,4 +1,4 @@
-package destiny.secretsofthevoid.items.hydrothermic;
+package destiny.secretsofthevoid.items.scoria;
 
 import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
@@ -15,8 +15,8 @@ import java.util.List;
 import static destiny.secretsofthevoid.helper.ItemHelper.MAX_OXYGEN;
 import static destiny.secretsofthevoid.helper.ItemHelper.STORED_OXYGEN;
 
-public class HydrothermicAirTankItem extends HydrothermicGearItem implements IAirTank {
-    public HydrothermicAirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
+public class ScoriaAirTankItem extends ScoriaGearItem implements IAirTank {
+    public ScoriaAirTankItem(ArmorMaterial pMaterial, Type pType, Properties pProperties)
     {
         super(pMaterial, pType, pProperties);
     }
