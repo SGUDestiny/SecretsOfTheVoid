@@ -37,13 +37,13 @@ description='''Temp desc'''
 [[dependencies.secretsofthevoid]]
     modId="alexscaves"
     mandatory=true
-    versionRange="[1.0.3,)"
+    versionRange="[1.1.5,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.secretsofthevoid]]
     modId="citadel"
     mandatory=true
-    versionRange="[2.4.7,)"
+    versionRange="[2.6.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.secretsofthevoid]]
