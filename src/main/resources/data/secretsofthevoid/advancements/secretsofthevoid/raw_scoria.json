@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:raw_scoria"
+    },
+    "title": "Heat Of The Deep",
+    "description": "Venture deep enough into the Abyssal Chasm and mine for Scoria",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:secretsofthevoid/root",
+  "criteria": {
+    "scoria": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:raw_scoria"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scoria"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

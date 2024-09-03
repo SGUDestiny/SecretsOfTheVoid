@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": { "item": "secretsofthevoid:raw_scoria" },
+	"result": { "item": "secretsofthevoid:scoria_ingot" },
+	"experience": 10.0,
+	"cookingtime": 600
+}

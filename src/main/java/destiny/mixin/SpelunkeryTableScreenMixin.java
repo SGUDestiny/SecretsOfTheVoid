@@ -23,18 +23,16 @@ public class SpelunkeryTableScreenMixin
     public void renderAlphabet(GuiGraphics guiGraphics)
     {
         if(Minecraft.getInstance().player != null && Minecraft.getInstance().player.getInventory().hasAnyMatching(predicate -> predicate.is(ItemInit.ANCIENT_ALPHABET.get()))) {
-            if ((((SpelunkeryTableScreen) ((Object) this)).hasPaper() && (((SpelunkeryTableScreen) ((Object) this)).hasTablet()))) {
-                int width = guiGraphics.guiWidth();
-                int height = guiGraphics.guiHeight();
-                int leftPos = (width - 208) / 2;
-                int topPos = (height - 256) / 2;
+            int width = guiGraphics.guiWidth();
+            int height = guiGraphics.guiHeight();
+            int leftPos = (width - 208) / 2;
+            int topPos = (height - 256) / 2;
 
-                int xPos = leftPos + 170;
-                int yPos = topPos + 130;
-                guiGraphics.pose().pushPose();
-                guiGraphics.blit(ALPHABET_SPELUNKING, xPos + 38, yPos - 120, 0, 0, 80, 149);
-                guiGraphics.pose().popPose();
-            }
+            int xPos = leftPos + 170;
+            int yPos = topPos + 130;
+            guiGraphics.pose().pushPose();
+            guiGraphics.blit(ALPHABET_SPELUNKING, xPos + 38, yPos - 120, 0, 0, 80, 149);
+            guiGraphics.pose().popPose();
         }
     }
 

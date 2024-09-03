@@ -42,8 +42,8 @@ public class ItemTabInit
             event.accept(BlockInit.HYDROTHERMIC_CRYSTAL);
             event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);
 
-
             event.accept(ItemInit.RAW_SCORIA);
+            event.accept(ItemInit.SCORIA_INGOT);
 
             event.accept(ItemInit.STEEL_INGOT);
             event.accept(ItemInit.AIR_TUBE);

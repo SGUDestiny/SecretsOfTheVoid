@@ -10,7 +10,7 @@
           "tag": "minecraft:deepslate_ore_replaceables"
         },
         "state": {
-          "Name": "minecraft:deepslate_scoria_ore"
+          "Name": "secretsofthevoid:deepslate_scoria_ore"
         }
       }
     ]

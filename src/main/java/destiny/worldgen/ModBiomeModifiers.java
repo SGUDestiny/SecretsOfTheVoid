@@ -23,7 +23,7 @@ public class ModBiomeModifiers {
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(ADD_DEEPSLATE_SCORIA_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(HolderSet.direct(Holder.direct(ACBiomeRegistry.ABYSSAL_CHASM))),
+                HolderSet.direct(Holder.direct(biomes.getOrThrow(ACBiomeRegistry.ABYSSAL_CHASM).value())),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.DEEPSLATE_SCORIA_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
     }

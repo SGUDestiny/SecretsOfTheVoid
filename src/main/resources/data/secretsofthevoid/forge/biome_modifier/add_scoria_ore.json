@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "alexscaves:abyssal_chasm",
+  "features": "secretsofthevoid:ore_scoria_placed",
+  "step": "underground_ores"
+}

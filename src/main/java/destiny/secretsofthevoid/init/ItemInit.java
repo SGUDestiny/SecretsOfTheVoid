@@ -27,13 +27,21 @@ public class ItemInit
             () -> new Item(
                     new Item.Properties()
                             .rarity(Rarity.RARE)
-                            .stacksTo(16)
                             .fireResistant()
             )
     );
     public static final RegistryObject<Item> STEEL_INGOT = ITEMS.register("steel_ingot",
             () -> new Item(
                     new Item.Properties()
+            )
+    );
+
+    public static final RegistryObject<Item> SCORIA_INGOT = ITEMS.register("scoria_ingot",
+            () -> new Item(
+                    new Item.Properties()
+                            .rarity(Rarity.RARE)
+                            .fireResistant()
+                            .stacksTo(16)
             )
     );
     public static final RegistryObject<Item> AIR_TUBE = ITEMS.register("air_tube",
@@ -117,6 +125,7 @@ public class ItemInit
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
+                            .fireResistant()
             )
     );
     public static final RegistryObject<NetheriteAirTankItem> DOUBLE_NETHERITE_BACKTANK = ITEMS.register("armor/netherite/double_netherite_backtank",
@@ -124,7 +133,9 @@ public class ItemInit
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1))
+                            .stacksTo(1)
+                            .fireResistant()
+            )
     );
     public static final RegistryObject<NetheriteFlippersItem> NETHERITE_FLIPPERS = ITEMS.register("armor/netherite/netherite_flipper_boots",
             () -> new NetheriteFlippersItem(
@@ -132,6 +143,7 @@ public class ItemInit
                     ArmorItem.Type.BOOTS,
                     new Item.Properties()
                             .stacksTo(1)
+                            .fireResistant()
             )
     );
 
@@ -141,6 +153,7 @@ public class ItemInit
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
+                            .fireResistant()
             )
     );
     public static final RegistryObject<ScoriaAirTankItem> PRESSURIZED_HYDROTHERMIC_BACKTANK = ITEMS.register("armor/scoria/pressurized_scoria_backtank",
@@ -148,7 +161,9 @@ public class ItemInit
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1))
+                            .stacksTo(1)
+                            .fireResistant()
+            )
     );
     public static final RegistryObject<ScoriaLeggingsItem> HYDROTHERMIC_LEGGINGS = ITEMS.register("armor/scoria/scoria_leggings",
             () -> new ScoriaLeggingsItem(
@@ -156,6 +171,7 @@ public class ItemInit
                     ArmorItem.Type.LEGGINGS,
                     new Item.Properties()
                             .stacksTo(1)
+                            .fireResistant()
             )
     );
     public static final RegistryObject<ScoriaFlippersItem> HYDROTHERMIC_RAZOR_BOOTS = ITEMS.register("armor/scoria/scoria_razor_boots",
@@ -164,6 +180,7 @@ public class ItemInit
                     ArmorItem.Type.BOOTS,
                     new Item.Properties()
                             .stacksTo(1)
+                            .fireResistant()
             )
     );
 
