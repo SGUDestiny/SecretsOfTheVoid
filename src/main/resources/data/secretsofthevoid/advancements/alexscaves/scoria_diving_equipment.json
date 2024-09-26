@@ -1,0 +1,75 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:armor/scoria/scoria_helm"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.scoria_diving_equipment.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.scoria_diving_equipment.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:alexscaves/netherite_diving_equipment",
+  "criteria": {
+    "helm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/scoria/scoria_helm"
+            ]
+          }
+        ]
+      }
+    },
+    "backtank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/scoria/pressurized_scoria_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/scoria/scoria_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/scoria/scoria_razor_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["helm"],
+    ["backtank"],
+    ["leggings"],
+    ["flippers"]
+  ],
+  "sends_telemetry_event": false
+}

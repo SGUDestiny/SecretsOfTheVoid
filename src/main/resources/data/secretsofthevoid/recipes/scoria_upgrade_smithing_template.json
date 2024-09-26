@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"DTD",
+		"DPD",
+		"DDD"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:block_of_pearl"},
+		"T": { "item": "secretsofthevoid:scoria_upgrade_smithing_template" },
+		"D": { "item": "minecraft:diamond" }
+	},
+	"result": { "item": "secretsofthevoid:scoria_upgrade_smithing_template", "count": 3 }
+}

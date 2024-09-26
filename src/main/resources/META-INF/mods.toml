@@ -16,7 +16,7 @@ license="${mod_license}"
 [[mods]]
 modId="secretsofthevoid"
 version="1.0"
-displayName="Alex's Caves: Secrets of the Void"
+displayName="Secrets of the Void"
 authors="Destiny, mistersecret312"
 
 # The description text for the mod (multi line!) (#mandatory)
@@ -38,7 +38,7 @@ description='''Secrets of the Void is an addon to well-known Alex's Caves mod, e
     modId="alexscaves"
     mandatory=true
     versionRange="[1.1.5,)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.secretsofthevoid]]
     modId="citadel"

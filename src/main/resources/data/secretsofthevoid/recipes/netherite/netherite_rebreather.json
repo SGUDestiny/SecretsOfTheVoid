@@ -6,11 +6,11 @@
 	},
 	"base":
 	{
-		"item": "secretsofthevoid:armor/steel/steel_flippers"
+		"item": "secretsofthevoid:armor/steel/steel_scuba"
 	},
 	"result":
 	{
-		"item": "secretsofthevoid:armor/netherite/netherite_flipper_boots"
+		"item": "secretsofthevoid:armor/netherite/netherite_rebreather"
 	},
 	"template":
 	{

@@ -1,0 +1,62 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:armor/netherite/netherite_rebreather"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.netherite_diving_equipment.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.netherite_diving_equipment.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:alexscaves/steel_diving_equipment",
+  "criteria": {
+    "rebreather": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/netherite/netherite_rebreather"
+            ]
+          }
+        ]
+      }
+    },
+    "backtank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/netherite/double_netherite_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/netherite/netherite_flipper_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["rebreather"],
+    ["backtank"],
+    ["flippers"]
+  ],
+  "sends_telemetry_event": false
+}

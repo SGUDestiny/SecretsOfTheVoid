@@ -27,21 +27,21 @@ public class Events {
         }
     }
 
-    @SubscribeEvent
-    public static void playerHurt(LivingHurtEvent event)
-    {
-        if(event.getEntity() instanceof Player player && event.getSource() == player.damageSources().drown())
-        {
-            player.getCapability(CapabilitiesInit.DIVING).ifPresent(cap ->
-            {
-                if(cap.getEquipmentAirTank(player, null).isEmpty())
-                {
-                    event.setCanceled(true);
-                    player.hurt(player.damageSources().inWall(), event.getAmount());
-                }
-            });
-        }
-    }
+//    @SubscribeEvent
+//    public static void playerHurt(LivingHurtEvent event)
+//    {
+//        if(event.getEntity() instanceof Player player && event.getSource() == player.damageSources().drown())
+//        {
+//            player.getCapability(CapabilitiesInit.DIVING).ifPresent(cap ->
+//            {
+//                if(cap.getEquipmentAirTank(player, null).isEmpty())
+//                {
+//                    event.setCanceled(true);
+//                    player.hurt(player.damageSources().inWall(), event.getAmount());
+//                }
+//            });
+//        }
+//    }
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {

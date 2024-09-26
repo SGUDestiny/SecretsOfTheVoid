@@ -9,7 +9,7 @@
 	],
 	"key":
 	{
-		"I": { "item": "secretsofthevoid:steel_ingot"},
+		"I": { "tag": "forge:ingots/steel"},
 		"T": { "item": "secretsofthevoid:air_tube" },
 		"A": { "item": "secretsofthevoid:air_tank" },
 		"S": { "item": "minecraft:string" }

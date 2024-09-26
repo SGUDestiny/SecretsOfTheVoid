@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item" : "alexscaves:immortal_embryo"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.defeat_hullbreaker.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.defeat_hullbreaker.description"
+    }
+  },
+  "parent": "alexscaves:alexscaves/abyssal_bucket",
+  "criteria": {
+    "killed": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "alexscaves:hullbreaker"
+        }
+      }
+    }
+  }
+}

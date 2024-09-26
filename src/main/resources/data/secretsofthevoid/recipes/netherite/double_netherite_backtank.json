@@ -1,17 +1,19 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"category": "misc",
-	"pattern":
-	[
-		" N ",
-		"BSB",
-		" N "
-	],
-	"key":
+	"type": "minecraft:smithing_transform",
+	"addition":
 	{
-		"B": { "item": "secretsofthevoid:armor/steel/steel_backtank"},
-		"N": { "item": "minecraft:netherite_ingot" },
-		"S": { "item": "minecraft:string" }
+		"item": "minecraft:netherite_ingot"
 	},
-	"result": { "item": "secretsofthevoid:armor/netherite/double_netherite_backtank", "count": 1 }
+	"base":
+	{
+		"item": "secretsofthevoid:armor/steel/steel_backtank"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:armor/netherite/double_netherite_backtank"
+	},
+	"template":
+	{
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
 }

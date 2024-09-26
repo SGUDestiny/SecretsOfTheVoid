@@ -4,7 +4,6 @@ import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -37,6 +36,15 @@ public class BlockInit {
                             .sound(SoundType.AMETHYST_CLUSTER)
                             .lightLevel(state -> 12)
                             .noOcclusion()
+            )
+    );
+
+    public static final RegistryObject<Block> OXYGEN_VENT = registerBlock("oxygen_vent",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_GRAY)
+                            .strength(4.0F, 60)
+                            .sound(SoundType.DEEPSLATE)
             )
     );
 

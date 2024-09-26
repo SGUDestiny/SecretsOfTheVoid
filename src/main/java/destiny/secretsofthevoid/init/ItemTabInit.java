@@ -5,28 +5,19 @@ import destiny.secretsofthevoid.helper.ItemHelper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
-
 public class ItemTabInit
 {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, SecretsOfTheVoid.MODID);
 
-    public static final List<Supplier<? extends ItemLike>> CREATIVE_TAB_ITEMS = new ArrayList<>();
-
     public static final RegistryObject<CreativeModeTab> MAIN = TABS.register("secretsofthevoid",
             () -> CreativeModeTab.builder()
-                    .icon(() -> ItemInit.CALLIGRAPHY_KIT.get().getDefaultInstance())
-                    .title(Component.translatable("itemGroup.alexscaves")
-                            .append(Component.literal(": "))
-                            .append(Component.translatable("itemGroup.secretsofthevoid.creative_tab")))
+                    .icon(() -> ItemInit.DISC_HADAL.get().getDefaultInstance())
+                    .title(Component.translatable("itemGroup.secretsofthevoid.creative_tab"))
                     .build()
     );
 
@@ -39,11 +30,13 @@ public class ItemTabInit
     {
         if (event.getTabKey() == MAIN.getKey())
         {
+            event.accept(BlockInit.OXYGEN_VENT);
             event.accept(BlockInit.HYDROTHERMIC_CRYSTAL);
             event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);
 
             event.accept(ItemInit.RAW_SCORIA);
             event.accept(ItemInit.SCORIA_INGOT);
+            event.accept(ItemInit.SCORIA_UPGRADE);
 
             event.accept(ItemInit.STEEL_INGOT);
             event.accept(ItemInit.AIR_TUBE);

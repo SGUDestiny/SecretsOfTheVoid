@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "secretsofthevoid:scoria_ingot"
+	},
+	"base":
+	{
+		"item": "secretsofthevoid:armor/netherite/netherite_flipper_boots"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:armor/scoria/scoria_razor_boots"
+	},
+	"template":
+	{
+		"item": "secretsofthevoid:scoria_upgrade_smithing_template"
+	}
+}

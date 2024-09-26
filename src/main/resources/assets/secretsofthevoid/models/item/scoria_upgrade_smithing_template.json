@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "secretsofthevoid:item/scoria_upgrade_smithing_template"
+  }
+}

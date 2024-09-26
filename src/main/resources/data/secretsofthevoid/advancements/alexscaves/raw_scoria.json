@@ -3,14 +3,18 @@
     "icon": {
       "item": "secretsofthevoid:raw_scoria"
     },
-    "title": "Heat Of The Deep",
-    "description": "Venture deep enough into the Abyssal Chasm and mine for Scoria",
-    "frame": "challenge",
+    "title": {
+      "translate": "advancements.secretsofthevoid.raw_scoria.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.raw_scoria.description"
+    },
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "secretsofthevoid:secretsofthevoid/root",
+  "parent": "alexscaves:alexscaves/pearl_on_abyssal_altar",
   "criteria": {
     "scoria": {
       "trigger": "minecraft:inventory_changed",

@@ -17,11 +17,11 @@
     "item.secretsofthevoid.disc_hadal_ambient": "Hadal Disc",
     "item.secretsofthevoid.disc_hadal_ambient.desc": "bxnwxghxrn - C:\\\\AR?A_M4TH (AMB13NT)",
 
-    "item.secretsofthevoid.armor.steel.steel_rebreather": "Steel Rebreather",
+    "item.secretsofthevoid.armor.steel.steel_scuba": "Steel Scuba",
     "item.secretsofthevoid.armor.steel.steel_backtank": "Steel Backtank",
     "item.secretsofthevoid.armor.steel.steel_flippers": "Steel Flippers",
 
-    "item.secretsofthevoid.armor.netherite.netherite_scuba": "Netherite Scuba",
+    "item.secretsofthevoid.armor.netherite.netherite_rebreather": "Netherite Rebreather",
     "item.secretsofthevoid.armor.netherite.double_netherite_backtank": "Double Netherite Backtank",
     "item.secretsofthevoid.armor.netherite.netherite_flipper_boots": "Netherite Flipper Boots",
 
@@ -29,6 +29,12 @@
     "item.secretsofthevoid.armor.scoria.pressurized_scoria_backtank": "Pressurized Scoria Backtank",
     "item.secretsofthevoid.armor.scoria.scoria_leggings": "Scoria Leggings",
     "item.secretsofthevoid.armor.scoria.scoria_razor_boots": "Scoria Razor Boots",
+
+    "item.secretsofthevoid.smithing_template.scoria_upgrade.applies_to": "Netherite Diving Equipment",
+    "item.secretsofthevoid.smithing_template.scoria_upgrade.ingredients": "Scoria Ingot",
+    "item.secretsofthevoid.smithing_template.scoria_upgrade.base_slot_description": "Add netherite diving equipment",
+
+    "upgrade.secretsofthevoid.scoria_upgrade": "Scoria Upgrade",
 
     "itemGroup.secretsofthevoid.creative_tab": "Secrets of the Void",
 
@@ -46,5 +52,21 @@
     "sounds.secretsofthevoid.rebreather_exhale": "Water bubbling",
     "sounds.secretsofthevoid.tank_refill": "Backtank refilling",
 
-    "sounds.secretsofthevoid.disc_hadal": "Music from the deep playing"
+    "sounds.secretsofthevoid.disc_hadal": "Music from the deep playing",
+
+    "advancements.secretsofthevoid.defeat_hullbreaker.title": "Always A Bigger Fish",
+    "advancements.secretsofthevoid.defeat_hullbreaker.description": "Through sheer willpower, claim victory over a Hullbreaker",
+
+    "advancements.secretsofthevoid.ancient_alphabet.title": "Spelunk Me This!",
+    "advancements.secretsofthevoid.ancient_alphabet.description": "Copy ancient texts from the Enchanting Table",
+    "advancements.secretsofthevoid.steel_diving_equipment.title": "Steeled",
+    "advancements.secretsofthevoid.steel_diving_equipment.description": "Craft a full set of steel diving gear. Good diving!",
+    "advancements.secretsofthevoid.netherite_diving_equipment.title": "Where No Pig Ever Stepped",
+    "advancements.secretsofthevoid.netherite_diving_equipment.description": "Upgrade your diving gear from steel to netherite",
+    "advancements.secretsofthevoid.raw_scoria.title": "Heat Of The Deep",
+    "advancements.secretsofthevoid.raw_scoria.description": "Venture deep into the Abyssal Chasm and mine for Scoria",
+    "advancements.secretsofthevoid.scoria_upgrade.title": "Pearly Shine",
+    "advancements.secretsofthevoid.scoria_upgrade.description": "Trade with the Deep Ones and obtain a Scoria Upgrade Smithing Template",
+    "advancements.secretsofthevoid.scoria_diving_equipment.title": "Melting Point",
+    "advancements.secretsofthevoid.scoria_diving_equipment.description": "Using processed Scoria and traded templates, upgrade your diving gear from netherite to scoria"
 }

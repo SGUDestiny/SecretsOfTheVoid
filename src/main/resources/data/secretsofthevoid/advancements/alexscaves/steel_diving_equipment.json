@@ -1,0 +1,62 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:armor/steel/steel_scuba"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.steel_diving_equipment.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.steel_diving_equipment.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alexscaves:alexscaves/discover_abyssal_chasm",
+  "criteria": {
+    "scuba": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/steel/steel_scuba"
+            ]
+          }
+        ]
+      }
+    },
+    "backtank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/steel/steel_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:armor/steel/steel_flippers"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["scuba"],
+    ["backtank"],
+    ["flippers"]
+  ],
+  "sends_telemetry_event": false
+}

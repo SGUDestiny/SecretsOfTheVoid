@@ -3,7 +3,7 @@
 	"category": "misc",
 	"ingredients":
 	[
-		{ "item": "secretsofthevoid:steel_ingot" }
+		{ "tag": "forge:ingots/steel" }
 	],
 	"result": { "item": "secretsofthevoid:air_tube", "count": 8 }
 }

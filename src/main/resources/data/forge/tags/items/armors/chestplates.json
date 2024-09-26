@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values":
+	[
+		"secretsofthevoid:armor/steel/steel_backtank",
+		"secretsofthevoid:armor/netherite/double_netherite_backtank",
+		"secretsofthevoid:armor/scoria/pressurized_scoria_backtank"
+	]
+}

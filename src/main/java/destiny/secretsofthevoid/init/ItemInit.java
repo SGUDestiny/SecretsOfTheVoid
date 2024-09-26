@@ -13,15 +13,40 @@ import destiny.secretsofthevoid.items.netherite.NetheriteRebreatherItem;
 import destiny.secretsofthevoid.items.steel.SteelAirTankItem;
 import destiny.secretsofthevoid.items.steel.SteelFlippersItem;
 import destiny.secretsofthevoid.items.steel.SteelRebreatherItem;
+import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
+
 public class ItemInit
 {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SecretsOfTheVoid.MODID);
+
+    public static final RegistryObject<SmithingTemplateItem> SCORIA_UPGRADE = ITEMS.register("scoria_upgrade_smithing_template",
+            () -> new SmithingTemplateItem(
+                    Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(SecretsOfTheVoid.MODID, "smithing_template.scoria_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
+                    Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(SecretsOfTheVoid.MODID, "smithing_template.scoria_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
+                    Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(SecretsOfTheVoid.MODID, "scoria_upgrade"))).withStyle(ChatFormatting.GRAY),
+                    Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(SecretsOfTheVoid.MODID, "smithing_template.scoria_upgrade.base_slot_description"))),
+                    Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(SecretsOfTheVoid.MODID, "smithing_template.scoria_upgrade.additions_slot_description"))),
+                    List.of(
+                            new ResourceLocation("item/empty_armor_slot_helmet"),
+                            new ResourceLocation("item/empty_armor_slot_chestplate"),
+                            new ResourceLocation("item/empty_armor_slot_leggings"),
+                            new ResourceLocation("item/empty_armor_slot_boots")
+                    ),
+                    List.of(
+                            new ResourceLocation("item/empty_slot_ingot")
+                    )
+            )
+    );
 
     public static final RegistryObject<Item> RAW_SCORIA = ITEMS.register("raw_scoria",
             () -> new Item(
@@ -95,7 +120,7 @@ public class ItemInit
                     7600
             ));
 
-    public static final RegistryObject<SteelRebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_rebreather",
+    public static final RegistryObject<SteelRebreatherItem> STEEL_REBREATHER = ITEMS.register("armor/steel/steel_scuba",
             () -> new SteelRebreatherItem(
                     ArmorMaterialsInit.STEEL_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
@@ -119,7 +144,7 @@ public class ItemInit
             )
     );
 
-    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_scuba",
+    public static final RegistryObject<NetheriteRebreatherItem> NETHERITE_SCUBA = ITEMS.register("armor/netherite/netherite_rebreather",
             () -> new NetheriteRebreatherItem(
                     ArmorMaterialsInit.NETHERITE_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
