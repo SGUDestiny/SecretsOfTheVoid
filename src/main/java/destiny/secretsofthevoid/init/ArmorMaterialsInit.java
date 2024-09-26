@@ -15,29 +15,30 @@ import java.util.EnumMap;
 import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
+    STEEL_DIVING_GEAR("steel_diving_gear", 28, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 3);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 7);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 5);
+        p_266655_.put(ArmorItem.Type.HELMET, 3);
+    }), 11, SoundEvents.ARMOR_EQUIP_IRON, 0.6F, 0.1F, () -> {
+        return Ingredient.of(ItemInit.STEEL_INGOT.get());
+    }),
+
     NETHERITE_DIVING_GEAR("netherite_diving_gear", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
         p_266655_.put(ArmorItem.Type.BOOTS, 3);
         p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
         p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
         p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.0F, 0.1F, () -> {
+    }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.0F, 0.2F, () -> {
         return Ingredient.of(Items.NETHERITE_INGOT);
     }),
-    STEEL_DIVING_GEAR("steel_diving_gear", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
-        p_266655_.put(ArmorItem.Type.BOOTS, 3);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
-        p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 10, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
-        return Ingredient.of(Items.IRON_INGOT);
-    }),
-    HYDROTHERMIC_DIVING_GEAR("steel_diving_gear", 37, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
-        p_266655_.put(ArmorItem.Type.BOOTS, 3);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
-        p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 10, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> {
-        return Ingredient.of(ItemInit.RAW_SCORIA.get());
+    HYDROTHERMIC_DIVING_GEAR("scoria_diving_gear", 42, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 4);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 7);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 9);
+        p_266655_.put(ArmorItem.Type.HELMET, 4);
+    }), 18, SoundEvents.ARMOR_EQUIP_GOLD, 1.3F, 0.3F, () -> {
+        return Ingredient.of(ItemInit.SCORIA_INGOT.get());
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);

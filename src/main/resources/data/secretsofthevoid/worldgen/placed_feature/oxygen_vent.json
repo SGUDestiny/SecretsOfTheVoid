@@ -2,14 +2,8 @@
   "feature": "secretsofthevoid:oxygen_vent",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 15,
-          "min_inclusive": 5
-        }
-      }
+      "type": "minecraft:rarity_filter",
+      "chance": 6
     },
     {
       "type": "minecraft:in_square"

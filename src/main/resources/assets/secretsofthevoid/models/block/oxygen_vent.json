@@ -1,0 +1,10 @@
+{
+	"parent": "minecraft:block/orientable",
+	"textures":
+	{
+                "front": "minecraft:block/deepslate",
+		"side": "minecraft:block/deepslate",
+		"top": "secretsofthevoid:block/oxygen_vent_top",
+		"bottom": "minecraft:block/deepslate_top"
+	}
+}

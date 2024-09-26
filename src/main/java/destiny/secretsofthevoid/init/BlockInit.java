@@ -2,6 +2,7 @@ package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
+import destiny.secretsofthevoid.blocks.OxygenVentBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -40,10 +41,10 @@ public class BlockInit {
     );
 
     public static final RegistryObject<Block> OXYGEN_VENT = registerBlock("oxygen_vent",
-            () -> new Block(
+            () -> new OxygenVentBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_GRAY)
-                            .strength(4.0F, 60)
+                            .strength(2.0F, 5)
                             .sound(SoundType.DEEPSLATE)
             )
     );

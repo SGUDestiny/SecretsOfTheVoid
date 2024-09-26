@@ -31,6 +31,7 @@ public class SecretsOfTheVoid {
         BLOCKS.register(modBus);
         SoundInit.SOUNDS.register(modBus);
         ModFeatures.DEF_REG.register(modBus);
+        BlockEntitiesInit.DEF_REG.register(modBus);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus=Mod.EventBusSubscriber.Bus.MOD)

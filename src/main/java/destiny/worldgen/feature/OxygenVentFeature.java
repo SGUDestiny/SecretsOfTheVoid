@@ -1,5 +1,6 @@
 package destiny.worldgen.feature;
 
+import com.github.alexmodguy.alexscaves.server.block.ACBlockRegistry;
 import com.mojang.serialization.Codec;
 import destiny.secretsofthevoid.init.BlockInit;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ public class OxygenVentFeature extends Feature<NoneFeatureConfiguration> {
         while (!level.getBlockState(ventBottom).getFluidState().isEmpty() && ventBottom.getY() > level.getMinBuildHeight()) {
             ventBottom.move(0, -1, 0);
         }
-        if (level.getBlockState(ventBottom.below()).equals(Blocks.DEEPSLATE.defaultBlockState())) {
+        if (level.getBlockState(ventBottom.below()).equals(ACBlockRegistry.MUCK.get().defaultBlockState())) {
             drawVent(level, ventBottom.above().immutable());
             return true;
         }
@@ -30,7 +31,7 @@ public class OxygenVentFeature extends Feature<NoneFeatureConfiguration> {
     }
 
     private static void drawVent(WorldGenLevel level, BlockPos ventBottom) {
-        ventBottom = ventBottom.below();
+        ventBottom = ventBottom.below().offset(0, -1, 0);
         level.setBlock(ventBottom.north(), Blocks.DEEPSLATE.defaultBlockState(), 3);
         level.setBlock(ventBottom.south(), Blocks.DEEPSLATE.defaultBlockState(), 3);
         level.setBlock(ventBottom.east(), Blocks.DEEPSLATE.defaultBlockState(), 3);
@@ -38,5 +39,11 @@ public class OxygenVentFeature extends Feature<NoneFeatureConfiguration> {
         level.setBlock(ventBottom.below(), Blocks.DEEPSLATE.defaultBlockState(), 3);
         level.setBlock(ventBottom, Blocks.MAGMA_BLOCK.defaultBlockState(), 3);
         level.setBlock(ventBottom.above(), BlockInit.OXYGEN_VENT.get().defaultBlockState(), 3);
+
+        ventBottom = ventBottom.offset(0, 1, 0);
+        level.setBlock(ventBottom.north(), Blocks.DEEPSLATE.defaultBlockState(), 3);
+        level.setBlock(ventBottom.south(), Blocks.DEEPSLATE.defaultBlockState(), 3);
+        level.setBlock(ventBottom.east(), Blocks.DEEPSLATE.defaultBlockState(), 3);
+        level.setBlock(ventBottom.west(), Blocks.DEEPSLATE.defaultBlockState(), 3);
     }
 }
