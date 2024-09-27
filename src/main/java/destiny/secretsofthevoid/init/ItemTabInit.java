@@ -30,14 +30,16 @@ public class ItemTabInit
     {
         if (event.getTabKey() == MAIN.getKey())
         {
-            event.accept(BlockInit.OXYGEN_VENT);
-            event.accept(BlockInit.HYDROTHERMIC_CRYSTAL);
             event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);
+            event.accept(BlockInit.OXYGEN_VENT);
 
+            event.accept(BlockInit.HYDROTHERMIC_CRYSTAL);
             event.accept(ItemInit.RAW_SCORIA);
             event.accept(ItemInit.SCORIA_INGOT);
-            event.accept(ItemInit.SCORIA_UPGRADE);
+            event.accept(BlockInit.SCORIA_BLOCK);
 
+            event.accept(BlockInit.PRESSURE_DRAIN);
+            event.accept(BlockInit.STEEL_BLOCK);
             event.accept(ItemInit.STEEL_INGOT);
             event.accept(ItemInit.AIR_TUBE);
             event.accept(ItemInit.AIR_FILTER);
@@ -47,6 +49,7 @@ public class ItemTabInit
             event.accept(ItemInit.ANCIENT_ALPHABET);
             event.accept(ItemInit.DISC_HADAL);
             event.accept(ItemInit.DISC_HADAL_AMBIENT);
+            event.accept(ItemInit.SCORIA_UPGRADE);
 
             event.accept(ItemHelper.makeRebreather(ItemInit.STEEL_REBREATHER.get(), 1.2));
             event.accept(ItemHelper.makeAirTank(ItemInit.STEEL_BACKTANK.get(), 120));
@@ -56,10 +59,22 @@ public class ItemTabInit
             event.accept(ItemHelper.makeAirTank(ItemInit.DOUBLE_NETHERITE_BACKTANK.get(), 300));
             event.accept(ItemHelper.makeFlipperss(ItemInit.NETHERITE_FLIPPERS.get(), 1.3));
 
-            event.accept(ItemHelper.makeRebreather(ItemInit.HYDROTHERMIC_HELM.get(), 1.5));
-            event.accept(ItemHelper.makeAirTank(ItemInit.PRESSURIZED_HYDROTHERMIC_BACKTANK.get(), 900));
-            event.accept(ItemInit.HYDROTHERMIC_LEGGINGS);
-            event.accept(ItemHelper.makeFlipperss(ItemInit.HYDROTHERMIC_RAZOR_BOOTS.get(), 1.5));
+            event.accept(ItemHelper.makeRebreather(ItemInit.SCORIA_HELM.get(), 1.5));
+            event.accept(ItemHelper.makeAirTank(ItemInit.PRESSURIZED_SCORIA_BACKTANK.get(), 900));
+            event.accept(ItemInit.SCORIA_LEGGINGS);
+            event.accept(ItemHelper.makeFlipperss(ItemInit.SCORIA_RAZOR_BOOTS.get(), 1.5));
+
+            event.accept(ItemInit.STEEL_SWORD);
+            event.accept(ItemInit.STEEL_AXE);
+            event.accept(ItemInit.STEEL_PICKAXE);
+            event.accept(ItemInit.STEEL_SHOVEL);
+            event.accept(ItemInit.STEEL_HOE);
+
+            event.accept(ItemInit.SCORIA_SWORD);
+            event.accept(ItemInit.SCORIA_AXE);
+            event.accept(ItemInit.SCORIA_PICKAXE);
+            event.accept(ItemInit.SCORIA_SHOVEL);
+            event.accept(ItemInit.SCORIA_HOE);
         }
     }
 

@@ -1,24 +1,49 @@
 package destiny.secretsofthevoid.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.datafixers.util.Pair;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.capabilities.DivingCapability;
+import destiny.secretsofthevoid.helper.IAirTank;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
+import destiny.secretsofthevoid.init.ItemInit;
+import destiny.secretsofthevoid.init.SoundInit;
 import destiny.secretsofthevoid.network.ClientPacketHandler;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
+
+import java.util.Comparator;
+import java.util.List;
 
 @SuppressWarnings("ConstantConditions")
 public class OxygenOverlay {
-    public static final ResourceLocation FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
+    public static ResourceLocation FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/full.png");
-    public static final ResourceLocation HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
+    public static ResourceLocation HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/half.png");
     public static final ResourceLocation EMPTY = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/empty.png");
+
+    public static final ResourceLocation STEEL_FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/steel/full.png");
+    public static final ResourceLocation STEEL_HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/steel/half.png");
+
+    public static final ResourceLocation NETHERITE_FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/netherite/full.png");
+    public static final ResourceLocation NETHERITE_HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/netherite/half.png");
+
+    public static final ResourceLocation SCORIA_FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/scoria/full.png");
+    public static final ResourceLocation SCORIA_HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
+            "textures/gui/oxygen_gauge/scoria/half.png");
 
 
     public static final IGuiOverlay OVERLAY = ((gui, poseStack, partialTicks, width, height)
@@ -30,6 +55,23 @@ public class OxygenOverlay {
         LocalPlayer player = ClientPacketHandler.getPlayer().orElse(null);
         if(player != null && player.getCapability(CapabilitiesInit.DIVING).isPresent()) {
             DivingCapability cap = player.getCapability(CapabilitiesInit.DIVING).orElse(null);
+
+            List<Pair<ItemStack, IAirTank>> sortedTanks = cap.getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst())));
+            for (Pair<ItemStack, IAirTank> airTank : sortedTanks) {
+                ItemStack stack = airTank.getFirst();
+                IAirTank tank = airTank.getSecond();
+
+                if (stack.is(ItemInit.STEEL_BACKTANK.get())) {
+                    FULL = STEEL_FULL;
+                    HALF = STEEL_HALF;
+                } else if (stack.is(ItemInit.DOUBLE_NETHERITE_BACKTANK.get())) {
+                    FULL = NETHERITE_FULL;
+                    HALF = NETHERITE_HALF;
+                } else if (stack.is(ItemInit.PRESSURIZED_SCORIA_BACKTANK.get())) {
+                    FULL = SCORIA_FULL;
+                    HALF = SCORIA_HALF;
+                }
+            }
 
             oxygen = cap.getOxygen();
             maxOxygen = cap.getMaxOxygen();

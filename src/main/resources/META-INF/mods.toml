@@ -18,6 +18,7 @@ modId="secretsofthevoid"
 version="1.0"
 displayName="Secrets of the Void"
 authors="Destiny, mistersecret312"
+logoFile="assets/secretsofthevoid/textures/misc/mod_logo.png"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''Secrets of the Void is an addon to well-known Alex's Caves mod, expnading on the Abyssal Chasm biome with more content'''

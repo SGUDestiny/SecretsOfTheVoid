@@ -1,6 +1,5 @@
 package destiny.secretsofthevoid.init;
 
-import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.items.*;
 import destiny.secretsofthevoid.items.scoria.ScoriaAirTankItem;
@@ -40,7 +39,12 @@ public class ItemInit
                             new ResourceLocation("item/empty_armor_slot_helmet"),
                             new ResourceLocation("item/empty_armor_slot_chestplate"),
                             new ResourceLocation("item/empty_armor_slot_leggings"),
-                            new ResourceLocation("item/empty_armor_slot_boots")
+                            new ResourceLocation("item/empty_armor_slot_boots"),
+                            new ResourceLocation("item/empty_slot_sword"),
+                            new ResourceLocation("item/empty_slot_axe"),
+                            new ResourceLocation("item/empty_slot_pickaxe"),
+                            new ResourceLocation("item/empty_slot_shovel"),
+                            new ResourceLocation("item/empty_slot_hoe")
                     ),
                     List.of(
                             new ResourceLocation("item/empty_slot_ingot")
@@ -93,7 +97,6 @@ public class ItemInit
             new Item.Properties()
                     .rarity(Rarity.UNCOMMON)
                     .stacksTo(1)
-                    .craftRemainder(Items.GLOW_INK_SAC)
             )
     );
     public static final RegistryObject<ItemAncientAlphabet> ANCIENT_ALPHABET = ITEMS.register("ancient_alphabet",
@@ -133,7 +136,8 @@ public class ItemInit
                     ArmorMaterialsInit.STEEL_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
-                            .stacksTo(1))
+                            .stacksTo(1)
+            )
     );
     public static final RegistryObject<SteelFlippersItem> STEEL_FLIPPERS = ITEMS.register("armor/steel/steel_flippers",
             () -> new SteelFlippersItem(
@@ -172,40 +176,106 @@ public class ItemInit
             )
     );
 
-    public static final RegistryObject<ScoriaRebreatherItem> HYDROTHERMIC_HELM = ITEMS.register("armor/scoria/scoria_helm",
+    public static final RegistryObject<ScoriaRebreatherItem> SCORIA_HELM = ITEMS.register("armor/scoria/scoria_helm",
             () -> new ScoriaRebreatherItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.HELMET,
                     new Item.Properties()
                             .stacksTo(1)
                             .fireResistant()
+                            .rarity(Rarity.RARE)
             )
     );
-    public static final RegistryObject<ScoriaAirTankItem> PRESSURIZED_HYDROTHERMIC_BACKTANK = ITEMS.register("armor/scoria/pressurized_scoria_backtank",
+    public static final RegistryObject<ScoriaAirTankItem> PRESSURIZED_SCORIA_BACKTANK = ITEMS.register("armor/scoria/pressurized_scoria_backtank",
             () -> new ScoriaAirTankItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.CHESTPLATE,
                     new Item.Properties()
                             .stacksTo(1)
                             .fireResistant()
+                            .rarity(Rarity.RARE)
             )
     );
-    public static final RegistryObject<ScoriaLeggingsItem> HYDROTHERMIC_LEGGINGS = ITEMS.register("armor/scoria/scoria_leggings",
+    public static final RegistryObject<ScoriaLeggingsItem> SCORIA_LEGGINGS = ITEMS.register("armor/scoria/scoria_leggings",
             () -> new ScoriaLeggingsItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.LEGGINGS,
                     new Item.Properties()
                             .stacksTo(1)
                             .fireResistant()
+                            .rarity(Rarity.RARE)
             )
     );
-    public static final RegistryObject<ScoriaFlippersItem> HYDROTHERMIC_RAZOR_BOOTS = ITEMS.register("armor/scoria/scoria_razor_boots",
+    public static final RegistryObject<ScoriaFlippersItem> SCORIA_RAZOR_BOOTS = ITEMS.register("armor/scoria/scoria_razor_boots",
             () -> new ScoriaFlippersItem(
                     ArmorMaterialsInit.HYDROTHERMIC_DIVING_GEAR,
                     ArmorItem.Type.BOOTS,
                     new Item.Properties()
                             .stacksTo(1)
                             .fireResistant()
+                            .rarity(Rarity.RARE)
+            )
+    );
+
+    public static final RegistryObject<SwordItem> STEEL_SWORD = ITEMS.register("steel_sword",
+            () -> new SwordItem(ToolMaterialInit.STEEL, 4, -2.2f,
+                    new Item.Properties()
+            )
+    );
+    public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = ITEMS.register("steel_pickaxe",
+            () -> new PickaxeItem(ToolMaterialInit.STEEL, 2, -2.6f,
+                    new Item.Properties()
+            )
+    );
+    public static final RegistryObject<AxeItem> STEEL_AXE = ITEMS.register("steel_axe",
+            () -> new AxeItem(ToolMaterialInit.STEEL, 6.0f, -2.8f,
+                    new Item.Properties()
+            )
+    );
+    public static final RegistryObject<ShovelItem> STEEL_SHOVEL = ITEMS.register("steel_shovel",
+            () -> new ShovelItem(ToolMaterialInit.STEEL, 1f, -2.7f,
+                    new Item.Properties()
+            )
+    );
+    public static final RegistryObject<HoeItem> STEEL_HOE = ITEMS.register("steel_hoe",
+            () -> new HoeItem(ToolMaterialInit.SCORIA, -1, -1.5f,
+                    new Item.Properties()
+            )
+    );
+
+    public static final RegistryObject<SwordItem> SCORIA_SWORD = ITEMS.register("scoria_sword",
+            () -> new SwordItem(ToolMaterialInit.SCORIA, 4, -1.9f,
+                    new Item.Properties()
+                            .fireResistant()
+                            .rarity(Rarity.RARE)
+            )
+    );
+    public static final RegistryObject<PickaxeItem> SCORIA_PICKAXE = ITEMS.register("scoria_pickaxe",
+            () -> new PickaxeItem(ToolMaterialInit.SCORIA, 2, -2.3f,
+                    new Item.Properties()
+                            .fireResistant()
+                            .rarity(Rarity.RARE)
+            )
+    );
+    public static final RegistryObject<AxeItem> SCORIA_AXE = ITEMS.register("scoria_axe",
+            () -> new AxeItem(ToolMaterialInit.SCORIA, 6.0f, -2.5f,
+                    new Item.Properties()
+                            .fireResistant()
+                            .rarity(Rarity.RARE)
+            )
+    );
+    public static final RegistryObject<ShovelItem> SCORIA_SHOVEL = ITEMS.register("scoria_shovel",
+            () -> new ShovelItem(ToolMaterialInit.SCORIA, 2.5f, -2.0f,
+                    new Item.Properties()
+                            .fireResistant()
+                            .rarity(Rarity.RARE)
+            )
+    );
+    public static final RegistryObject<HoeItem> SCORIA_HOE = ITEMS.register("scoria_hoe",
+            () -> new HoeItem(ToolMaterialInit.SCORIA, 0, 1f,
+                    new Item.Properties()
+                            .fireResistant()
+                            .rarity(Rarity.RARE)
             )
     );
 

@@ -3,6 +3,7 @@ package destiny.secretsofthevoid.init;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
 import destiny.secretsofthevoid.blocks.OxygenVentBlock;
+import destiny.secretsofthevoid.blocks.PressureDrainBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -17,6 +18,28 @@ import java.util.function.Supplier;
 
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SecretsOfTheVoid.MODID);
+
+    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_GRAY)
+                            .requiresCorrectToolForDrops()
+                            .strength(2.0F, 10)
+                            .sound(SoundType.METAL)
+            )
+
+    );
+
+    public static final RegistryObject<Block> SCORIA_BLOCK = registerBlock("scoria_block",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_YELLOW)
+                            .requiresCorrectToolForDrops()
+                            .strength(2.0F, 60)
+                            .sound(SoundType.METAL)
+            )
+
+    );
 
     public static final RegistryObject<Block> DEEPSLATE_SCORIA_ORE = registerBlock("deepslate_scoria_ore",
             () -> new Block(
@@ -33,7 +56,7 @@ public class BlockInit {
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_ORANGE)
                             .requiresCorrectToolForDrops()
-                            .strength(5.0F, -1)
+                            .strength(7.0F, -1)
                             .sound(SoundType.AMETHYST_CLUSTER)
                             .lightLevel(state -> 12)
                             .noOcclusion()
@@ -46,6 +69,16 @@ public class BlockInit {
                             .mapColor(MapColor.COLOR_GRAY)
                             .strength(2.0F, 5)
                             .sound(SoundType.DEEPSLATE)
+            )
+    );
+
+    public static final RegistryObject<Block> PRESSURE_DRAIN = registerBlock("pressure_drain",
+            () -> new PressureDrainBlock(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_LIGHT_GRAY)
+                            .strength(1.0F, 10)
+                            .sound(SoundType.METAL)
+                            .noOcclusion()
             )
     );
 

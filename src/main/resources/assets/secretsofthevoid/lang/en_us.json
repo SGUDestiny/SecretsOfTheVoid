@@ -2,6 +2,9 @@
     "block.secretsofthevoid.deepslate_scoria_ore": "Deepslate Scoria Ore",
     "block.secretsofthevoid.hydrothermic_crystal": "Hydrothermic Crystal",
     "block.secretsofthevoid.oxygen_vent": "Oxygen Vent",
+    "block.secretsofthevoid.pressure_drain": "Pressure Drain",
+    "block.secretsofthevoid.steel_block": "Steel Block",
+    "block.secretsofthevoid.scoria_block": "Scoria Block",
 
     "item.secretsofthevoid.raw_scoria": "Raw Scoria",
     "item.secretsofthevoid.steel_ingot": "Steel Ingot",
@@ -31,6 +34,18 @@
     "item.secretsofthevoid.armor.scoria.scoria_leggings": "Scoria Leggings",
     "item.secretsofthevoid.armor.scoria.scoria_razor_boots": "Scoria Razor Boots",
 
+    "item.secretsofthevoid.steel_sword": "Steel Sword",
+    "item.secretsofthevoid.steel_axe": "Steel Axe",
+    "item.secretsofthevoid.steel_pickaxe": "Steel Pickaxe",
+    "item.secretsofthevoid.steel_shovel": "Steel Shovel",
+    "item.secretsofthevoid.steel_hoe": "Steel Hoe",
+
+    "item.secretsofthevoid.scoria_sword": "Scoria Sword",
+    "item.secretsofthevoid.scoria_axe": "Scoria Axe",
+    "item.secretsofthevoid.scoria_pickaxe": "Scoria Pickaxe",
+    "item.secretsofthevoid.scoria_shovel": "Scoria Shovel",
+    "item.secretsofthevoid.scoria_hoe": "Scoria Hoe",
+
     "item.secretsofthevoid.smithing_template.scoria_upgrade.applies_to": "Netherite Diving Equipment",
     "item.secretsofthevoid.smithing_template.scoria_upgrade.ingredients": "Scoria Ingot",
     "item.secretsofthevoid.smithing_template.scoria_upgrade.base_slot_description": "Add netherite diving equipment",
@@ -48,6 +63,7 @@
     "tooltip.secretsofthevoid.tank_stored_oxygen": "Stored Oxygen: ",
     "tooltip.secretsofthevoid.flippers_sinking": "Sinking Resistance: ",
     "tooltip.secretsofthevoid.flippers_speed": "Swimming Speed: ",
+    "tooltip.secretsofthevoid.pressure_drain": "If placed on functioning oxygen vent, can refill backtank on [RMB]",
 
     "sounds.secretsofthevoid.rebreather_inhale": "Rebreather inhale",
     "sounds.secretsofthevoid.rebreather_exhale": "Water bubbling",
@@ -60,14 +76,25 @@
 
     "advancements.secretsofthevoid.ancient_alphabet.title": "Spelunk Me This!",
     "advancements.secretsofthevoid.ancient_alphabet.description": "Copy ancient texts from the Enchanting Table",
+
     "advancements.secretsofthevoid.steel_diving_equipment.title": "Steeled",
     "advancements.secretsofthevoid.steel_diving_equipment.description": "Craft a full set of steel diving gear. Good diving!",
+
     "advancements.secretsofthevoid.netherite_diving_equipment.title": "Where No Pig Ever Stepped",
     "advancements.secretsofthevoid.netherite_diving_equipment.description": "Upgrade your diving gear from steel to netherite",
+
     "advancements.secretsofthevoid.raw_scoria.title": "Heat Of The Deep",
     "advancements.secretsofthevoid.raw_scoria.description": "Venture deep into the Abyssal Chasm and mine for Scoria",
+
     "advancements.secretsofthevoid.scoria_upgrade.title": "Pearly Shine",
     "advancements.secretsofthevoid.scoria_upgrade.description": "Trade with the Deep Ones and obtain a Scoria Upgrade Smithing Template",
+
     "advancements.secretsofthevoid.scoria_diving_equipment.title": "Melting Point",
-    "advancements.secretsofthevoid.scoria_diving_equipment.description": "Using processed Scoria and traded templates, upgrade your diving gear from netherite to scoria"
+    "advancements.secretsofthevoid.scoria_diving_equipment.description": "Using processed Scoria and traded templates, upgrade your diving gear from netherite to scoria",
+
+    "advancements.secretsofthevoid.all_scoria_tools.title": "Scorching Insanity",
+    "advancements.secretsofthevoid.all_scoria_tools.description": "Upgrade each tool to Scoria. You like pain, don't you.",
+
+    "advancements.secretsofthevoid.pressure_drain.title": "Oxygen Included",
+    "advancements.secretsofthevoid.pressure_drain.description": "Craft a Pressure Drain that allows to replenish oxygen right at the seabed"
 }

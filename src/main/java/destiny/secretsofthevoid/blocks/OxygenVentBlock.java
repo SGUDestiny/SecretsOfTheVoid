@@ -2,6 +2,7 @@ package destiny.secretsofthevoid.blocks;
 
 import destiny.secretsofthevoid.blocks.blockentity.OxygenVentBlockEntity;
 import destiny.secretsofthevoid.init.BlockEntitiesInit;
+import destiny.secretsofthevoid.init.BlockInit;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
@@ -26,31 +27,38 @@ import org.jetbrains.annotations.Nullable;
 
 public class OxygenVentBlock extends BaseEntityBlock {
     public static final BooleanProperty SPAWNING_PARTICLES = BooleanProperty.create("spawning_particles");
+    public static final BooleanProperty DRAINING_OXYGEN = BooleanProperty.create("draining_oxygen");
 
     public OxygenVentBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(SPAWNING_PARTICLES, true));
+        this.registerDefaultState(this.stateDefinition.any().setValue(SPAWNING_PARTICLES, true).setValue(DRAINING_OXYGEN, false));
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         LevelAccessor levelaccessor = context.getLevel();
         BlockPos blockpos = context.getClickedPos();
-        return this.defaultBlockState().setValue(SPAWNING_PARTICLES, isSpawningParticles(blockpos, levelaccessor));
+        return this.defaultBlockState().setValue(SPAWNING_PARTICLES, isSpawningParticles(blockpos, levelaccessor)).setValue(DRAINING_OXYGEN, isDrainingOxygen(blockpos, levelaccessor));
     }
 
     public BlockState updateShape(BlockState state, Direction direction, BlockState state1, LevelAccessor levelAccessor, BlockPos blockPos, BlockPos blockPos1) {
-        return state.setValue(SPAWNING_PARTICLES, isSpawningParticles(blockPos, levelAccessor));
+        return state.setValue(SPAWNING_PARTICLES, isSpawningParticles(blockPos, levelAccessor)).setValue(DRAINING_OXYGEN, isDrainingOxygen(blockPos, levelAccessor));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(SPAWNING_PARTICLES);
+        builder.add(SPAWNING_PARTICLES, DRAINING_OXYGEN);
     }
 
     public boolean isSpawningParticles(BlockPos pos, LevelAccessor level) {
         BlockState above = level.getBlockState(pos.above());
         BlockState below = level.getBlockState(pos.below());
 
-        return (above.getFluidState().is(FluidTags.WATER) && below.is(Blocks.MAGMA_BLOCK) || !above.blocksMotion() && below.is(Blocks.MAGMA_BLOCK));
+        return (above.isAir() && below.is(Blocks.MAGMA_BLOCK) || !above.blocksMotion() && below.is(Blocks.MAGMA_BLOCK));
+    }
+
+    public boolean isDrainingOxygen(BlockPos pos, LevelAccessor level) {
+        BlockState above = level.getBlockState(pos.above());
+
+        return (above.is(BlockInit.PRESSURE_DRAIN.get()));
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource randomSource) {
@@ -71,9 +79,11 @@ public class OxygenVentBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
-        if (pEntity instanceof Player player && pState.getValue(SPAWNING_PARTICLES)) {
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+        if (entity instanceof Player player && state.getValue(SPAWNING_PARTICLES)) {
             player.setAirSupply(Math.min(player.getAirSupply() + 3, player.getMaxAirSupply()));
+        } else {
+            entity.setDeltaMovement(0, 1.5, 0);
         }
     }
 

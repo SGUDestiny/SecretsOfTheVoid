@@ -1,6 +1,5 @@
 package destiny.secretsofthevoid.init;
 
-import com.github.alexmodguy.alexscaves.server.block.blockentity.BeholderBlockEntity;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import destiny.secretsofthevoid.blocks.blockentity.OxygenVentBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;

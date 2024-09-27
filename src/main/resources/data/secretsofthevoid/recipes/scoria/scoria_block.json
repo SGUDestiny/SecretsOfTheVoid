@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"SSS",
+		"SSS",
+		"SSS"
+	],
+	"key":
+	{
+		"S": { "item": "secretsofthevoid:scoria_ingot"}
+	},
+	"result": { "item": "secretsofthevoid:scoria_block", "count": 1 }
+}

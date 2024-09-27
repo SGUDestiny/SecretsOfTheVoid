@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
-    "secretsofthevoid:deepslate_scoria_ore"
+    "secretsofthevoid:deepslate_scoria_ore",
+    "secretsofthevoid:oxygen_vent",
+    "secretsofthevoid:pressure_drain",
+    "secretsofthevoid:hydrothermic_crystal",
+    "secretsofthevoid:steel_block",
+    "secretsofthevoid:scoria_block"
   ]
 }

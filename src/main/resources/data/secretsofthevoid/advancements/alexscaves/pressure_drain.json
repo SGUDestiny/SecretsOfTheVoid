@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:pressure_drain"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.pressure_drain.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.pressure_drain.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alexscaves:alexscaves/discover_abyssal_ruins",
+  "criteria": {
+    "drain": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:pressure_drain"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "drain"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

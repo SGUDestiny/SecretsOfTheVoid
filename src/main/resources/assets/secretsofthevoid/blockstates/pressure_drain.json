@@ -1,0 +1,9 @@
+{
+	"variants":
+	{
+		"facing=north": { "model": "secretsofthevoid:block/pressure_drain" },
+		"facing=south": { "model": "secretsofthevoid:block/pressure_drain", "y": 180 },
+		"facing=west": { "model": "secretsofthevoid:block/pressure_drain", "y": 270 },
+		"facing=east": { "model": "secretsofthevoid:block/pressure_drain", "y": 90 }
+	}
+}
