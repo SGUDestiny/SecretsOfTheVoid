@@ -168,10 +168,8 @@ public class PressureDrainBlock extends HorizontalDirectionalBlock implements Si
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter getter, List<Component> components, TooltipFlag flag) {
-        if(!stack.getTag().isEmpty()) {
-            MutableComponent efficiency = Component.translatable("tooltip.secretsofthevoid.pressure_drain");
+        MutableComponent efficiency = Component.translatable("tooltip.secretsofthevoid.pressure_drain");
 
-            components.add(efficiency);
-        }
+        components.add(efficiency);
     }
 }
