@@ -82,7 +82,7 @@ public class OxygenVentBlock extends BaseEntityBlock {
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof Player player && state.getValue(SPAWNING_PARTICLES)) {
             player.setAirSupply(Math.min(player.getAirSupply() + 3, player.getMaxAirSupply()));
-        } else {
+        } else if (state.getValue(SPAWNING_PARTICLES)) {
             entity.setDeltaMovement(0, 1.5, 0);
         }
     }
