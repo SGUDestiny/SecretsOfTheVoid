@@ -1,19 +1,15 @@
 {
-	"type": "minecraft:smithing_transform",
-	"addition":
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		" I ",
+		"I I",
+		"   "
+	],
+	"key":
 	{
-		"item": "secretsofthevoid:scoria_ingot"
+		"I": { "item": "secretsofthevoid:scoria_ingot"}
 	},
-	"base":
-	{
-		"item": "minecraft:netherite_leggings"
-	},
-	"result":
-	{
-		"item": "secretsofthevoid:armor/scoria/scoria_legwear"
-	},
-	"template":
-	{
-		"item": "secretsofthevoid:scoria_upgrade_smithing_template"
-	}
+	"result": { "item": "secretsofthevoid:scoria_legwear", "count": 1 }
 }

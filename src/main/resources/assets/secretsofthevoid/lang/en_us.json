@@ -113,5 +113,8 @@
     "advancements.secretsofthevoid.pressure_drain.description": "Craft a Pressure Drain that allows to replenish oxygen right at the seabed",
 
     "advancements.secretsofthevoid.scoria_brush.title": "Severe Case of Archaeology",
-    "advancements.secretsofthevoid.scoria_brush.description": "Craft a scoria brush. No, really, what do you even need it for?"
+    "advancements.secretsofthevoid.scoria_brush.description": "Craft a scoria brush. No, really, what do you even need it for?",
+
+    "advancements.secretsofthevoid.all_scoria_armor.title": "Cover Me in Scoria",
+    "advancements.secretsofthevoid.all_scoria_armor.description": "Upgrade an entire Netherite armor set to Scoria. No pain - No gain!"
 }
