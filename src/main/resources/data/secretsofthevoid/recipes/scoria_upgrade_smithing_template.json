@@ -9,7 +9,7 @@
 	],
 	"key":
 	{
-		"P": { "item": "alexscaves:block_of_pearl"},
+		"P": { "item": "secretsofthevoid:shimmersteel_block"},
 		"T": { "item": "secretsofthevoid:scoria_upgrade_smithing_template" },
 		"D": { "item": "minecraft:diamond" }
 	},

@@ -11,5 +11,5 @@
 	{
 		"I": { "item": "secretsofthevoid:scoria_ingot"}
 	},
-	"result": { "item": "secretsofthevoid:scoria_legwear", "count": 1 }
+	"result": { "item": "secretsofthevoid:armor/scoria/scoria_legwear", "count": 1 }
 }
