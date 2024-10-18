@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"TIT",
+		"T T",
+		"TFT"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"},
+		"T": { "item": "secretsofthevoid:air_tube" },
+		"F": { "item": "secretsofthevoid:air_filter" }
+	},
+	"result": { "item": "secretsofthevoid:armor/shimmersteel/shimmersteel_scuba", "count": 1 }
+}

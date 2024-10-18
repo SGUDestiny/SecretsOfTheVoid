@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"   ",
+		"I I",
+		"I I"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"}
+	},
+	"result": { "item": "secretsofthevoid:shimmersteel_boots", "count": 1 }
+}

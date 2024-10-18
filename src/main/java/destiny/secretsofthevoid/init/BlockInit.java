@@ -19,10 +19,10 @@ import java.util.function.Supplier;
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SecretsOfTheVoid.MODID);
 
-    public static final RegistryObject<Block> STEEL_BLOCK = registerBlock("steel_block",
+    public static final RegistryObject<Block> SHIMMERSTEEL_BLOCK = registerBlock("shimmersteel_block",
             () -> new Block(
                     BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.COLOR_GRAY)
+                            .mapColor(MapColor.COLOR_CYAN)
                             .requiresCorrectToolForDrops()
                             .strength(2.0F, 10)
                             .sound(SoundType.METAL)
@@ -75,7 +75,7 @@ public class BlockInit {
     public static final RegistryObject<Block> PRESSURE_DRAIN = registerBlock("pressure_drain",
             () -> new PressureDrainBlock(
                     BlockBehaviour.Properties.of()
-                            .mapColor(MapColor.COLOR_LIGHT_GRAY)
+                            .mapColor(MapColor.COLOR_CYAN)
                             .strength(1.0F, 10)
                             .sound(SoundType.METAL)
                             .noOcclusion()

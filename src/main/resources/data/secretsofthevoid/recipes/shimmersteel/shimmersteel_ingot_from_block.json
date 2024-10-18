@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "secretsofthevoid:shimmersteel_block"
+    }
+  ],
+  "result": {
+    "item": "secretsofthevoid:shimmersteel_ingot",
+    "count": 9
+  }
+}

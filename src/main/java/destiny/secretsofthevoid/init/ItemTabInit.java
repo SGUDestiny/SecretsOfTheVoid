@@ -16,7 +16,7 @@ public class ItemTabInit
 
     public static final RegistryObject<CreativeModeTab> MAIN = TABS.register("secretsofthevoid",
             () -> CreativeModeTab.builder()
-                    .icon(() -> ItemInit.DISC_HADAL.get().getDefaultInstance())
+                    .icon(() -> ItemInit.SCORIA_INGOT.get().getDefaultInstance())
                     .title(Component.translatable("itemGroup.secretsofthevoid.creative_tab"))
                     .build()
     );
@@ -39,8 +39,8 @@ public class ItemTabInit
             event.accept(BlockInit.SCORIA_BLOCK);
 
             event.accept(BlockInit.PRESSURE_DRAIN);
-            event.accept(BlockInit.STEEL_BLOCK);
-            event.accept(ItemInit.STEEL_INGOT);
+            event.accept(BlockInit.SHIMMERSTEEL_BLOCK);
+            event.accept(ItemInit.SHIMMERSTEEL_INGOT);
             event.accept(ItemInit.AIR_TUBE);
             event.accept(ItemInit.AIR_FILTER);
             event.accept(ItemInit.AIR_TANK);
@@ -51,9 +51,9 @@ public class ItemTabInit
             event.accept(ItemInit.DISC_HADAL_AMBIENT);
             event.accept(ItemInit.SCORIA_UPGRADE);
 
-            event.accept(ItemHelper.makeRebreather(ItemInit.STEEL_REBREATHER.get(), 1.2));
-            event.accept(ItemHelper.makeAirTank(ItemInit.STEEL_BACKTANK.get(), 120));
-            event.accept(ItemHelper.makeFlipperss(ItemInit.STEEL_FLIPPERS.get(), 1.2));
+            event.accept(ItemHelper.makeRebreather(ItemInit.SHIMMERSTEEL_REBREATHER.get(), 1.2));
+            event.accept(ItemHelper.makeAirTank(ItemInit.SHIMMERSTEEL_BACKTANK.get(), 120));
+            event.accept(ItemHelper.makeFlipperss(ItemInit.SHIMMERSTEEL_FLIPPERS.get(), 1.2));
 
             event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_SCUBA.get(), 1.3));
             event.accept(ItemHelper.makeAirTank(ItemInit.DOUBLE_NETHERITE_BACKTANK.get(), 300));
@@ -61,20 +61,34 @@ public class ItemTabInit
 
             event.accept(ItemHelper.makeRebreather(ItemInit.SCORIA_HELM.get(), 1.5));
             event.accept(ItemHelper.makeAirTank(ItemInit.PRESSURIZED_SCORIA_BACKTANK.get(), 900));
-            event.accept(ItemInit.SCORIA_LEGGINGS);
+            event.accept(ItemInit.SCORIA_LEGWEAR);
             event.accept(ItemHelper.makeFlipperss(ItemInit.SCORIA_RAZOR_BOOTS.get(), 1.5));
 
-            event.accept(ItemInit.STEEL_SWORD);
-            event.accept(ItemInit.STEEL_AXE);
-            event.accept(ItemInit.STEEL_PICKAXE);
-            event.accept(ItemInit.STEEL_SHOVEL);
-            event.accept(ItemInit.STEEL_HOE);
+            event.accept(ItemInit.SHIMMERSTEEL_HELMET);
+            event.accept(ItemInit.SHIMMERSTEEL_CHESTPLATE);
+            event.accept(ItemInit.SHIMMERSTEEL_LEGGINGS);
+            event.accept(ItemInit.SHIMMERSTEEL_BOOTS);
+
+            event.accept(ItemInit.SCORIA_HELMET);
+            event.accept(ItemInit.SCORIA_CHESTPLATE);
+            event.accept(ItemInit.SCORIA_LEGGINGS);
+            event.accept(ItemInit.SCORIA_BOOTS);
+
+            event.accept(ItemInit.SHIMMERSTEEL_SWORD);
+            event.accept(ItemInit.SHIMMERSTEEL_AXE);
+            event.accept(ItemInit.SHIMMERSTEEL_PICKAXE);
+            event.accept(ItemInit.SHIMMERSTEEL_SHOVEL);
+            event.accept(ItemInit.SHIMMERSTEEL_HOE);
 
             event.accept(ItemInit.SCORIA_SWORD);
             event.accept(ItemInit.SCORIA_AXE);
             event.accept(ItemInit.SCORIA_PICKAXE);
             event.accept(ItemInit.SCORIA_SHOVEL);
             event.accept(ItemInit.SCORIA_HOE);
+
+            event.accept(ItemInit.IRON_BRUSH);
+            event.accept(ItemInit.SHIMMERSTEEL_BRUSH);
+            event.accept(ItemInit.SCORIA_BRUSH);
         }
     }
 

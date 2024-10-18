@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"category": "misc",
+	"ingredients":
+	[
+		{ "item": "secretsofthevoid:shimmersteel_ingot" }
+	],
+	"result": { "item": "secretsofthevoid:air_tube", "count": 8 }
+}

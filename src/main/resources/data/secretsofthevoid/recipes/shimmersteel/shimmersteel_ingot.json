@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": { "item": "alexscaves:pearl" },
+	"result": { "item": "secretsofthevoid:shimmersteel_ingot" },
+	"experience": 5.0,
+	"cookingtime": 300
+}

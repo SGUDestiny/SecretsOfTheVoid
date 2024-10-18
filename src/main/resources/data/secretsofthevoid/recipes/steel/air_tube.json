@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:crafting_shapeless",
-	"category": "misc",
-	"ingredients":
-	[
-		{ "tag": "forge:ingots/steel" }
-	],
-	"result": { "item": "secretsofthevoid:air_tube", "count": 8 }
-}

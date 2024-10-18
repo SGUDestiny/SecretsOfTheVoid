@@ -35,7 +35,7 @@ public class ScoriaGearItem extends ArmorItem implements GeoItem {
     @Override
     public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)
     {
-        return SecretsOfTheVoid.MODID + ":textures/item/armor/steel/steel_diving_gear.png";
+        return SecretsOfTheVoid.MODID + ":textures/item/armor/shimmersteel/steel_diving_gear.png";
     }
 
     @Override

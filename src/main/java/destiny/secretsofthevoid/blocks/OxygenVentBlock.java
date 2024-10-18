@@ -57,8 +57,9 @@ public class OxygenVentBlock extends BaseEntityBlock {
 
     public boolean isDrainingOxygen(BlockPos pos, LevelAccessor level) {
         BlockState above = level.getBlockState(pos.above());
+        BlockState below = level.getBlockState(pos.below());
 
-        return (above.is(BlockInit.PRESSURE_DRAIN.get()));
+        return (above.is(BlockInit.PRESSURE_DRAIN.get()) && below.is(Blocks.MAGMA_BLOCK));
     }
 
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource randomSource) {

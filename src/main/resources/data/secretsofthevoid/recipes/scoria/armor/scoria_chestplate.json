@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "secretsofthevoid:scoria_ingot"
+	},
+	"base":
+	{
+		"item": "minecraft:netherite_chestplate"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:scoria_chestplate"
+	},
+	"template":
+	{
+		"item": "secretsofthevoid:scoria_upgrade_smithing_template"
+	}
+}

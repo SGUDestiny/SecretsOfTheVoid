@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"   ",
+		"I I",
+		"K K"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"},
+		"K": { "item": "minecraft:dried_kelp" }
+	},
+	"result": { "item": "secretsofthevoid:armor/shimmersteel/shimmersteel_flippers", "count": 1 }
+}

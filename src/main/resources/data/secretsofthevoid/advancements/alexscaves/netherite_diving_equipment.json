@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "secretsofthevoid:alexscaves/steel_diving_equipment",
+  "parent": "secretsofthevoid:alexscaves/shimmersteel_diving_equipment",
   "criteria": {
     "rebreather": {
       "trigger": "minecraft:inventory_changed",

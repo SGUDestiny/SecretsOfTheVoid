@@ -8,8 +8,10 @@
     },
     "description": {
       "translate": "advancements.secretsofthevoid.defeat_hullbreaker.description"
-    }
+    },
+    "frame": "challenge"
   },
+
   "parent": "alexscaves:alexscaves/abyssal_bucket",
   "criteria": {
     "killed": {

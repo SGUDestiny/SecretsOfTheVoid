@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		" T ",
+		"IBI",
+		" I "
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"},
+		"T": { "item": "secretsofthevoid:air_tube" },
+		"B": { "item": "alexscaves:metal_barrel" }
+	},
+	"result": { "item": "secretsofthevoid:air_tank", "count": 1 }
+}

@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"I I",
+		"III",
+		"III"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"}
+	},
+	"result": { "item": "secretsofthevoid:shimmersteel_chestplate", "count": 1 }
+}

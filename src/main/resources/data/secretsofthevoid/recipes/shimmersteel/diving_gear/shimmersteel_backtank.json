@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"STS",
+		" A ",
+		"SIS"
+	],
+	"key":
+	{
+		"I": { "item": "secretsofthevoid:shimmersteel_ingot"},
+		"T": { "item": "secretsofthevoid:air_tube" },
+		"A": { "item": "secretsofthevoid:air_tank" },
+		"S": { "item": "minecraft:string" }
+	},
+	"result": { "item": "secretsofthevoid:armor/shimmersteel/shimmersteel_backtank", "count": 1 }
+}

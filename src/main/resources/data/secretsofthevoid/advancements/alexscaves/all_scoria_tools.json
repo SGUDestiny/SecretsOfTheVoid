@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.secretsofthevoid.all_scoria_tools.description"
     },
-    "frame": "goal",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

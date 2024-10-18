@@ -21,9 +21,9 @@
     "item.secretsofthevoid.disc_hadal_ambient": "Hadal Disc",
     "item.secretsofthevoid.disc_hadal_ambient.desc": "bxnwxghxrn - C:\\\\AR?A_M4TH (AMB13NT)",
 
-    "item.secretsofthevoid.armor.steel.steel_scuba": "Steel Scuba",
-    "item.secretsofthevoid.armor.steel.steel_backtank": "Steel Backtank",
-    "item.secretsofthevoid.armor.steel.steel_flippers": "Steel Flippers",
+    "item.secretsofthevoid.armor.shimmersteel.shimmersteel_scuba": "Shimmersteel Scuba",
+    "item.secretsofthevoid.armor.shimmersteel.shimmersteel_backtank": "Shimmersteel Backtank",
+    "item.secretsofthevoid.armor.shimmersteel.shimmersteel_flippers": "Shimmersteel Flippers",
 
     "item.secretsofthevoid.armor.netherite.netherite_rebreather": "Netherite Rebreather",
     "item.secretsofthevoid.armor.netherite.double_netherite_backtank": "Double Netherite Backtank",
@@ -31,20 +31,34 @@
 
     "item.secretsofthevoid.armor.scoria.scoria_helm": "Scoria Helm",
     "item.secretsofthevoid.armor.scoria.pressurized_scoria_backtank": "Pressurized Scoria Backtank",
-    "item.secretsofthevoid.armor.scoria.scoria_leggings": "Scoria Leggings",
+    "item.secretsofthevoid.armor.scoria.scoria_legwear": "Scoria Legwear",
     "item.secretsofthevoid.armor.scoria.scoria_razor_boots": "Scoria Razor Boots",
 
-    "item.secretsofthevoid.steel_sword": "Steel Sword",
-    "item.secretsofthevoid.steel_axe": "Steel Axe",
-    "item.secretsofthevoid.steel_pickaxe": "Steel Pickaxe",
-    "item.secretsofthevoid.steel_shovel": "Steel Shovel",
-    "item.secretsofthevoid.steel_hoe": "Steel Hoe",
+    "item.secretsofthevoid.shimmersteel_helmet": "Shimmersteel Helmet",
+    "item.secretsofthevoid.shimmersteel_chestplate": "Shimmersteel Chestplate",
+    "item.secretsofthevoid.shimmersteel_leggings": "Shimmersteel Leggings",
+    "item.secretsofthevoid.shimmersteel_boots": "Shimmersteel Boots",
+
+    "item.secretsofthevoid.scoria_helmet": "Scoria Helmet",
+    "item.secretsofthevoid.scoria_chestplate": "Scoria Chestplate",
+    "item.secretsofthevoid.scoria_leggings": "Scoria Leggings",
+    "item.secretsofthevoid.scoria_boots": "Scoria Boots",
+
+    "item.secretsofthevoid.shimmersteel_sword": "Shimmersteel Sword",
+    "item.secretsofthevoid.shimmersteel_axe": "Shimmersteel Axe",
+    "item.secretsofthevoid.shimmersteel_pickaxe": "Shimmersteel Pickaxe",
+    "item.secretsofthevoid.shimmersteel_shovel": "Shimmersteel Shovel",
+    "item.secretsofthevoid.shimmersteel_hoe": "Shimmersteel Hoe",
 
     "item.secretsofthevoid.scoria_sword": "Scoria Sword",
     "item.secretsofthevoid.scoria_axe": "Scoria Axe",
     "item.secretsofthevoid.scoria_pickaxe": "Scoria Pickaxe",
     "item.secretsofthevoid.scoria_shovel": "Scoria Shovel",
     "item.secretsofthevoid.scoria_hoe": "Scoria Hoe",
+
+    "item.secretsofthevoid.iron_brush": "Iron Brush",
+    "item.secretsofthevoid.shimmersteel_brush": "Shimmersteel Brush",
+    "item.secretsofthevoid.scoria_brush": "Scoria Brush",
 
     "item.secretsofthevoid.smithing_template.scoria_upgrade.applies_to": "Netherite Diving Equipment",
     "item.secretsofthevoid.smithing_template.scoria_upgrade.ingredients": "Scoria Ingot",
@@ -71,22 +85,22 @@
 
     "sounds.secretsofthevoid.disc_hadal": "Music from the deep playing",
 
-    "advancements.secretsofthevoid.defeat_hullbreaker.title": "Always A Bigger Fish",
+    "advancements.secretsofthevoid.defeat_hullbreaker.title": "Always a Bigger Fish",
     "advancements.secretsofthevoid.defeat_hullbreaker.description": "Through sheer willpower, claim victory over a Hullbreaker",
 
     "advancements.secretsofthevoid.ancient_alphabet.title": "Spelunk Me This!",
     "advancements.secretsofthevoid.ancient_alphabet.description": "Copy ancient texts from the Enchanting Table",
 
-    "advancements.secretsofthevoid.steel_diving_equipment.title": "Steeled",
-    "advancements.secretsofthevoid.steel_diving_equipment.description": "Craft a full set of steel diving gear. Good diving!",
+    "advancements.secretsofthevoid.shimmersteel_diving_equipment.title": "Time to Shine",
+    "advancements.secretsofthevoid.shimmersteel_diving_equipment.description": "Craft a full set of shimmersteel diving gear. Good diving!",
 
     "advancements.secretsofthevoid.netherite_diving_equipment.title": "Where No Pig Ever Stepped",
-    "advancements.secretsofthevoid.netherite_diving_equipment.description": "Upgrade your diving gear from steel to netherite",
+    "advancements.secretsofthevoid.netherite_diving_equipment.description": "Upgrade your diving gear from shimmerteel to netherite",
 
-    "advancements.secretsofthevoid.raw_scoria.title": "Heat Of The Deep",
+    "advancements.secretsofthevoid.raw_scoria.title": "Heat of the Deep",
     "advancements.secretsofthevoid.raw_scoria.description": "Venture deep into the Abyssal Chasm and mine for Scoria",
 
-    "advancements.secretsofthevoid.scoria_upgrade.title": "Pearly Shine",
+    "advancements.secretsofthevoid.scoria_upgrade.title": "Glimmer of the Starless Sea",
     "advancements.secretsofthevoid.scoria_upgrade.description": "Trade with the Deep Ones and obtain a Scoria Upgrade Smithing Template",
 
     "advancements.secretsofthevoid.scoria_diving_equipment.title": "Melting Point",
@@ -96,5 +110,8 @@
     "advancements.secretsofthevoid.all_scoria_tools.description": "Upgrade each tool to Scoria. You like pain, don't you.",
 
     "advancements.secretsofthevoid.pressure_drain.title": "Oxygen Included",
-    "advancements.secretsofthevoid.pressure_drain.description": "Craft a Pressure Drain that allows to replenish oxygen right at the seabed"
+    "advancements.secretsofthevoid.pressure_drain.description": "Craft a Pressure Drain that allows to replenish oxygen right at the seabed",
+
+    "advancements.secretsofthevoid.scoria_brush.title": "Severe Case of Archaeology",
+    "advancements.secretsofthevoid.scoria_brush.description": "Craft a scoria brush. No, really, what do you even need it for?"
 }

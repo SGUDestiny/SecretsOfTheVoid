@@ -31,9 +31,9 @@ public class OxygenOverlay {
             "textures/gui/oxygen_gauge/empty.png");
 
     public static final ResourceLocation STEEL_FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
-            "textures/gui/oxygen_gauge/steel/full.png");
+            "textures/gui/oxygen_gauge/shimmersteel/full.png");
     public static final ResourceLocation STEEL_HALF = new ResourceLocation(SecretsOfTheVoid.MODID,
-            "textures/gui/oxygen_gauge/steel/half.png");
+            "textures/gui/oxygen_gauge/shimmersteel/half.png");
 
     public static final ResourceLocation NETHERITE_FULL = new ResourceLocation(SecretsOfTheVoid.MODID,
             "textures/gui/oxygen_gauge/netherite/full.png");
@@ -61,7 +61,7 @@ public class OxygenOverlay {
                 ItemStack stack = airTank.getFirst();
                 IAirTank tank = airTank.getSecond();
 
-                if (stack.is(ItemInit.STEEL_BACKTANK.get())) {
+                if (stack.is(ItemInit.SHIMMERSTEEL_BACKTANK.get())) {
                     FULL = STEEL_FULL;
                     HALF = STEEL_HALF;
                 } else if (stack.is(ItemInit.DOUBLE_NETHERITE_BACKTANK.get())) {

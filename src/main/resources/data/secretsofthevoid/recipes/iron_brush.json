@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		" F ",
+		" I ",
+		" S "
+	],
+	"key":
+	{
+        "F": { "item": "minecraft:feather"},
+		"I": { "tag": "forge:ingots/iron"},
+		"S": { "item": "minecraft:stick" }
+	},
+	"result": { "item": "secretsofthevoid:iron_brush", "count": 1 }
+}

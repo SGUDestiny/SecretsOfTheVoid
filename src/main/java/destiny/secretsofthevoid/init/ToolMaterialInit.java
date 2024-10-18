@@ -6,7 +6,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public enum ToolMaterialInit implements Tier
 {
-    STEEL(3, 900, 10.0F, 3F, 8, ItemInit.STEEL_INGOT.get()),
+    SHIMMERSTEEL(3, 900, 10.0F, 3F, 8, ItemInit.SHIMMERSTEEL_INGOT.get()),
     SCORIA(5, 3800, 15.0F, 5F, 15, ItemInit.SCORIA_INGOT.get());
 
     private float attackDamage, efficiency;
