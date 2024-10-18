@@ -1,11 +1,10 @@
 package destiny.secretsofthevoid.items;
 
-import destiny.secretsofthevoid.client.gui.GUIAncientAlphabet;
-import destiny.secretsofthevoid.helper.ClientHelper;
+import destiny.secretsofthevoid.init.NetworkInit;
+import destiny.secretsofthevoid.network.packets.OpenGUIAlphabetPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -14,7 +13,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -37,13 +35,12 @@ public class ItemAncientAlphabet extends Item
         level.playSound(player, player.blockPosition(), SoundEvents.BOOK_PAGE_TURN, SoundSource.BLOCKS, 1.0F, 1.0F + (player.getRandom().nextFloat() - player.getRandom().nextFloat()) * 0.2F);
 
         ItemStack itemStackIn = player.getItemInHand(hand);
-        if (player instanceof ServerPlayer serverPlayerEntity) {
-            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayerEntity, itemStackIn);
-            serverPlayerEntity.awardStat(Stats.ITEM_USED.get(this));
+        if (player instanceof ServerPlayer serverPlayer) {
+            CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayer, itemStackIn);
+            serverPlayer.awardStat(Stats.ITEM_USED.get(this));
+            NetworkInit.sendTo(serverPlayer, new OpenGUIAlphabetPacket());
         }
-        if (level.isClientSide) {
-            ClientHelper.openGUI(new GUIAncientAlphabet());
-        }
+
         return new InteractionResultHolder<>(InteractionResult.PASS, itemStackIn);
     }
 

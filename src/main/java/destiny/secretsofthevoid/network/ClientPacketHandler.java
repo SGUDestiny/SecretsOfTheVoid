@@ -1,6 +1,8 @@
 package destiny.secretsofthevoid.network;
 
+import destiny.secretsofthevoid.client.gui.GUIAncientAlphabet;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
+import destiny.secretsofthevoid.network.packets.OpenGUIAlphabetPacket;
 import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -10,16 +12,19 @@ import java.util.Optional;
 
 public class ClientPacketHandler
 {
-    public static void handleUpdateBreathingPacket(UpdateDivingPacket packet) {
-        getPlayer().ifPresent(
-                player -> player.getCapability(CapabilitiesInit.DIVING).ifPresent(
-                        cap -> {
-                            cap.setOxygen(packet.oxygen);
-                            cap.setMaxOxygen(packet.maxOxygen);
-                            cap.setOxygenEfficiency(packet.oxygenEfficiency);
-                        }
-                )
-        );
+    public static void handleUpdateBreathingPacket(UpdateDivingPacket packet)
+    {
+        getPlayer().ifPresent(player -> player.getCapability(CapabilitiesInit.DIVING).ifPresent(cap ->
+        {
+            cap.setOxygen(packet.oxygen);
+            cap.setMaxOxygen(packet.maxOxygen);
+            cap.setOxygenEfficiency(packet.oxygenEfficiency);
+        }));
+    }
+
+    public static void handleOpenGUIAlphabetPacket(OpenGUIAlphabetPacket packet)
+    {
+        Minecraft.getInstance().setScreen(new GUIAncientAlphabet());
     }
 
 

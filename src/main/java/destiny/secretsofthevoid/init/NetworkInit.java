@@ -1,6 +1,7 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.network.packets.OpenGUIAlphabetPacket;
 import destiny.secretsofthevoid.network.packets.SoundPackets;
 import destiny.secretsofthevoid.network.packets.UpdateDivingPacket;
 import net.minecraft.resources.ResourceKey;
@@ -25,7 +26,7 @@ public class NetworkInit
         INSTANCE.registerMessage(id(), SoundPackets.RebreatherInhale.class, SoundPackets.RebreatherInhale::write, SoundPackets.RebreatherInhale::read, SoundPackets.RebreatherInhale::handle);
         INSTANCE.registerMessage(id(), SoundPackets.RebreatherExhale.class, SoundPackets.RebreatherExhale::write, SoundPackets.RebreatherExhale::read, SoundPackets.RebreatherExhale::handle);
         INSTANCE.registerMessage(id(), SoundPackets.TankRefill.class, SoundPackets.TankRefill::write, SoundPackets.TankRefill::read, SoundPackets.TankRefill::handle);
-
+        INSTANCE.registerMessage(id(), OpenGUIAlphabetPacket.class, OpenGUIAlphabetPacket::write, OpenGUIAlphabetPacket::read, OpenGUIAlphabetPacket::handle);
     }
 
     public static void sendPacketToAll(Object message){
