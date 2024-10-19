@@ -26,7 +26,9 @@ public class DeepBarterGoalMixin
         DeepOneBarterGoal goal = ((DeepOneBarterGoal) (Object) this);
         if (mob.level() != null && mob.level().getBlockEntity(mob.getLastAltarPos()) instanceof AbyssalAltarBlockEntity altar)
         {
-            if(mob.level().getBlockState(altar.getBlockPos().below()).isAir())
+            if(!mob.level().getBlockState(altar.getBlockPos().below()).is(BlockInit.ABYSSMARINE_SIGIL_WARRIOR.get())
+            && !mob.level().getBlockState(altar.getBlockPos().below()).is(BlockInit.ABYSSMARINE_SIGIL_COMMONER.get())
+            && !mob.level().getBlockState(altar.getBlockPos().below()).is(BlockInit.ABYSSMARINE_SIGIL_MAGE.get()))
                 cir.setReturnValue(true);
 
             if(mob instanceof DeepOneKnightEntity)
