@@ -6,7 +6,6 @@ import com.github.alexmodguy.alexscaves.server.entity.living.DeepOneBaseEntity;
 import com.github.alexmodguy.alexscaves.server.entity.living.DeepOneEntity;
 import com.github.alexmodguy.alexscaves.server.entity.living.DeepOneKnightEntity;
 import com.github.alexmodguy.alexscaves.server.entity.living.DeepOneMageEntity;
-import destiny.secretsofthevoid.blocks.AbyssmarineSigilBlock;
 import destiny.secretsofthevoid.init.BlockInit;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
