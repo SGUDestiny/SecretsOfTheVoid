@@ -34,8 +34,17 @@ public class OxygenVentBlockEntity extends BlockEntity {
         float x = (level.random.nextFloat() - 0.5F) * 0.25F;
         float z = (level.random.nextFloat() - 0.5F) * 0.25F;
         level.addAlwaysVisibleParticle(particle, true, pos.getX() + 0.5F + x, pos.getY() + 1.0F, pos.getZ() + 0.5F + z, x * 0.3F, 0.03F + level.random.nextFloat() * 3F, z * 0.3F);
+
+        x = (level.random.nextFloat() - 0.5F) * 0.25F;
+        z = (level.random.nextFloat() - 0.5F) * 0.25F;
+        level.addAlwaysVisibleParticle(particle, true, pos.getX() + 0.5F + x, pos.getY() + 1.0F, pos.getZ() + 0.5F + z, x * 0.3F, 0.03F + level.random.nextFloat() * 3F, z * 0.3F);
+
+        x = (level.random.nextFloat() - 0.5F) * 0.25F;
+        z = (level.random.nextFloat() - 0.5F) * 0.25F;
+        level.addAlwaysVisibleParticle(particle, true, pos.getX() + 0.5F + x, pos.getY() + 1.0F, pos.getZ() + 0.5F + z, x * 0.3F, 0.03F + level.random.nextFloat() * 3F, z * 0.3F);
+
         if(blockEntity.soundTime-- <= 0){
-            blockEntity.soundTime = level.getRandom().nextInt(20) + 30;
+            blockEntity.soundTime = level.getRandom().nextInt(10) + 30;
             boolean underwater = !state.getFluidState().isEmpty() || !level.getBlockState(pos.above()).getFluidState().isEmpty();
             level.playLocalSound((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, underwater ? ACSoundRegistry.GEOTHERMAL_VENT_BUBBLE_UNDERWATER.get() : ACSoundRegistry.GEOTHERMAL_VENT_BUBBLE.get(), SoundSource.BLOCKS, underwater ? 2.5F : 1.5F, level.random.nextFloat() * 0.4F + 0.8F, false);
         }
