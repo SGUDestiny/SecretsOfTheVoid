@@ -4,6 +4,9 @@
 	[
 		"secretsofthevoid:armor/shimmersteel/shimmersteel_backtank",
 		"secretsofthevoid:armor/netherite/double_netherite_backtank",
-		"secretsofthevoid:armor/scoria/pressurized_scoria_backtank"
+		"secretsofthevoid:armor/scoria/pressurized_scoria_backtank",
+
+		"secretsofthevoid:shimmersteel_chestplate",
+		"secretsofthevoid:scoria_chestplate"
 	]
 }

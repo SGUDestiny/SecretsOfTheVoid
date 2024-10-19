@@ -49,7 +49,8 @@
           "condition": "minecraft:match_tool",
           "predicate": {
             "items": [
-              "minecraft:netherite_pickaxe"
+              "minecraft:netherite_pickaxe",
+              "secretsofthevoid:scoria_pickaxe"
             ]
           }
         }

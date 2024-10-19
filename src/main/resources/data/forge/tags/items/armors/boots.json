@@ -4,6 +4,9 @@
 	[
 		"secretsofthevoid:armor/shimmersteel/shimmersteel_flippers",
 		"secretsofthevoid:armor/netherite/netherite_flipper_boots",
-		"secretsofthevoid:armor/scoria/scoria_razor_boots"
+		"secretsofthevoid:armor/scoria/scoria_razor_boots",
+
+		"secretsofthevoid:shimmersteel_boots",
+		"secretsofthevoid:scoria_boots"
 	]
 }

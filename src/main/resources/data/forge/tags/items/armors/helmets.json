@@ -4,6 +4,9 @@
 	[
 		"secretsofthevoid:armor/shimmersteel/shimmersteel_scuba",
 		"secretsofthevoid:armor/netherite/netherite_rebreather",
-		"secretsofthevoid:armor/scoria/scoria_helm"
+		"secretsofthevoid:armor/scoria/scoria_helm",
+
+		"secretsofthevoid:shimmersteel_helmet",
+		"secretsofthevoid:scoria_helmet"
 	]
 }

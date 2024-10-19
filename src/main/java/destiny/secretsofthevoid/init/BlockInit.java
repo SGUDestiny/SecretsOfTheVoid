@@ -23,9 +23,9 @@ public class BlockInit {
             () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_CYAN)
-                            .requiresCorrectToolForDrops()
-                            .strength(2.0F, 10)
+                            .strength(6.0F, 10)
                             .sound(SoundType.METAL)
+                            .requiresCorrectToolForDrops()
             )
 
     );
@@ -34,9 +34,9 @@ public class BlockInit {
             () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_YELLOW)
-                            .requiresCorrectToolForDrops()
-                            .strength(2.0F, 60)
+                            .strength(10.0F, 2000)
                             .sound(SoundType.METAL)
+                            .requiresCorrectToolForDrops()
             )
 
     );
@@ -45,9 +45,9 @@ public class BlockInit {
             () -> new Block(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_ORANGE)
-                            .requiresCorrectToolForDrops()
-                            .strength(4.0F, 60)
+                            .strength(15.0F, 2000)
                             .sound(SoundType.DEEPSLATE)
+                            .requiresCorrectToolForDrops()
             )
     );
 
@@ -55,9 +55,9 @@ public class BlockInit {
             () -> new HydrothermicCrystalBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_ORANGE)
-                            .requiresCorrectToolForDrops()
-                            .strength(7.0F, -1)
+                            .strength(20.0F, 2000)
                             .sound(SoundType.AMETHYST_CLUSTER)
+                            .requiresCorrectToolForDrops()
                             .lightLevel(state -> 12)
                             .noOcclusion()
             )
@@ -67,8 +67,9 @@ public class BlockInit {
             () -> new OxygenVentBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_GRAY)
-                            .strength(2.0F, 5)
+                            .strength(3.0F, 6)
                             .sound(SoundType.DEEPSLATE)
+                            .requiresCorrectToolForDrops()
             )
     );
 
@@ -76,8 +77,9 @@ public class BlockInit {
             () -> new PressureDrainBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_CYAN)
-                            .strength(1.0F, 10)
+                            .strength(6.0F, 10)
                             .sound(SoundType.METAL)
+                            .requiresCorrectToolForDrops()
                             .noOcclusion()
             )
     );

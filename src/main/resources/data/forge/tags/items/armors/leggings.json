@@ -2,6 +2,9 @@
 	"replace": false,
 	"values":
 	[
-		"secretsofthevoid:armor/scoria/scoria_leggings"
+		"secretsofthevoid:armor/scoria/scoria_legwear",
+
+		"secretsofthevoid:shimmersteel_leggings",
+		"secretsofthevoid:scoria_leggings"
 	]
 }
