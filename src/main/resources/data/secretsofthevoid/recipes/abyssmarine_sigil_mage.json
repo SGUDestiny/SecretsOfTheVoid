@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"PBP",
+		"PSP",
+		"PBP"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"B": { "item": "alexscaves:abyssmarine_bricks" },
+		"S": { "item": "alexscaves:sea_staff" }
+	},
+	"result": { "item": "secretsofthevoid:abyssmarine_sigil_mage", "count": 1 }
+}

@@ -31,7 +31,7 @@ public class ItemTabInit
         if (event.getTabKey() == MAIN.getKey())
         {
             event.accept(BlockInit.ABYSSMARINE_SIGIL_COMMONER);
-            event.accept(BlockInit.ABYSSMARINE_SIGIL_WARRIOR);
+            event.accept(BlockInit.ABYSSMARINE_SIGIL_KNIGHT);
             event.accept(BlockInit.ABYSSMARINE_SIGIL_MAGE);
 
             event.accept(BlockInit.DEEPSLATE_SCORIA_ORE);

@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"PBP",
+		"PGP",
+		"PBP"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"B": { "item": "alexscaves:abyssmarine_bricks" },
+		"G": { "item": "alexscaves:glow_ink_bomb" }
+	},
+	"result": { "item": "secretsofthevoid:abyssmarine_sigil_commoner", "count": 1 }
+}
