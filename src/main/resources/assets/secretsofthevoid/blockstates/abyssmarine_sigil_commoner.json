@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "secretsofthevoid:block/abyssmarine_sigil_commoner"
+    },
+    "active=true": {
+      "model": "secretsofthevoid:block/abyssmarine_sigil_commoner_glow"
+    }
+  }
+}

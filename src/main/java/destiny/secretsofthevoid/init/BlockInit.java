@@ -16,6 +16,8 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
+import static com.github.alexmodguy.alexscaves.server.block.AbyssalAltarBlock.LIGHT_EMISSION;
+
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SecretsOfTheVoid.MODID);
 
@@ -81,6 +83,39 @@ public class BlockInit {
                             .sound(SoundType.METAL)
                             .requiresCorrectToolForDrops()
                             .noOcclusion()
+            )
+    );
+
+    public static final RegistryObject<Block> ABYSSMARINE_SIGIL_COMMONER = registerBlock("abyssmarine_sigil_commoner",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_BLUE)
+                            .strength(3.0F, 10)
+                            .sound(SoundType.DEEPSLATE)
+                            .lightLevel(LIGHT_EMISSION)
+                            .requiresCorrectToolForDrops()
+            )
+    );
+
+    public static final RegistryObject<Block> ABYSSMARINE_SIGIL_WARRIOR = registerBlock("abyssmarine_sigil_warrior",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_BLUE)
+                            .strength(3.0F, 10)
+                            .sound(SoundType.DEEPSLATE)
+                            .lightLevel(LIGHT_EMISSION)
+                            .requiresCorrectToolForDrops()
+            )
+    );
+
+    public static final RegistryObject<Block> ABYSSMARINE_SIGIL_MAGE = registerBlock("abyssmarine_sigil_mage",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_BLUE)
+                            .strength(3.0F, 10)
+                            .sound(SoundType.DEEPSLATE)
+                            .lightLevel(LIGHT_EMISSION)
+                            .requiresCorrectToolForDrops()
             )
     );
 
