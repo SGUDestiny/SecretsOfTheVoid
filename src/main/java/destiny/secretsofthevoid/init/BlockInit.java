@@ -1,6 +1,7 @@
 package destiny.secretsofthevoid.init;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
+import destiny.secretsofthevoid.blocks.AbyssmarineSigilBlock;
 import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
 import destiny.secretsofthevoid.blocks.OxygenVentBlock;
 import destiny.secretsofthevoid.blocks.PressureDrainBlock;
@@ -87,7 +88,7 @@ public class BlockInit {
     );
 
     public static final RegistryObject<Block> ABYSSMARINE_SIGIL_COMMONER = registerBlock("abyssmarine_sigil_commoner",
-            () -> new Block(
+            () -> new AbyssmarineSigilBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_BLUE)
                             .strength(3.0F, 10)
@@ -98,7 +99,7 @@ public class BlockInit {
     );
 
     public static final RegistryObject<Block> ABYSSMARINE_SIGIL_WARRIOR = registerBlock("abyssmarine_sigil_warrior",
-            () -> new Block(
+            () -> new AbyssmarineSigilBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_BLUE)
                             .strength(3.0F, 10)
@@ -109,7 +110,7 @@ public class BlockInit {
     );
 
     public static final RegistryObject<Block> ABYSSMARINE_SIGIL_MAGE = registerBlock("abyssmarine_sigil_mage",
-            () -> new Block(
+            () -> new AbyssmarineSigilBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_BLUE)
                             .strength(3.0F, 10)
