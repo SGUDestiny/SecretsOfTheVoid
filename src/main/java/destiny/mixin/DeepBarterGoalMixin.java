@@ -49,7 +49,7 @@ public class DeepBarterGoalMixin
                     cir.setReturnValue(true);
                 } else pos = null;
             }
-            else if(sigil.is(BlockInit.ABYSSMARINE_SIGIL_WARRIOR.get()))
+            else if(sigil.is(BlockInit.ABYSSMARINE_SIGIL_KNIGHT.get()))
             {
                 if(mob instanceof DeepOneKnightEntity)
                 {
