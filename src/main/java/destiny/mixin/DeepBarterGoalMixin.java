@@ -36,7 +36,7 @@ public class DeepBarterGoalMixin
     private DeepOneBaseEntity mob;
 
     @Inject(method = "canUse()Z", at = @At(value = "RETURN", ordinal = 1), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
-    public void canUseInject(CallbackInfoReturnable<Boolean> cir, LivingEntity target, BlockPos pos, List list, BlockEntity var4)
+    public void canUseInject(CallbackInfoReturnable<Boolean> cir, LivingEntity target, BlockPos pos)
     {
         DeepOneBarterGoal goal = ((DeepOneBarterGoal) (Object) this);
         if (mob.level() != null && mob.level().getBlockEntity(mob.getLastAltarPos()) instanceof AbyssalAltarBlockEntity altar)
@@ -47,21 +47,30 @@ public class DeepBarterGoalMixin
                 if(mob instanceof DeepOneEntity)
                 {
                     cir.setReturnValue(true);
-                } else pos = null;
+                } else {
+                    pos = null;
+                    cir.setReturnValue(false);
+                }
             }
             else if(sigil.is(BlockInit.ABYSSMARINE_SIGIL_KNIGHT.get()))
             {
                 if(mob instanceof DeepOneKnightEntity)
                 {
                     cir.setReturnValue(true);
-                } else pos = null;
+                } else {
+                    pos = null;
+                    cir.setReturnValue(false);
+                }
             }
             else if(sigil.is(BlockInit.ABYSSMARINE_SIGIL_MAGE.get()))
             {
                 if(mob instanceof DeepOneMageEntity)
                 {
                     cir.setReturnValue(true);
-                } else pos = null;
+                } else {
+                    pos = null;
+                    cir.setReturnValue(false);
+                }
             }
             else cir.setReturnValue(true);
         }
