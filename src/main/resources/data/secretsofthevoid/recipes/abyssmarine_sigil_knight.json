@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"PBP",
+		"BOB",
+		"PBP"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"B": { "item": "alexscaves:abyssmarine_bricks" },
+		"O": { "item": "alexscaves:ortholance" }
+	},
+	"result": { "item": "secretsofthevoid:abyssmarine_sigil_knight", "count": 1 }
+}

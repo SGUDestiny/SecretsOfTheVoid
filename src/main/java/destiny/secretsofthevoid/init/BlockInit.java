@@ -95,7 +95,7 @@ public class BlockInit {
             )
     );
 
-    public static final RegistryObject<GlowingAbyssmarineBlock> ABYSSMARINE_SIGIL_WARRIOR = registerBlock("abyssmarine_sigil_warrior",
+    public static final RegistryObject<GlowingAbyssmarineBlock> ABYSSMARINE_SIGIL_KNIGHT = registerBlock("abyssmarine_sigil_knight",
             () -> new GlowingAbyssmarineBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_BLUE)
