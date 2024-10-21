@@ -51,22 +51,23 @@ public class ItemTabInit
 
             event.accept(ItemInit.CALLIGRAPHY_KIT);
             event.accept(ItemInit.ANCIENT_ALPHABET);
+            event.accept(ItemInit.DISC_FRAGMENT_HADAL);
             event.accept(ItemInit.DISC_HADAL);
             event.accept(ItemInit.DISC_HADAL_AMBIENT);
             event.accept(ItemInit.SCORIA_UPGRADE);
 
             event.accept(ItemHelper.makeRebreather(ItemInit.SHIMMERSTEEL_REBREATHER.get(), 1.2));
             event.accept(ItemHelper.makeAirTank(ItemInit.SHIMMERSTEEL_BACKTANK.get(), 120));
-            event.accept(ItemHelper.makeFlipperss(ItemInit.SHIMMERSTEEL_FLIPPERS.get(), 1.2));
+            event.accept(ItemHelper.makeFlippers(ItemInit.SHIMMERSTEEL_FLIPPERS.get(), 0.5));
 
             event.accept(ItemHelper.makeRebreather(ItemInit.NETHERITE_SCUBA.get(), 1.3));
             event.accept(ItemHelper.makeAirTank(ItemInit.DOUBLE_NETHERITE_BACKTANK.get(), 300));
-            event.accept(ItemHelper.makeFlipperss(ItemInit.NETHERITE_FLIPPERS.get(), 1.3));
+            event.accept(ItemHelper.makeFlippers(ItemInit.NETHERITE_FLIPPERS.get(), 0.7));
 
             event.accept(ItemHelper.makeRebreather(ItemInit.SCORIA_HELM.get(), 1.5));
             event.accept(ItemHelper.makeAirTank(ItemInit.PRESSURIZED_SCORIA_BACKTANK.get(), 900));
-            event.accept(ItemInit.SCORIA_LEGWEAR);
-            event.accept(ItemHelper.makeFlipperss(ItemInit.SCORIA_RAZOR_BOOTS.get(), 1.5));
+            event.accept(ItemHelper.makeLegwear(ItemInit.SCORIA_LEGWEAR.get(), 0.25));
+            event.accept(ItemHelper.makeFlippers(ItemInit.SCORIA_RAZOR_BOOTS.get(), 0.75));
 
             event.accept(ItemInit.SHIMMERSTEEL_HELMET);
             event.accept(ItemInit.SHIMMERSTEEL_CHESTPLATE);

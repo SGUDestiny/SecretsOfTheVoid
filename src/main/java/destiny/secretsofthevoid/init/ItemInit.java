@@ -120,7 +120,8 @@ public class ItemInit
                             .rarity(Rarity.EPIC)
                             .stacksTo(1),
                     7620
-            ));
+            )
+    );
 
     public static final RegistryObject<Item> DISC_HADAL_AMBIENT = ITEMS.register("disc_hadal_ambient",
             () -> new RecordItem(0, SoundInit.DISK_HADAL_AMBIENT,
@@ -128,7 +129,15 @@ public class ItemInit
                             .rarity(Rarity.EPIC)
                             .stacksTo(1),
                     7600
-            ));
+            )
+    );
+
+    public static final RegistryObject<Item> DISC_FRAGMENT_HADAL = ITEMS.register("disc_fragment_hadal",
+            () -> new DiscFragmentItem(
+                    new Item.Properties()
+                            .rarity(Rarity.RARE)
+            )
+    );
 
     public static final RegistryObject<ShimmersteelRebreatherItem> SHIMMERSTEEL_REBREATHER = ITEMS.register("armor/shimmersteel/shimmersteel_scuba",
             () -> new ShimmersteelRebreatherItem(

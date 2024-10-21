@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    },
+    {
+      "item": "secretsofthevoid:disc_fragment_hadal"
+    }
+  ],
+  "result": {
+    "item": "secretsofthevoid:disc_hadal_ambient"
+  }
+}

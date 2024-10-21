@@ -22,6 +22,15 @@ public class ItemHelper
         return stack;
     }
 
+    public static  <T extends Item & IRebreather> ItemStack makeRebreather
+            (T item, double oxygenEfficiency)
+    {
+        ItemStack stack = new ItemStack(item);
+        item.setOxygenEfficiency(stack, oxygenEfficiency);
+
+        return stack;
+    }
+
     public static  <T extends Item & IAirTank> ItemStack makeAirTank
             (T item, double maxOxygen)
     {
@@ -32,16 +41,16 @@ public class ItemHelper
         return stack;
     }
 
-    public static  <T extends Item & IRebreather> ItemStack makeRebreather
-            (T item, double oxygenEfficiency)
+    public static  <T extends Item & ILegwear> ItemStack makeLegwear
+            (T item, double swimmingSpeed)
     {
         ItemStack stack = new ItemStack(item);
-        item.setOxygenEfficiency(stack, oxygenEfficiency);
+        item.setSwimmingSpeed(stack, swimmingSpeed);
 
         return stack;
     }
 
-    public static  <T extends Item & IFlippers> ItemStack makeFlipperss
+    public static  <T extends Item & IFlippers> ItemStack makeFlippers
             (T item, double swimmingSpeed)
     {
         ItemStack stack = new ItemStack(item);

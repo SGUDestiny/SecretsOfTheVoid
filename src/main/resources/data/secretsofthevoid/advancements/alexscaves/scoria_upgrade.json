@@ -14,7 +14,7 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "alexscaves:alexscaves/pearl_on_abyssal_altar",
+  "parent": "secretsofthevoid:alexscaves/raw_scoria",
   "criteria": {
     "upgrade": {
       "trigger": "minecraft:inventory_changed",

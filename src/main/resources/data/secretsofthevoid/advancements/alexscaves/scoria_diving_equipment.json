@@ -40,13 +40,13 @@
         ]
       }
     },
-    "leggings": {
+    "legwear": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "secretsofthevoid:armor/scoria/scoria_leggings"
+              "secretsofthevoid:armor/scoria/scoria_legwear"
             ]
           }
         ]
@@ -68,7 +68,7 @@
   "requirements": [
     ["helm"],
     ["backtank"],
-    ["leggings"],
+    ["legwear"],
     ["flippers"]
   ],
   "sends_telemetry_event": false
