@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
@@ -64,7 +65,7 @@ public class ScoriaLegwearItem extends ScoriaGearItem implements ILegwear {
     {
         if(stack.getTag() != null && stack.getTag().contains(SWIMMING_SPEED))
             return stack.getTag().getDouble(SWIMMING_SPEED);
-        else return 1D;
+        else return 0.25;
     }
 
     @Override
@@ -73,6 +74,13 @@ public class ScoriaLegwearItem extends ScoriaGearItem implements ILegwear {
         if(stack.getTag() != null)
             stack.getTag().putDouble(SWIMMING_SPEED, swimmingSpeed);
         else stack.getOrCreateTag().putDouble(SWIMMING_SPEED, swimmingSpeed);
+    }
+
+    @Override
+    public void onCraftedBy(ItemStack stack, Level level, Player player) {
+        if (stack.getTag() != null && stack.getTag().getDouble(SWIMMING_SPEED) != 0.25) {
+            stack.getOrCreateTag().putDouble(SWIMMING_SPEED, 0.25);
+        }
     }
 
     @Override

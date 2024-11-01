@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(CaveBookScreen.class)
 public class CaveBookScreenMixin {
-    @Inject(method = "getBookFileDirectory()Ljava/lang/String;", at = @At("HEAD"), cancellable = true, remap = false)
-    private static void getBookFileDirectory(CallbackInfoReturnable<String> cir) {
-        cir.setReturnValue(SecretsOfTheVoid.MODID + ":books/");
-    }
+//    @Inject(method = "getBookFileDirectory()Ljava/lang/String;", at = @At("HEAD"), cancellable = true, remap = false)
+//    private static void getBookFileDirectory(CallbackInfoReturnable<String> cir) {
+//        cir.setReturnValue(SecretsOfTheVoid.MODID + ":books/");
+//    }
 }

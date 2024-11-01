@@ -4,6 +4,7 @@ import destiny.secretsofthevoid.helper.IRebreather;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -25,7 +26,7 @@ public class ScoriaRebreatherItem extends ScoriaGearItem implements IRebreather 
     {
         if(stack.getTag() != null && stack.getTag().contains(OXYGEN_EFFICIENCY))
             return stack.getTag().getDouble(OXYGEN_EFFICIENCY);
-        else return 1;
+        else return 0;
     }
 
     @Override
@@ -34,6 +35,13 @@ public class ScoriaRebreatherItem extends ScoriaGearItem implements IRebreather 
         if(stack.getTag() != null)
             stack.getTag().putDouble(OXYGEN_EFFICIENCY, oxygenModifier);
         else stack.getOrCreateTag().putDouble(OXYGEN_EFFICIENCY, oxygenModifier);
+    }
+
+    @Override
+    public void onCraftedBy(ItemStack stack, Level level, Player player) {
+        if (stack.getTag() != null && stack.getTag().getDouble(OXYGEN_EFFICIENCY) != 1.5) {
+            stack.getOrCreateTag().putDouble(OXYGEN_EFFICIENCY, 1.5);
+        }
     }
 
     @Override

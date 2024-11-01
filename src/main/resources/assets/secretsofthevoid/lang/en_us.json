@@ -83,6 +83,7 @@
     "tooltip.secretsofthevoid.flippers_sinking": "Sinking Resistance: ",
     "tooltip.secretsofthevoid.flippers_speed": "Swimming Speed: ",
     "tooltip.secretsofthevoid.pressure_drain": "If placed on functioning oxygen vent, can refill backtank on [RMB]",
+    "tooltip.secretsofthevoid.abyssmarine_sigil" : "Place the Abyssal Sigil under the Altar, and only it's respective type of Deep One will trade",
 
     "sounds.secretsofthevoid.rebreather_inhale": "Rebreather inhale",
     "sounds.secretsofthevoid.rebreather_exhale": "Water bubbling",

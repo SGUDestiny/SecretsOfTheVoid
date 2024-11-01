@@ -4,6 +4,7 @@ import destiny.secretsofthevoid.helper.IAirTank;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -62,6 +63,14 @@ public class ScoriaAirTankItem extends ScoriaGearItem implements IAirTank {
         if(stack.getTag() != null)
             stack.getTag().putDouble(STORED_OXYGEN, oxygen);
         else stack.getOrCreateTag().putDouble(STORED_OXYGEN, oxygen);
+    }
+
+    @Override
+    public void onCraftedBy(ItemStack stack, Level level, Player player) {
+        if (stack.getTag() != null && stack.getTag().getDouble(MAX_OXYGEN) != 900) {
+            stack.getOrCreateTag().putDouble(MAX_OXYGEN, 900);
+            stack.getOrCreateTag().putDouble(STORED_OXYGEN, 900);
+        }
     }
 
     @Override
