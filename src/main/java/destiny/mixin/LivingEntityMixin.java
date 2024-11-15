@@ -20,16 +20,16 @@ import java.util.Optional;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin
 {
-
-    @Inject(method = "travel(Lnet/minecraft/world/phys/Vec3;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getFluidFallingAdjustedMovement(DZLnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
-    public void dontSink(Vec3 pTravelVector, CallbackInfo ci, double d0, AttributeInstance gravity, boolean flag, FluidState fluidstate, double d9, float f4, float f5, float f6, Vec3 vec36)
-    {
-        LivingEntity living = ((LivingEntity) (Object) this);
-        if(living instanceof Player player)
-        {
-            Optional<DivingCapability> capability = player.getCapability(CapabilitiesInit.DIVING).resolve();
-            if (capability.isPresent() && !capability.get().getEquipmentFlippers(player, null).isEmpty())
-                d0 = 0D;
-        }
-    }
+//
+//    @Inject(method = "travel(Lnet/minecraft/world/phys/Vec3;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getFluidFallingAdjustedMovement(DZLnet/minecraft/world/phys/Vec3;)Lnet/minecraft/world/phys/Vec3;", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
+//    public void dontSink(Vec3 pTravelVector, CallbackInfo ci, double d0, AttributeInstance gravity, boolean flag, FluidState fluidstate, double d9, float f4, float f5, float f6, Vec3 vec36)
+//    {
+//        LivingEntity living = ((LivingEntity) (Object) this);
+//        if(living instanceof Player player)
+//        {
+//            Optional<DivingCapability> capability = player.getCapability(CapabilitiesInit.DIVING).resolve();
+//            if (capability.isPresent() && !capability.get().getEquipmentFlippers(player, null).isEmpty())
+//                d0 = 0D;
+//        }
+//    }
 }
