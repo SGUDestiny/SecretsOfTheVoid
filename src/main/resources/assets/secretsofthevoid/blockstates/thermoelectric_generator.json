@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "waterlogged=false": [
+      {
+        "model": "secretsofthevoid:block/thermoelectric_generator"
+      }
+    ],
+    "waterlogged=true": [
+      {
+        "model": "secretsofthevoid:block/thermoelectric_generator"
+      }
+    ]
+  }
+}

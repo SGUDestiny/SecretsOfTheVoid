@@ -42,6 +42,7 @@ public class ItemTabInit
             event.accept(ItemInit.SCORIA_INGOT);
             event.accept(BlockInit.SCORIA_BLOCK);
 
+            event.accept(BlockInit.THERMOELECTRIC_GENERATOR);
             event.accept(BlockInit.PRESSURE_DRAIN);
             event.accept(BlockInit.SHIMMERSTEEL_BLOCK);
             event.accept(ItemInit.SHIMMERSTEEL_INGOT);

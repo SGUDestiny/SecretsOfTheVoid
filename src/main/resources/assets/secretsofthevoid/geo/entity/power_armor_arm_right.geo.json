@@ -1,0 +1,63 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.unknown",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 5,
+				"visible_bounds_height": 7.5,
+				"visible_bounds_offset": [0, 3.25, 0]
+			},
+			"bones": [
+				{
+					"name": "Hull",
+					"pivot": [0, 48, -3]
+				},
+				{
+					"name": "Upper",
+					"parent": "Hull",
+					"pivot": [0, 54, -3]
+				},
+				{
+					"name": "Arms",
+					"parent": "Upper",
+					"pivot": [0, 55, 0]
+				},
+				{
+					"name": "ArmRight",
+					"parent": "Arms",
+					"pivot": [-25, 88, 4],
+					"rotation": [22.5, 0, 0],
+					"cubes": [
+						{"origin": [-31, 59, -3], "size": [12, 36, 14], "uv": [0, 0], "mirror": true}
+					]
+				},
+				{
+					"name": "ForeArmRight",
+					"parent": "ArmRight",
+					"pivot": [-25, 61, 9],
+					"rotation": [-45, 0, 0],
+					"cubes": [
+						{"origin": [-29, 27, 1], "size": [8, 36, 12], "uv": [0, 50], "mirror": true}
+					]
+				},
+				{
+					"name": "HandRight",
+					"parent": "ForeArmRight",
+					"pivot": [-25, 27, 7],
+					"rotation": [-22.5, 0, 0],
+					"cubes": [
+						{"origin": [-30, 21, 1], "size": [10, 12, 12], "uv": [0, 98], "mirror": true},
+						{"origin": [-32, 16, 4], "size": [4, 8, 4], "uv": [0, 134], "mirror": true},
+						{"origin": [-32, 12, 4], "size": [8, 4, 4], "uv": [0, 146], "mirror": true},
+						{"origin": [-31, 16, 10], "size": [4, 8, 4], "uv": [0, 134], "mirror": true},
+						{"origin": [-31, 12, 10], "size": [8, 4, 4], "uv": [0, 146], "mirror": true},
+						{"origin": [-23, 16, 0], "size": [4, 8, 4], "uv": [0, 122], "mirror": true}
+					]
+				}
+			]
+		}
+	]
+}

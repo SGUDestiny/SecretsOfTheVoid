@@ -2,10 +2,7 @@ package destiny.secretsofthevoid.init;
 
 import com.github.alexmodguy.alexscaves.server.block.GlowingAbyssmarineBlock;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.blocks.AbyssmarineSigilBlock;
-import destiny.secretsofthevoid.blocks.HydrothermicCrystalBlock;
-import destiny.secretsofthevoid.blocks.OxygenVentBlock;
-import destiny.secretsofthevoid.blocks.PressureDrainBlock;
+import destiny.secretsofthevoid.blocks.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +17,17 @@ import java.util.function.Supplier;
 
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SecretsOfTheVoid.MODID);
+
+
+    public static final RegistryObject<Block> VOIDSTONE = registerBlock("voidstone",
+            () -> new Block(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_MAGENTA)
+                            .strength(20.0F, 2000)
+                            .sound(SoundType.ANCIENT_DEBRIS)
+                            .requiresCorrectToolForDrops()
+            )
+    );
 
     public static final RegistryObject<Block> SHIMMERSTEEL_BLOCK = registerBlock("shimmersteel_block",
             () -> new Block(
@@ -79,6 +87,17 @@ public class BlockInit {
             () -> new PressureDrainBlock(
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.COLOR_CYAN)
+                            .strength(6.0F, 10)
+                            .sound(SoundType.METAL)
+                            .requiresCorrectToolForDrops()
+                            .noOcclusion()
+            )
+    );
+
+    public static final RegistryObject<Block> THERMOELECTRIC_GENERATOR = registerBlock("thermoelectric_generator",
+            () -> new ThermoelectricGeneratorBlock(
+                    BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_ORANGE)
                             .strength(6.0F, 10)
                             .sound(SoundType.METAL)
                             .requiresCorrectToolForDrops()
