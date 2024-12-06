@@ -1,14 +1,17 @@
 package destiny.secretsofthevoid;
 
 import destiny.secretsofthevoid.client.gui.OxygenOverlay;
+import destiny.secretsofthevoid.client.render.PowerArmorRenderer;
 import destiny.secretsofthevoid.init.*;
 import destiny.worldgen.feature.ModFeatures;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,6 +35,7 @@ public class SecretsOfTheVoid {
         SoundInit.SOUNDS.register(modBus);
         ModFeatures.DEF_REG.register(modBus);
         BlockEntitiesInit.DEF_REG.register(modBus);
+        EntityInit.register(modBus);
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus=Mod.EventBusSubscriber.Bus.MOD)
@@ -47,6 +51,13 @@ public class SecretsOfTheVoid {
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+        public static void registerClient(FMLClientSetupEvent event)
+        {
+            event.enqueueWork(() -> {
+                EntityRenderers.register(EntityInit.POWER_ARMOR.get(), PowerArmorRenderer::new);
+            });
+        }
+
         @SubscribeEvent
         public static void registerOverlays(RegisterGuiOverlaysEvent event)
         {
