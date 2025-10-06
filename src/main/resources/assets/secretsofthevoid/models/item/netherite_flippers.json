@@ -1,0 +1,124 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [256, 256],
+	"textures": {
+		"0": "secretsofthevoid:item/netherite_diving_gear"
+	},
+	"elements": [
+		{
+			"name": "armorLeftBoot",
+			"from": [2, 0, -2],
+			"to": [10, 0, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3, 2.75, 3.5, 2.75], "texture": "#0"},
+				"east": {"uv": [2.5, 2.75, 3, 2.75], "texture": "#0"},
+				"south": {"uv": [4, 2.75, 4.5, 2.75], "texture": "#0"},
+				"west": {"uv": [3.5, 2.75, 4, 2.75], "texture": "#0"},
+				"up": {"uv": [3.5, 2.75, 3, 2.25], "texture": "#0"},
+				"down": {"uv": [4, 2.25, 3.5, 2.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorLeftBoot",
+			"from": [3.75, -0.25, 5.75],
+			"to": [8.25, 6.25, 10.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.25, 3, 3.5, 3.375], "texture": "#0"},
+				"east": {"uv": [3, 3, 3.25, 3.375], "texture": "#0"},
+				"south": {"uv": [3.75, 3, 4, 3.375], "texture": "#0"},
+				"west": {"uv": [3.5, 3, 3.75, 3.375], "texture": "#0"},
+				"up": {"uv": [3.5, 3, 3.25, 2.75], "texture": "#0"},
+				"down": {"uv": [3.75, 2.75, 3.5, 3], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorLeftBoot",
+			"from": [3.5, -0.5, 5.5],
+			"to": [8.5, 6.5, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.25, 3.625, 3.5, 4], "texture": "#0"},
+				"east": {"uv": [3, 3.625, 3.25, 4], "texture": "#0"},
+				"south": {"uv": [3.75, 3.625, 4, 4], "texture": "#0"},
+				"west": {"uv": [3.5, 3.625, 3.75, 4], "texture": "#0"},
+				"up": {"uv": [3.5, 3.625, 3.25, 3.375], "texture": "#0"},
+				"down": {"uv": [3.75, 3.375, 3.5, 3.625], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorRightBoot",
+			"from": [7.5, -0.5, 5.5],
+			"to": [12.5, 6.5, 10.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 3.625, 3.25, 4], "texture": "#0"},
+				"east": {"uv": [3.75, 3.625, 3.5, 4], "texture": "#0"},
+				"south": {"uv": [4, 3.625, 3.75, 4], "texture": "#0"},
+				"west": {"uv": [3.25, 3.625, 3, 4], "texture": "#0"},
+				"up": {"uv": [3.25, 3.625, 3.5, 3.375], "texture": "#0"},
+				"down": {"uv": [3.5, 3.375, 3.75, 3.625], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorRightBoot",
+			"from": [6, 0, -2],
+			"to": [14, 0, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 2.75, 3, 2.75], "texture": "#0"},
+				"east": {"uv": [4, 2.75, 3.5, 2.75], "texture": "#0"},
+				"south": {"uv": [4.5, 2.75, 4, 2.75], "texture": "#0"},
+				"west": {"uv": [3, 2.75, 2.5, 2.75], "texture": "#0"},
+				"up": {"uv": [3, 2.75, 3.5, 2.25], "texture": "#0"},
+				"down": {"uv": [3.5, 2.25, 4, 2.75], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorRightBoot",
+			"from": [7.75, -0.25, 5.75],
+			"to": [12.25, 6.25, 10.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 3, 3.25, 3.375], "texture": "#0"},
+				"east": {"uv": [3.75, 3, 3.5, 3.375], "texture": "#0"},
+				"south": {"uv": [4, 3, 3.75, 3.375], "texture": "#0"},
+				"west": {"uv": [3.25, 3, 3, 3.375], "texture": "#0"},
+				"up": {"uv": [3.25, 3, 3.5, 2.75], "texture": "#0"},
+				"down": {"uv": [3.5, 2.75, 3.75, 3], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 4, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 4, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 140, 0],
+			"translation": [0, 6, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 140, 0],
+			"translation": [0, 6, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 140, 0],
+			"translation": [1.75, 5.5, 0]
+		},
+		"fixed": {
+			"translation": [0, 5, 1]
+		}
+	}
+}

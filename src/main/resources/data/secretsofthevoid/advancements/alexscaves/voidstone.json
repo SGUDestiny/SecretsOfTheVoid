@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:voidstone"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.voidstone.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.voidstone.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alexscaves:alexscaves/pearl_on_abyssal_altar",
+  "criteria": {
+    "voidstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:voidstone"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "voidstone"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "secretsofthevoid:deepslate_scoria_ore",
     "secretsofthevoid:oxygen_vent",
     "secretsofthevoid:pressure_drain",
-    "secretsofthevoid:hydrothermic_crystal",
-    "secretsofthevoid:shimmersteel_block",
-    "secretsofthevoid:scoria_block"
+    "secretsofthevoid:abyssmarine_sigil_mage",
+    "secretsofthevoid:abyssmarine_sigil_knight",
+    "secretsofthevoid:abyssmarine_sigil_commoner",
+    "secretsofthevoid:voidstone"
   ]
 }

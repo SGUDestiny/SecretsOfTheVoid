@@ -1,0 +1,462 @@
+{
+  "variants": {
+    "facing=down,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm",
+      "x": 180
+    },
+    "facing=east,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm",
+      "x": 90
+    },
+    "facing=south,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm"
+    },
+    "facing=west,mussels=0": {
+      "model": "secretsofthevoid:block/mussel_farm",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1",
+      "x": 180
+    },
+    "facing=east,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1",
+      "x": 90
+    },
+    "facing=south,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1"
+    },
+    "facing=west,mussels=1": {
+      "model": "secretsofthevoid:block/mussel_farm_1",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2",
+      "x": 180
+    },
+    "facing=east,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2",
+      "x": 90
+    },
+    "facing=south,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2"
+    },
+    "facing=west,mussels=2": {
+      "model": "secretsofthevoid:block/mussel_farm_2",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3",
+      "x": 180
+    },
+    "facing=east,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3",
+      "x": 90
+    },
+    "facing=south,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3"
+    },
+    "facing=west,mussels=3": {
+      "model": "secretsofthevoid:block/mussel_farm_3",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4",
+      "x": 180
+    },
+    "facing=east,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4",
+      "x": 90
+    },
+    "facing=south,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4"
+    },
+    "facing=west,mussels=4": {
+      "model": "secretsofthevoid:block/mussel_farm_4",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5",
+      "x": 180
+    },
+    "facing=east,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5",
+      "x": 90
+    },
+    "facing=south,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5"
+    },
+    "facing=west,mussels=5": {
+      "model": "secretsofthevoid:block/mussel_farm_5",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6",
+      "x": 180
+    },
+    "facing=east,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6",
+      "x": 90
+    },
+    "facing=south,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6"
+    },
+    "facing=west,mussels=6": {
+      "model": "secretsofthevoid:block/mussel_farm_6",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7",
+      "x": 180
+    },
+    "facing=east,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7",
+      "x": 90
+    },
+    "facing=south,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7"
+    },
+    "facing=west,mussels=7": {
+      "model": "secretsofthevoid:block/mussel_farm_7",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8",
+      "x": 180
+    },
+    "facing=east,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8",
+      "x": 90
+    },
+    "facing=south,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8"
+    },
+    "facing=west,mussels=8": {
+      "model": "secretsofthevoid:block/mussel_farm_8",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9",
+      "x": 180
+    },
+    "facing=east,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9",
+      "x": 90
+    },
+    "facing=south,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9"
+    },
+    "facing=west,mussels=9": {
+      "model": "secretsofthevoid:block/mussel_farm_9",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10",
+      "x": 180
+    },
+    "facing=east,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10",
+      "x": 90
+    },
+    "facing=south,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10"
+    },
+    "facing=west,mussels=10": {
+      "model": "secretsofthevoid:block/mussel_farm_10",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11",
+      "x": 180
+    },
+    "facing=east,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11",
+      "x": 90
+    },
+    "facing=south,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11"
+    },
+    "facing=west,mussels=11": {
+      "model": "secretsofthevoid:block/mussel_farm_11",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12",
+      "x": 180
+    },
+    "facing=east,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12",
+      "x": 90
+    },
+    "facing=south,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12"
+    },
+    "facing=west,mussels=12": {
+      "model": "secretsofthevoid:block/mussel_farm_12",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13",
+      "x": 180
+    },
+    "facing=east,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13",
+      "x": 90
+    },
+    "facing=south,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13"
+    },
+    "facing=west,mussels=13": {
+      "model": "secretsofthevoid:block/mussel_farm_13",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14",
+      "x": 180
+    },
+    "facing=east,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14",
+      "x": 90
+    },
+    "facing=south,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14"
+    },
+    "facing=west,mussels=14": {
+      "model": "secretsofthevoid:block/mussel_farm_14",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15",
+      "x": 180
+    },
+    "facing=east,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15",
+      "x": 90
+    },
+    "facing=south,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15"
+    },
+    "facing=west,mussels=15": {
+      "model": "secretsofthevoid:block/mussel_farm_15",
+      "x": 90,
+      "y": 270
+    },
+
+    "facing=down,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16",
+      "x": 180
+    },
+    "facing=east,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16",
+      "x": 90
+    },
+    "facing=south,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16"
+    },
+    "facing=west,mussels=16": {
+      "model": "secretsofthevoid:block/mussel_farm_16",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "secretsofthevoid:block/crate_base",
+	"textures": {
+		"outside": "secretsofthevoid:block/irradiated_crate_outside",
+		"inside": "secretsofthevoid:block/irradiated_crate_inside",
+		"particle": "secretsofthevoid:block/irradiated_crate_inside"
+	}
+}

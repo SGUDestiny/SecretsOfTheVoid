@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "secretsofthevoid:voidstone"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "secretsofthevoid:abyssalith_upgrade_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:heart_of_the_sea"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:hero_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:guardian_pottery_sherd"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:diving_helmet"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:diving_chestplate"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:diving_leggings"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:diving_boots"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "minecraft:archaeology/abyssal_chasm_rare"
+}

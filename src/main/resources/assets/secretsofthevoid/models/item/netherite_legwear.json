@@ -1,0 +1,70 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [256, 256],
+	"textures": {
+		"0": "secretsofthevoid:item/netherite_diving_gear"
+	},
+	"elements": [
+		{
+			"name": "armorLeftLeg",
+			"from": [3.75, -0.25, 5.75],
+			"to": [8.25, 12.25, 10.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [4.75, 0.375, 4.5, 1.125], "texture": "#0"},
+				"east": {"uv": [5, 0.375, 4.75, 1.125], "texture": "#0"},
+				"south": {"uv": [5.25, 0.375, 5, 1.125], "texture": "#0"},
+				"west": {"uv": [4.5, 0.375, 4.25, 1.125], "texture": "#0"},
+				"up": {"uv": [4.5, 0.375, 4.75, 0.125], "texture": "#0"},
+				"down": {"uv": [4.75, 0.125, 5, 0.375], "texture": "#0"}
+			}
+		},
+		{
+			"name": "armorRightLeg",
+			"from": [7.75, -0.25, 5.75],
+			"to": [12.25, 12.25, 10.25],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [4.5, 0.375, 4.75, 1.125], "texture": "#0"},
+				"east": {"uv": [4.25, 0.375, 4.5, 1.125], "texture": "#0"},
+				"south": {"uv": [5, 0.375, 5.25, 1.125], "texture": "#0"},
+				"west": {"uv": [4.75, 0.375, 5, 1.125], "texture": "#0"},
+				"up": {"uv": [4.75, 0.375, 4.5, 0.125], "texture": "#0"},
+				"down": {"uv": [5, 0.125, 4.75, 0.375], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0, -0.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 0, -0.25],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 140, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 140, 0],
+			"translation": [0, 1, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 140, 0],
+			"translation": [0.25, -0.75, 0]
+		},
+		"fixed": {
+			"rotation": [0, 180, 0],
+			"translation": [0, -1.25, 2.5]
+		}
+	}
+}

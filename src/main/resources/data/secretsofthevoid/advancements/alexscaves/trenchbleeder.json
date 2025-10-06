@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:trenchbleeder"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.trenchbleeder.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.trenchbleeder.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:alexscaves/voidstone",
+  "criteria": {
+    "trenchbleeder": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:trenchbleeder"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "trenchbleeder"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

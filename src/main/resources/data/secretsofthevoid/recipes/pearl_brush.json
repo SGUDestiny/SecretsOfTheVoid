@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		" F ",
+		" P ",
+		" S "
+	],
+	"key":
+	{
+        "F": { "item": "minecraft:feather"},
+		"P": { "item": "alexscaves:pearl"},
+		"S": { "item": "minecraft:stick" }
+	},
+	"result": { "item": "secretsofthevoid:pearl_brush", "count": 1 }
+}

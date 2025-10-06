@@ -14,8 +14,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
-public class NetworkInit
-{
+public class NetworkInit {
     public static final String NET_VERSION = "1.0";
     public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(SecretsOfTheVoid.MODID, "main"), () -> NET_VERSION, NET_VERSION::equals, NET_VERSION::equals);
 

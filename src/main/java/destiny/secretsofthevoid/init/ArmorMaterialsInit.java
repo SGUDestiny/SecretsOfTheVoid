@@ -1,5 +1,6 @@
 package destiny.secretsofthevoid.init;
 
+import com.github.alexmodguy.alexscaves.server.item.ACItemRegistry;
 import destiny.secretsofthevoid.SecretsOfTheVoid;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
@@ -17,50 +18,40 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsInit implements ArmorMaterial {
 
-    //Armors
-    SHIMMERSTEEL("shimmersteel", 27, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266650_) -> {
-        p_266650_.put(ArmorItem.Type.BOOTS, 2);
-        p_266650_.put(ArmorItem.Type.LEGGINGS, 6);
-        p_266650_.put(ArmorItem.Type.CHESTPLATE, 7);
-        p_266650_.put(ArmorItem.Type.HELMET, 3);
-    }), 26, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.3F, 0.1F, () -> {
-        return Ingredient.of(ItemInit.SHIMMERSTEEL_INGOT.get());
-    }),
-
-    SCORIA("scoria", 46, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+    //Armor
+    ABYSSALITH("tools", 46, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
         p_266655_.put(ArmorItem.Type.BOOTS, 4);
         p_266655_.put(ArmorItem.Type.LEGGINGS, 7);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 10);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 9);
         p_266655_.put(ArmorItem.Type.HELMET, 4);
-    }), 22, SoundEvents.ARMOR_EQUIP_NETHERITE, 5.0F, 0.3F, () -> {
-        return Ingredient.of(ItemInit.SCORIA_INGOT.get());
+    }), 18, SoundEvents.ARMOR_EQUIP_TURTLE, 5.0F, 0.3F, () -> {
+        return Ingredient.of(ItemInit.ABYSSALITH_CORE.get());
     }),
 
-    //Diving gear
-    SHIMMERSTEEL_DIVING_GEAR("shimmersteel_diving_gear", 28, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
-        p_266655_.put(ArmorItem.Type.BOOTS, 3);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 7);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 5);
-        p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 13, SoundEvents.ARMOR_EQUIP_IRON, 0.6F, 0.025F, () -> {
-        return Ingredient.of(ItemInit.SHIMMERSTEEL_INGOT.get());
+    //Diving Gear
+    PEARL_DIVING_GEAR("pearl_diving_gear", 28, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 2);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 2);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 2);
+        p_266655_.put(ArmorItem.Type.HELMET, 1);
+    }), 13, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
+        return Ingredient.of(ACItemRegistry.PEARL.get());
     }),
-
     NETHERITE_DIVING_GEAR("netherite_diving_gear", 32, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
         p_266655_.put(ArmorItem.Type.BOOTS, 2);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 5);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 7);
-        p_266655_.put(ArmorItem.Type.HELMET, 2);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 3);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 3);
+        p_266655_.put(ArmorItem.Type.HELMET, 1);
     }), 15, SoundEvents.ARMOR_EQUIP_NETHERITE, 1.5F, 0.05F, () -> {
         return Ingredient.of(Items.NETHERITE_INGOT);
     }),
-    SCORIA_DIVING_GEAR("scoria_diving_gear", 41, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
-        p_266655_.put(ArmorItem.Type.BOOTS, 3);
-        p_266655_.put(ArmorItem.Type.LEGGINGS, 6);
-        p_266655_.put(ArmorItem.Type.CHESTPLATE, 8);
-        p_266655_.put(ArmorItem.Type.HELMET, 3);
-    }), 20, SoundEvents.ARMOR_EQUIP_GOLD, 2.5F, 0.1F, () -> {
-        return Ingredient.of(ItemInit.SCORIA_INGOT.get());
+    ABYSSALITH_DIVING_GEAR("abyssalith_diving_gear", 41, Util.make(new EnumMap<>(ArmorItem.Type.class), (p_266655_) -> {
+        p_266655_.put(ArmorItem.Type.BOOTS, 2);
+        p_266655_.put(ArmorItem.Type.LEGGINGS, 4);
+        p_266655_.put(ArmorItem.Type.CHESTPLATE, 5);
+        p_266655_.put(ArmorItem.Type.HELMET, 2);
+    }), 18, SoundEvents.ARMOR_EQUIP_GOLD, 2.5F, 0.15F, () -> {
+        return Ingredient.of(ItemInit.ABYSSALITH_CORE.get());
     });
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);

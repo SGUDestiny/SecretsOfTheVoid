@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"S S",
+		"PKP",
+		"SPS"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"K": { "item": "minecraft:dried_kelp_block" },
+		"S": { "item": "minecraft:string" }
+	},
+	"result": { "item": "secretsofthevoid:pearl_mask", "count": 1 }
+}

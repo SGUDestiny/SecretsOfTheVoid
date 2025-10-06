@@ -1,0 +1,7 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": { "item": "secretsofthevoid:voidstone" },
+	"result": { "item": "secretsofthevoid:abyssalith_fragment" },
+	"experience": 5.0,
+	"cookingtime": 300
+}

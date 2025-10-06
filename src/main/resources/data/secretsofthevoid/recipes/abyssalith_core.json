@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "secretsofthevoid:abyssalith_fragment"
+    },
+    {
+      "item": "secretsofthevoid:abyssalith_fragment"
+    },
+    {
+      "item": "secretsofthevoid:abyssalith_fragment"
+    },
+    {
+      "item": "secretsofthevoid:abyssalith_fragment"
+    },
+    {
+      "item": "alexscaves:pearl"
+    },
+    {
+      "item": "alexscaves:pearl"
+    },
+    {
+      "item": "alexscaves:pearl"
+    },
+    {
+      "item": "alexscaves:pearl"
+    }
+  ],
+  "result": {
+    "item": "secretsofthevoid:abyssalith_core"
+  }
+}

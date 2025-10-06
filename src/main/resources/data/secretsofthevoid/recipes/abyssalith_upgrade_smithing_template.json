@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"PTP",
+		"PAP",
+		"PPP"
+	],
+	"key":
+	{
+		"A": { "item": "alexscaves:abyssmarine"},
+		"T": { "item": "secretsofthevoid:abyssalith_upgrade_smithing_template" },
+		"P": { "item": "alexscaves:pearl" }
+	},
+	"result": { "item": "secretsofthevoid:abyssalith_upgrade_smithing_template", "count": 2 }
+}

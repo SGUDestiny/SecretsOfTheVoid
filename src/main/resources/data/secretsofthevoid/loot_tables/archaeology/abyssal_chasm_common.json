@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:pearl"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:diamond"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:cave_tablet",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{CaveBiome:\"alexscaves:abyssal_chasm\"}"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:nautilus_shell"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gold_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_nugget"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:copper_ingot"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:bioluminesscence"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:marine_snow"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "alexscaves:sea_glass_shards"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "secretsofthevoid:disc_fragment_hadal"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "minecraft:archaeology/abyssal_chasm_common"
+}

@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"HPH",
+		" V ",
+		"PBP"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"B": { "item": "alexscaves:block_of_pearl" },
+		"H": { "item": "minecraft:hopper" },
+		"V": { "item": "alexscaves:copper_valve" }
+	},
+	"result": { "item": "secretsofthevoid:pressure_drain", "count": 1 }
+}

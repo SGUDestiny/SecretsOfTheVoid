@@ -1,30 +1,30 @@
 {
-    "rebreather_inhale": {
+    "mask_intake": {
         "sounds": [
-            "secretsofthevoid:rebreather_inhale_1",
-            "secretsofthevoid:rebreather_inhale_2",
-            "secretsofthevoid:rebreather_inhale_3",
-            "secretsofthevoid:rebreather_inhale_4"
+            "secretsofthevoid:mask_intake_1",
+            "secretsofthevoid:mask_intake_2",
+            "secretsofthevoid:mask_intake_3",
+            "secretsofthevoid:mask_intake_4"
         ],
-        "subtitle": "sounds.secretsofthevoid.rebreather_inhale"
+        "subtitle": "sounds.secretsofthevoid.mask_intake"
     },
-    "rebreather_exhale": {
+    "mask_expel": {
         "sounds": [
-            "secretsofthevoid:rebreather_exhale_1",
-            "secretsofthevoid:rebreather_exhale_2",
-            "secretsofthevoid:rebreather_exhale_3",
-            "secretsofthevoid:rebreather_exhale_4",
-            "secretsofthevoid:rebreather_exhale_5"
+            "secretsofthevoid:mask_expel_1",
+            "secretsofthevoid:mask_expel_2",
+            "secretsofthevoid:mask_expel_3",
+            "secretsofthevoid:mask_expel_4",
+            "secretsofthevoid:mask_expel_5"
         ],
-        "subtitle": "sounds.secretsofthevoid.rebreather_exhale"
+        "subtitle": "sounds.secretsofthevoid.mask_expel"
     },
-    "tank_refill": {
+    "backtank_refill": {
         "sounds": [
-            "secretsofthevoid:tank_refill_1",
-            "secretsofthevoid:tank_refill_2",
-            "secretsofthevoid:tank_refill_3"
+            "secretsofthevoid:backtank_refill_1",
+            "secretsofthevoid:backtank_refill_2",
+            "secretsofthevoid:backtank_refill_3"
         ],
-        "subtitle": "sounds.secretsofthevoid.tank_refill"
+        "subtitle": "sounds.secretsofthevoid.backtank_refill"
     },
     "disc_hadal": {
         "sounds": [
@@ -32,8 +32,7 @@
                 "name": "secretsofthevoid:disc_hadal",
                 "stream": true
             }
-        ],
-        "subtitle": "sounds.secretsofthevoid.disc_hadal"
+        ]
     },
     "disc_hadal_ambient": {
         "sounds": [

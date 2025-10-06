@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "stage=1": {
+      "model": "secretsofthevoid:block/hadal_coral_1"
+    },
+    "stage=2": {
+      "model": "secretsofthevoid:block/hadal_coral_2"
+    },
+    "stage=3": {
+      "model": "secretsofthevoid:block/hadal_coral_3"
+    }
+  }
+}

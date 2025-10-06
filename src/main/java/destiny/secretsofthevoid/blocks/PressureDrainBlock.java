@@ -1,19 +1,14 @@
 package destiny.secretsofthevoid.blocks;
 
 import com.mojang.datafixers.util.Pair;
-import destiny.secretsofthevoid.helper.IAirTank;
-import destiny.secretsofthevoid.helper.IRebreather;
+import destiny.secretsofthevoid.helper.IBacktank;
 import destiny.secretsofthevoid.init.BlockInit;
 import destiny.secretsofthevoid.init.CapabilitiesInit;
-import destiny.secretsofthevoid.init.NetworkInit;
 import destiny.secretsofthevoid.init.SoundInit;
-import destiny.secretsofthevoid.network.packets.SoundPackets;
-import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -37,14 +32,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import com.github.alexmodguy.alexscaves.server.misc.ACMath;
-import destiny.secretsofthevoid.helper.IAirTank;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class PressureDrainBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+    public class PressureDrainBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private static final VoxelShape SHAPE_NORTH = ACMath.buildShape(
             Block.box(4, 1, 6, 12, 16, 10),
@@ -122,14 +115,14 @@ public class PressureDrainBlock extends HorizontalDirectionalBlock implements Si
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (level.getBlockState(pos.below()).getBlock() == BlockInit.OXYGEN_VENT.get() && level.getBlockState(pos.below()).getValue(OxygenVentBlock.DRAINING_OXYGEN)) {
             player.getCapability(CapabilitiesInit.DIVING).ifPresent(cap -> {
-                List<Pair<ItemStack, IAirTank>> sortedTanks = cap.getEquipmentAirTank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst())));
-                for (Pair<ItemStack, IAirTank> airTank : sortedTanks) {
+                List<Pair<ItemStack, IBacktank>> sortedTanks = cap.getEquipmentBacktank(player, Comparator.comparing(airTank -> airTank.getSecond().getMaxOxygen(airTank.getFirst())));
+                for (Pair<ItemStack, IBacktank> airTank : sortedTanks) {
                     ItemStack stack = airTank.getFirst();
-                    IAirTank tank = airTank.getSecond();
+                    IBacktank tank = airTank.getSecond();
 
                     tank.setStoredOxygen(stack, tank.getMaxOxygen(stack));
 
-                    level.playLocalSound(pos, SoundInit.TANK_REFILL.get(), SoundSource.BLOCKS, 1F, 1F, true);
+                    level.playLocalSound(pos, SoundInit.BACKTANK_REFILL.get(), SoundSource.BLOCKS, 1F, 1F, true);
                 }
             });
         }

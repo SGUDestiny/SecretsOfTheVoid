@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "secretsofthevoid:nuclear_pasta"
+    },
+    {
+      "item": "secretsofthevoid:nuclear_pasta"
+    },
+    {
+      "item": "secretsofthevoid:nuclear_pasta"
+    },
+    {
+      "item": "secretsofthevoid:nuclear_pasta"
+    },
+    {
+      "item": "alexscaves:polymer_plate"
+    },
+    {
+      "item": "alexscaves:polymer_plate"
+    },
+    {
+      "item": "alexscaves:polymer_plate"
+    },
+    {
+      "item": "alexscaves:polymer_plate"
+    }
+  ],
+  "result": {
+    "item": "secretsofthevoid:irradium_plate"
+  }
+}

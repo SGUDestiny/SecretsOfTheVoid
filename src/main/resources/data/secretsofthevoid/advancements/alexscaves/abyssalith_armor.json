@@ -1,0 +1,72 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:abyssalith_chestplate"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.abyssalith_armor.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.abyssalith_armor.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:alexscaves/voidstone",
+  "criteria": {
+    "helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["helmet", "chestplate", "leggings", "boots"]
+  ],
+  "sends_telemetry_event": false
+}

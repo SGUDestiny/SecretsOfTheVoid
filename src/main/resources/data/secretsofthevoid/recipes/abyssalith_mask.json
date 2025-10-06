@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "secretsofthevoid:abyssalith_core"
+	},
+	"base":
+	{
+		"item": "secretsofthevoid:netherite_mask"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:abyssalith_mask"
+	},
+	"template":
+	{
+		"item": "secretsofthevoid:abyssalith_upgrade_smithing_template"
+	}
+}

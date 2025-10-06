@@ -1,0 +1,75 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:pearl_mask"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.pearl_diving_equipment.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.pearl_diving_equipment.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alexscaves:alexscaves/pearl",
+  "criteria": {
+    "mask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:pearl_mask"
+            ]
+          }
+        ]
+      }
+    },
+    "backtank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:pearl_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "legwear": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:pearl_legwear"
+            ]
+          }
+        ]
+      }
+    },
+    "flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:pearl_flippers"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["mask"],
+    ["backtank"],
+    ["legwear"],
+    ["flippers"]
+  ],
+  "sends_telemetry_event": false
+}

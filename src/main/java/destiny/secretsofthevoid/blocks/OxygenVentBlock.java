@@ -3,11 +3,12 @@ package destiny.secretsofthevoid.blocks;
 import destiny.secretsofthevoid.blocks.blockentity.OxygenVentBlockEntity;
 import destiny.secretsofthevoid.init.BlockEntitiesInit;
 import destiny.secretsofthevoid.init.BlockInit;
+import destiny.secretsofthevoid.items.tools.HadalSwordItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -22,7 +23,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
 public class OxygenVentBlock extends BaseEntityBlock {
@@ -86,6 +86,8 @@ public class OxygenVentBlock extends BaseEntityBlock {
         } else if (state.getValue(SPAWNING_PARTICLES)) {
             entity.setDeltaMovement(0, 1.5, 0);
         }
+
+        if (entity instanceof ItemEntity itemEntity && itemEntity.getItem().getItem() instanceof HadalSwordItem) {}
     }
 
     @Nullable

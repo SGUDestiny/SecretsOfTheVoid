@@ -1,7 +1,7 @@
 package destiny.secretsofthevoid.client.models;
 
 import destiny.secretsofthevoid.SecretsOfTheVoid;
-import destiny.secretsofthevoid.items.netherite.NetheriteGearItem;
+import destiny.secretsofthevoid.items.diving_gear.NetheriteGearItem;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib.model.GeoModel;
@@ -14,7 +14,7 @@ public class NetheriteGearModel extends GeoModel<NetheriteGearItem> {
 
     @Override
     public ResourceLocation getTextureResource(NetheriteGearItem animatable) {
-        return new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/armor/netherite/netherite_diving_gear.png");
+        return new ResourceLocation(SecretsOfTheVoid.MODID, "textures/item/netherite_diving_gear.png");
     }
 
     @Override

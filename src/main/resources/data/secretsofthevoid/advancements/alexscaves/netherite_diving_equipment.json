@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "secretsofthevoid:armor/netherite/netherite_rebreather"
+      "item": "secretsofthevoid:netherite_mask"
     },
     "title": {
       "translate": "advancements.secretsofthevoid.netherite_diving_equipment.title"
@@ -14,15 +14,15 @@
     "announce_to_chat": true,
     "hidden": false
   },
-  "parent": "secretsofthevoid:alexscaves/shimmersteel_diving_equipment",
+  "parent": "secretsofthevoid:alexscaves/pearl_diving_equipment",
   "criteria": {
-    "rebreather": {
+    "mask": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "secretsofthevoid:armor/netherite/netherite_rebreather"
+              "secretsofthevoid:netherite_mask"
             ]
           }
         ]
@@ -34,7 +34,19 @@
         "items": [
           {
             "items": [
-              "secretsofthevoid:armor/netherite/double_netherite_backtank"
+              "secretsofthevoid:netherite_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "legwear": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:netherite_legwear"
             ]
           }
         ]
@@ -46,7 +58,7 @@
         "items": [
           {
             "items": [
-              "secretsofthevoid:armor/netherite/netherite_flipper_boots"
+              "secretsofthevoid:netherite_flippers"
             ]
           }
         ]
@@ -54,8 +66,9 @@
     }
   },
   "requirements": [
-    ["rebreather"],
+    ["mask"],
     ["backtank"],
+    ["legwear"],
     ["flippers"]
   ],
   "sends_telemetry_event": false

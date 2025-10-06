@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"SPS",
+		"PBP",
+		"SPS"
+	],
+	"key":
+	{
+		"B": { "item": "alexscaves:metal_barrel"},
+		"P": { "item": "alexscaves:pearl" },
+		"S": { "item": "minecraft:string" }
+	},
+	"result": { "item": "secretsofthevoid:pearl_backtank", "count": 1 }
+}

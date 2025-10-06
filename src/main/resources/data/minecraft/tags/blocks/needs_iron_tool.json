@@ -2,10 +2,9 @@
   "replace": false,
   "values": [
     "secretsofthevoid:pressure_drain",
-    "secretsofthevoid:shimmersteel_block",
-
     "secretsofthevoid:abyssmarine_sigil_commoner",
     "secretsofthevoid:abyssmarine_sigil_knight",
-    "secretsofthevoid:abyssmarine_sigil_mage"
+    "secretsofthevoid:abyssmarine_sigil_mage",
+    "secretsofthevoid:oxygen_vent"
   ]
 }

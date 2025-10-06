@@ -17,7 +17,7 @@ public class ClientEvents
     {
         event.getPlayer().getCapability(CapabilitiesInit.DIVING).ifPresent(cap -> {
             Player player = event.getPlayer();
-            if(!cap.getEquipmentRebreather(player, null).isEmpty() && player.getEyeInFluidType().canDrownIn(player)) {
+            if(!cap.getEquipmentMask(player, null).isEmpty() && player.getEyeInFluidType().canDrownIn(player)) {
                 event.setNewFovModifier(1.4F);
             } else if(!cap.getEquipmentFlippers(player, null).isEmpty())
                 event.setNewFovModifier(1F);

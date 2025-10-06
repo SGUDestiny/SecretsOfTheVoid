@@ -22,8 +22,8 @@ public class ModConfiguredFeatures {
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
-        register(context, DEEPSLATE_SCORIA_ORE_KEY, Feature.ORE, new OreConfiguration(deepslateReplaceables,
-                BlockInit.DEEPSLATE_SCORIA_ORE.get().defaultBlockState(), 5));
+        //register(context, DEEPSLATE_SCORIA_ORE_KEY, Feature.ORE, new OreConfiguration(deepslateReplaceables,
+        //        BlockInit.DEEPSLATE_SCORIA_ORE.get().defaultBlockState(), 5));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

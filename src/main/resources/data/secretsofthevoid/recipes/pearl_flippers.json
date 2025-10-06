@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"S S",
+		"P P",
+		"K K"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"K": { "item": "minecraft:dried_kelp" },
+		"S": { "item": "minecraft:string" }
+	},
+	"result": { "item": "secretsofthevoid:pearl_flippers", "count": 1 }
+}

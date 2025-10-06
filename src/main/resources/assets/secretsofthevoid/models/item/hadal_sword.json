@@ -1,0 +1,20 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "secretsofthevoid:item/hadal_sword"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "secretsofthevoid:active": 0
+      },
+      "model": "secretsofthevoid:item/hadal_sword_idle"
+    },
+    {
+      "predicate": {
+        "secretsofthevoid:active": 1
+      },
+      "model": "secretsofthevoid:item/hadal_sword_active"
+    }
+  ]
+}

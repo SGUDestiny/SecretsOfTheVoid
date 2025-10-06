@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "secretsofthevoid:abyssalith_core"
+	},
+	"base":
+	{
+		"item": "minecraft:netherite_hoe"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:abyssalith_hoe"
+	},
+	"template":
+	{
+		"item": "secretsofthevoid:abyssalith_upgrade_smithing_template"
+	}
+}

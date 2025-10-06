@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "misc",
+	"pattern":
+	[
+		"PPP",
+		"P P",
+		"S S"
+	],
+	"key":
+	{
+		"P": { "item": "alexscaves:pearl"},
+		"S": { "item": "minecraft:string"}
+	},
+	"result": { "item": "secretsofthevoid:pearl_legwear", "count": 1 }
+}

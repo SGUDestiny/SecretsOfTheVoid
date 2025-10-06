@@ -10,8 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = SecretsOfTheVoid.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class CapabilitiesInit
-{
+public class CapabilitiesInit {
     public static final Capability<DivingCapability> DIVING = CapabilityManager.get(new CapabilityToken<>() {});
 
     @SubscribeEvent

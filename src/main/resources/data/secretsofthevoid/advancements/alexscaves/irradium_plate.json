@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:irradium_plate"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.irradium_plate.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.irradium_plate.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alexscaves:alexscaves/nuclear_bomb",
+  "criteria": {
+    "plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:irradium_plate"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "plate"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

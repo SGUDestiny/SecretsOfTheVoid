@@ -1,0 +1,75 @@
+{
+  "display": {
+    "icon": {
+      "item": "secretsofthevoid:abyssalith_mask"
+    },
+    "title": {
+      "translate": "advancements.secretsofthevoid.abyssalith_diving_equipment.title"
+    },
+    "description": {
+      "translate": "advancements.secretsofthevoid.abyssalith_diving_equipment.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "secretsofthevoid:alexscaves/netherite_diving_equipment",
+  "criteria": {
+    "mask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_mask"
+            ]
+          }
+        ]
+      }
+    },
+    "backtank": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_backtank"
+            ]
+          }
+        ]
+      }
+    },
+    "legwear": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_legwear"
+            ]
+          }
+        ]
+      }
+    },
+    "flippers": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "secretsofthevoid:abyssalith_flippers"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["mask"],
+    ["backtank"],
+    ["legwear"],
+    ["flippers"]
+  ],
+  "sends_telemetry_event": false
+}

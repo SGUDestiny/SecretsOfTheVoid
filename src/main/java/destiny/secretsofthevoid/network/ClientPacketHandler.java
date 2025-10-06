@@ -18,7 +18,7 @@ public class ClientPacketHandler
         {
             cap.setOxygen(packet.oxygen);
             cap.setMaxOxygen(packet.maxOxygen);
-            cap.setOxygenEfficiency(packet.oxygenEfficiency);
+            cap.setMaskEfficiency(packet.oxygenEfficiency);
         }));
     }
 

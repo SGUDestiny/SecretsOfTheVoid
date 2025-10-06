@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "minecraft:netherite_ingot"
+	},
+	"base":
+	{
+		"item": "secretsofthevoid:pearl_backtank"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:netherite_backtank"
+	},
+	"template":
+	{
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}
