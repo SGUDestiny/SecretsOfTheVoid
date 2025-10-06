@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:smithing_transform",
+	"addition":
+	{
+		"item": "minecraft:netherite_ingot"
+	},
+	"base":
+	{
+		"item": "secretsofthevoid:pearl_mask"
+	},
+	"result":
+	{
+		"item": "secretsofthevoid:netherite_mask"
+	},
+	"template":
+	{
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}
